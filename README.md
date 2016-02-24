@@ -1,24 +1,31 @@
-# RubyFu
+# РубіФу
 
 ![](images/other/rubyfu.png)
-***Rubyfu, where Ruby goes evil!***
-
-This book is a collection of ideas, tricks and skills that could be useful for Hackers. It's a unique extraction reference, summarizes a lot of research and experience in order to achieve your **w00t** in shortest and smartest way. Rubyfu is where you'll find plug-n-hack code, Rubyfu is a book to use not to read, it's where ruby goes evil.
+***РубіФу - там, де рубі стає злим!***
 
 
-### Who should read this book?
-Ideally, Hackers!; Those who have enough experience to hack our world and have *at least* basics in Ruby programming language. To get the best benefits of the book, open Rubyfu.net and pin its browser tab; Use irb/pry as interpreter to run the code or run it as script; Enhance the code to fit your needs and yeah, tweet the code and its output to [@Rubyfu][7] to share it with our awesome community.
+Ця книга є колекцією ідей, трюків та вмінь, які можуть стати Хакерам в пригоді. Це той унікальний довідник, який є підсумком багатьох досліджень та здобутого досвіду, що складений так, аби змусити вас **прибалдіти** у найкоротший і найцікавіший спосіб. В РубіФу ви знайдете код, який з легкістю зможете використати бо ця книга була написана задля користування нею, а не просто для читання, це те місце, де рубі стає злим.
 
 
-### Organization of the book
-#### Module 0x0 | [Introduction][0]
-Module 0x0 is just a smooth start for you, whether you're a reader, writer, hacker or someone came to say hi. In this module you'll find a great start for you as a contributor, where all kinds of contributions are welcome starting from proofreading ending to topic writing.
+### Від перекладача
+Даний переклад зроблено лише задля того, щоб попрактикуватися в технічному перекладі і я рекомендую вивчати рубі та хакерські фішки лише з англомовних ресурсів. Наприклад [звідси](https://www.gitbook.com/book/rubyfu/rubyfu/details).
 
-#### Module 0x1 | [Basic Ruby Kung Fu][1]
-Module 0x1 is an awesome collection of the most commonly needed String manipulation, extraction and conversion. Dealing with real cases that you might face during your hack. Dealing with encoding and data conversion could be trivial or complex topic and here we don't care, we'll solve it.
+### Кому варто прочитати цю книгу?
+В ідеалі - Хакерам!; Тим, хто має достатньо вмінь щоб поламати світ і тим, що хоч трошки знає основи мови програмування Рубі. Аби отримати найбільшу користь від цієї книги, відкрийте Rubyfu.net та закріпіть вкладку для подальшого звернення до неї; Користуйтеся irb/pry як інтерпретатором для запуску коду; Змінюйте та поліпшуйте код і, звичайно ж, твітте його до [@Rubyfu][7] аби поділитися ним з громадою! 
 
-#### Module 0x2 | [System Kung Fu][2]
-Module 0x2 digs more in system hacking, where the system command, file manipulation, cryptography and generating the common hashes are needed. Getting bind and reverse shell with really simple ways requires skill you need no doubt. Almost all Linux systems are shipped-up with ruby and if it doesn't?, no problem we'll get rid of it.
+
+### Структура книги
+#### Модуль 0x0 | [Інструкція][0]
+Модуль 0x0 написано задля вашого плавного старту, не дивлячись на те чи ви читач, письменник, хакер чи просто пересічний, хто навідався сюди аби привітатися. В цьому модулі ви знайдете те, що допоможе вам стартувати як учаснику-контриб'ютору, де вітаються усі можливі внески, починаючи з коректування та вичитки і закінчуючи написанням статей. 
+
+
+#### Модуль 0x1 | [Основи Кунг-Фу в Ruby][1]
+Модуль 0x1 - це крута колекція найбільш необхідних практик роботи зі Строками, видобуття та їх зміни. Попрацюємо з реальними прикладами того, що може вам трапитись під час хаккінгу на практиці. Робота з декодуванням та конвертацією даних може бути як тривіальною, так і надскладною задачею, але тут ми не будемо через це турбуватися й просто вирішимо її. 
+
+#### Модуль 0x2 | [Системне Кунг-Фк][2]
+Модуль 0x2 занурює в системний хакінг, де потрібні системні команди, робота з файлами, криптографія та генерація ~~загальних хешей~~. ~~Захват та завертання командного рядка~~ за допомогою достатньо простих маніпуляцій потребує бузсумнівних знань. Майже всі Лінукс системи постачаються разом з пред-встановленим рубі, та й навіть якщо це не так, ми це зможемо вирішити.
+
+~~Module 0x2 digs more in system hacking, where the system command, file manipulation, cryptography and generating the common hashes are needed. Getting bind and reverse shell with really simple ways requires skill you need no doubt. Almost all Linux systems are shipped-up with ruby and if it doesn't?, no problem we'll get rid of it.~~
 
 #### Module 0x3 | [Network Kung Fu][3]
 Module 0x3 dives deeper in the network sockets, protocols, packet manipulation, more service enumeration ways and gives us more hacky and awesome code to get the job done. Working with network protocols need a deeper knowledge of how these protocols work in order to exchange understandable data and yeah, we'll figure it out right here.
