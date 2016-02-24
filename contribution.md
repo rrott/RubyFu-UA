@@ -1,31 +1,33 @@
-# Contribution
-This book is under [CC BY-NC-SA License][0] so we appreciate all kind of contributions, distribution and we reserve our contributors efforts, forever.
+# Співробітництво
+Цю книгу видано за [CC BY-NC-SA ліцензією][0] а це значить, що вітається будь-яке співробітництво та дистрибуція, книга безкоштовна й це назавжди!
 
-Note: The code in this book is tested on Ruby version > 2.2.0
+Увага!: Код в цій книжці було перевірено лише з Рубі версії 2.2.0 або новіше.
 
-## Contribution methods
-There are several kind of contributions could help this book to get the best result
+## Методи співробітництва
+Є кілька видів співробітництва, які можуть допомогти цій книзі здобути кращих результатів: 
 
-* Contribution by adding tricky code.
-* Contribution by adding more explanation for existing code.
-* Contribution by enhancing the code quality or alternatives.
-* Contribution by enhancing the book quality:
-    * Structure enhancements
-    * Spelling, proofreading enhancements
-    * Design enhancements
-    * Ideas and requests
-    * Any other
-* Contribution by spread the book in social media and IS communities.
-    * Twitter: [@Rubyfu][8] and hashtag `#Rubyfu`
+* Додавання цікавих фрагментів коду,
+* Додавання більш розширеного тлумачення поточного коду.
+* Поліпшення якості коду або додавання альтернатив.
+* Поліпшення якості самої книги, в саме:
+    * Структурні поліпшення
+    * Вичитка та виправлення граматичних помилок
+    * Зміна дизайну
+    * Ідеї або пропозиції
+    * таке інше
+* Поширення книги в соціальних мережах та серед спеціалістів з Інформаційної Безпеки.
+    * Twitter: [@Rubyfu][8] та хештег `#Rubyfu`
     * Google+: [Rubyfu page][9]
+* Додавання більше ресурсів або посилань.
+* 
 * Contribution by adding more resources and references.
-* Contribution by donation.
+* Пожертвування
 
 
-## How to?
+## Як саме?
 
-### Start contributing
-Please find all you need to know about GitBook and markdown editing in [References][1] section. As good start, you can refer to [how to use it from official readme][2]. You can easily use GitBook [Desktop editor][3].
+### Початок співробітництва
+Ви можете знайти все, що вам треба знати про GitBook та Markdown в розділі [Посилання][1]. Гарним стартом буде відвідування посилки ["як користуватися GitBook" з офіційного сайту][2]. Ви також можете використовувати [програму GitBook][3] для вашого комп'ютера.
 
 1. Create a [GitHub][5] account.
 2. Fork [RubyFu repository][4].
