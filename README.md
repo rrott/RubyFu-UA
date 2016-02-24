@@ -26,16 +26,19 @@
 #### Модуль 0x2 | [Системне Кунг-Фу][2]
 Модуль 0x2 занурює в системний хакінг, де потрібне знання системних команд, роботи з файлами, криптографією. Захоплення та завертання командного рядка за допомогою достатньо простих дій також потребують безсумнівних знань. Майже усі Лінукс системи постачаються разом із встановленим рубі, та й навіть якщо це не так, ми це зможемо вирішити.
 
-#### Module 0x3 | [Network Kung Fu][3]
-Module 0x3 dives deeper in the network sockets, protocols, packet manipulation, more service enumeration ways and gives us more hacky and awesome code to get the job done. Working with network protocols need a deeper knowledge of how these protocols work in order to exchange understandable data and yeah, we'll figure it out right here.
+#### Модуль 0x3 | [Мережеве Кунг-Фу][3]
+Модуль 0x3 ще глибше занурить вас у мережеві сокети, протоколи, маніпуляцію з пакетами, познайомить з системами числення що допоможе нам писати красивий і крутий код аби зробити своє діло. Робота з мережевими протоколами потребує більш глибоких знань про те, як саме ці протоколи працюють аби розуміти що й до чого, і ми про це дізнаємося саме тут.
 
-#### Module 0x4 | [Web Kung Fu][4]
-Module 0x4 web is the most common place to share information, however, it's a more delicious place to hack. Dealing with web known with its uniqueness for dealing with many and many technologies in one page only. Here we'll know how to deal with GET, POST requests, web services, databases, APIs and manipulating the browser to make it our soldier.
 
-#### Module 0x5 | [Exploitation Kung Fu][5]
-Module 0x5 whatsoever the vulnerability was, remote (FTP, IMAP, SMTP, etc.) or local (file format, local system) you'll need to know how to build fuzzers and skeleton exploit for that. If you get there you'll need a simple, clean and stable way to build your exploit. Here you'll know how to build your fuzzer, exploit and porting your exploit to Metasploit and how to write your own Metasploit modules too.
+#### Модуль 0x4 | [Кунг-Фу Тенет][4]
+Модуль 0x4. Глобальна мережа це найбільш популярне місце для обміну інформацією, але, водночас, це й найбільш ласе місце для хакерів. Робота з глобальною мережею цікава своєю унікальною можливістю попрацювати одразу з великою кількістю технологій лише на одній сторінці тенет. Тут ми дізнаємося як працювати з GET та  POST запитами, веб-сервісами, API, базами даних, та як змусити браузер стати нашим воїном.
 
-#### Module 0x6 | [Forensic Kung Fu][6]
+
+#### Модуль 0x5 | [Експлуатаційне Кунг-Фу][5]
+Модуль 0x5. Яка б не була вразливість, віддалена(FTP, IMAP, SMTP, і т.і.) чи локальна(помилка в форматі файлів, локальній системф) вам потрібно знати як написати fuzzer та  скелетон експлойту для цього. Якщо ви дійщли до цього, вам необхіден простий, зрозумілий та стабільний спосіб написати це. В цьому модулі ви дізнаєтесь як написати ваш власний fuzzer, експлойт та як пристосувати ваш експлойт до Metasploit, а також як написати ваш власний модуль до Metasploit.
+
+
+#### Модуль 0x6 | [Forensic Kung Fu][6]
 Module 0x6 whoever you're, good or bad guy you'll need forensic skills in your hack and/or investigation. Here you'll learn more how to deal with registry extracting browsers' information and much more.
 
 
