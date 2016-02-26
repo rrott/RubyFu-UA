@@ -29,18 +29,18 @@
 ### Початок співробітництва
 Ви можете знайти все, що вам треба знати про GitBook та Markdown в розділі [Посилання][1]. Гарним стартом буде відвідування посилки ["як користуватися GitBook" з офіційного сайту][2]. Ви також можете використовувати [програму GitBook][3] для вашого комп'ютера.
 
-1. Create a [GitHub][5] account.
-2. Fork [RubyFu repository][4].
-3. Clone GitHub forked RubyFu repository (`git clone https://github.com/[YourGithubAccount]/RubyFu`) 
-4. Create a [GitBook][6] account.
-4. Go to [**GitBook editor**][3] and Sign-in with your GitBook account
-5. Press **Import** button to import the cloned repository. Then, you'll find it in **LOCAL LIBRARY** tab
-3. Add forked RubyFu repository GitHub URL to GitBook Editor **Toolbar** >> **File** >> **Preferences** >> **GIT**.
-4. Start your awesome contribution.
-5. From GitBook editor, **Sync** your changes to forked repository.
-6. From GitHub, send a **Pull Request(PR)** to **Master** branch.
+1. Створіть новий аккаунт в [GitHub][5](якщо у вас його ще немає).
+2. Щробіть форк сховища [RubyFu][4] або [RubyFu-UA][10]
+3. Зробіть клон сховища RubyFu на вашому комп'ютері (`git clone https://github.com/[YourGithubAccount]/RubyFu`) 
+4. Створіть аккаунт і [GitBook][6](якщо у вас його ще немає).
+4. Відкрийте [**редактор GitBook**][3] та увійдіть в нього з вашим аккаунтом.
+5. Натисніть кнопку **Import** щоб імпортувати проект в редактор. Після цього ви знайдете книгу в розділі **LOCAL LIBRARY**.
+3. Додайте посилання на ваше форкнуте сховище:  **Toolbar** >> **File** >> **Preferences** >> **GIT**.
+4. Внесіть свої зміни чи доповнення.
+5. Після цього в редакторі GitBook натисніть кнопку **Sync** щоб вивантажити зміни в git сховище форкнуте вами на другому кроці.
+6. З інтерфейсу GitHub, надішліть новий **Pull Request(PR)** в **Master** бренч.
 
-Not sure where to start helping? Go to [TODO list](contributors/todo.md) and check the unchecked items.
+Не знаєте чим саме допомогти? Перейдіть до [TODO list](contributors/todo.md) та перевірте що з наведеного ви можете зробити.
 
 ### Contributing with Code
 
@@ -100,6 +100,7 @@ General contribution might be topic requests, proofreading, spilling, book organ
 [7]: https://github.com/rubyfu/RubyFu/issues
 [8]: https://twitter.com/Rubyfu
 [9]: https://plus.google.com/114358908164154763697
+[10]: https://github.com/rrott/RubyFu-UA
 
 
 
