@@ -47,7 +47,7 @@
            * [Telegram API](module_0x4__web_kung_fu/telegram_api.md)
    * [Ruby 2 JavaScript](module_0x4__web_kung_fu/ruby2javascript.md)
    * [Web Server and Proxy](module_0x4__web_kung_fu/web_server_and_proxy.md)
-* [Module 0x5 | Exploitation Kung Fu](module_0x5__exploitation_kung_fu/README.md)
+* [Модуль 0x5 | Експлуатаційне Кунг-Фу](module_0x5__exploitation_kung_fu/README.md)
    * [Fuzzer](module_0x5__exploitation_kung_fu/fuzzer.md)
    * [Metasploit](module_0x5__exploitation_kung_fu/metasploit.md)
        * [Auxiliary module](module_0x5__exploitation_kung_fu/auxiliary_module.md)
