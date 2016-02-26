@@ -42,30 +42,31 @@
 
 Не знаєте чим саме допомогти? Перейдіть до [TODO list](contributors/todo.md) та перевірте що з наведеного ви можете зробити.
 
-### Contributing with Code
+### Співробітництво з кодом
 
-##### Ruby code
-* Use the triple ticks ` ``` `  followed by `ruby` then your code in between then ` ``` ` to get ruby code highlighted. e.g.
+##### Код на Рубі
+* Використовуйте три апострофм ` ``` `  і кодове слово `ruby` відразу за ними. Вставте ваш код, закінчуюучи його ще трьома апострофами ` ``` ` щоб виділити й підсвітити код. Наприклад:
 
         ```ruby
-        puts "Ruby Code here"
+        puts "Код на Рубі"
         ```
-* Explain the main idea -with some details- of the code, if you explain every line that would be great but it's not a must.
-* Choose the correct Module.
-* Make your title clear.
-* Use Text editor/ide for code identification before pasting your code
-* Mention the source, if you copied or developed a code that created by others please mention the source in the footer. e.g.
+* Поясніть основну ідею коду (бажано детально, і якщо розшифруєте кожну строчку коду то це буде пречудово, але це не обов'язково).
+* Оберіть відповідний модуль.
+* Напишіть влучний заголовок
+* перевірте свій код на відповідність правил форматування, наприклад відкривши його в вашому текстовому редакторі або IDE.
+* Вкажіть авторство коду, якщо ви використали чиїсь напрацювання або писали цей код разом з кимось іншим. Наприклад:
 
         ```ruby
-        puts "Your good code"
+        puts "Код на Рубі"
         ```
         [Source][1]
-    Then add the following to the footer
 
-        [1]: http://TheSouceCodeURL
+* Потім додайте наступне в кінець сторінки.:        [1]: http://TheSouceCodeURL
 
-    Your notes should be under the footer's line. Add the following to initiate the footer if it does not yet exist
 
+І ця посилка має бути нижче спеціальної лінії "підвалу". Додайте наступне в кінець файлу, якщо такої лінії ще немає:
+
+         
         <br><br><br>
         ---
         YOUR NOTES SHALL BE HERE
