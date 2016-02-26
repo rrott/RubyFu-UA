@@ -2,7 +2,7 @@
 
 * [Module 0x0 | Introduction](README.md)
    * [Допомога проектові](contribution.md)
-   * [Beginners](beginners.md)
+   * [Початківцям](beginners.md)
    * [Required Gems](required_gems.md)
 * [Module 0x1 | Basic Ruby Kung Fu](module_0x1__basic_ruby_kung_fu/README.md)
    * [String](module_0x1__basic_ruby_kung_fu/string.md)
