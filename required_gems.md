@@ -1,43 +1,42 @@
-# Required Gems
-I'd like to list all external gems that might be used in this book. This list will be updated once new gem required. 
+# Необхідні геми(Gems)
+Я б хотів навести повний список всіх гемів(бібліотек рубі), які використовувалися в цій книзі. Цей список буде періодично доповнюватися новими гемами в разі їх використання.
 
-Note that you don't need to install it all unless you need it.
+Примітка: вам не потрібно встановлювати всі геми відразу допоки вам вони не знадобилися.
 
-## Main Gems
+## Основні геми
 - Pry
 ```
 gem install pry
 ```
-To run pry with best appearance
+Аби запустити pry з красивим форматуванням виконуйте:
 ```bash
 pry --simple-prompt
 ```
 
-> **Note:** Most of our example will be executed on **pry** so please consider it as main part of our environment. Otherwise (when you see `#!/usr/bin/env ruby`) then it means a file script to execute.
+> **Зверніть увагу:** Більшість прикладів з книги будуть виконуватися саме в **pry** так що вважайте його нашим основним середовищем. В інакшому випадку, коли ви бачите `#!/usr/bin/env ruby` то це значить що треба за допомогою рубі запустити файл зі скриптом.
 
 
-## Modules gems 
+## Геми в модулях
 
-
-#### Module 0x1 | Basic Ruby Kung Fu
+#### Модуль 0x1 | Основи Кунг-Фу в Ruby
 - colorize
 
-#### Module 0x2 | System Kung Fu
+#### Модуль 0x2 | Системне Кунг-Фу
 - virustotal
 - uirusu
 
-**Extra gems**
+**Додаткові геми**
 
-Useful gems to build command line applications
-  - tty-prompt - A beautiful and powerful interactive command line prompt.
-  - Thor - Create a command-suite app simply and easily, as well as Rails generators
-  - GLI - Create awesome, polished command suites without a lot of code
-  - Slop - Create simple command-line apps with a syntax similar to trollop.
-  - Highline - handle user input and output via a “Q&A” style API, including type conversions and validation
-  - Escort - A library that makes building command-line apps in ruby so easy, you’ll feel like an expert is guiding you through it
-  - commander - The complete solution for Ruby command-line executables
+Корисні геми для написання програм командного рядку:
+  - tty-prompt - Потужний і красивий командний рядок.
+  - Thor - Допомагає швидко та просто створювати набір команд і консольних утиліт, а також команд для rails.
+  - GLI - Створюйте круті, вишукані консольні програми з мінімальною кількістю коду.
+  - Slop - Створюйте прості консольні програми з синтаксисом схожим до trollop
+  - Highline - Оброблює інформацію, введену користувачами в стилі "ЧаПі", включно з конвертацією та валідацією введених даних. 
+  - Escort - бібліотека, яка полегшує створення консольних програм на рубі.
+  - commander - Просте рішення для написання консольних програм на рубі,
 
-#### Module 0x3 | Network Kung Fu
+#### Модуль 0x3 | Мережеве Кунг-Фу
 - geoip
 - net-ping
 - ruby-nmap 
@@ -48,7 +47,7 @@ Useful gems to build command line applications
 - net-scp
 - packetfu
 
-#### Module 0x4 | Web Kung Fu
+#### Модуль 0x4 |Кунг-Фу Тенет
 - activerecord
 - tiny_tds 
 - activerecord-sqlserver-adapter 
@@ -64,14 +63,14 @@ Useful gems to build command line applications
 - coffee-script
 - opal
 
-**Extra gems**
-Useful gem to deal with web 
-- Mechanize - a ruby library that makes automated web interaction easy.
-- HTTP.rb - Fast, Elegant HTTP client for ruby
+**Додаткові геми**
+Корисні геми для роботи з тенетами
+- Mechanize - бібліотека для автоматизації роботи з тенетами
+- HTTP.rb - Швидкий, елегантний HTTP клієнт для рубі.
 
 
-#### Module 0x5 | Exploitation Kung Fu
+#### Модуль 0x5 | Експлуатаційне Кунг-Фу
 - metasm
 
-#### Module 0x6 | Forensic Kung Fu
+#### Модуль 0x6 | ~~Експертизне~~ Кунг-Фу
 - metasm
