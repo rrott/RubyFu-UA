@@ -62,7 +62,7 @@
    * [Android Forensic](module_0x6__forensic/android_forensic.md)
    * [Network Traffic Analysis](module_0x3__network_kung_fu/network_traffic_analysis.md)
    * [Parsing Log Files](module_0x6__forensic/parsing_log_files.md)
-* [References](references/README.md)
+* [Посилання](references/README.md)
 * [FAQs](faqs/README.md)
 * [Contributors](contributors/README.md)
    * [TODO](contributors/todo.md)
