@@ -1,44 +1,46 @@
-# Array
+# Массив
 
-## Pattern
+## Шаблон
 
-#### Pattern create
+#### Створення шаблону
 
-Assume the pattern length = 500, You can change it to any value. By default this will create 20280 probabilities max.
+Уявимо що розмір шаблону становить 500 елементів і ви можете змінювати розмір до будь-якого значення. Це нам дасть максимум 20280 ймовірностей.:
+
+~~Assume the pattern length = 500, You can change it to any value. By default this will create 20280 probabilities max.~~
 ```ruby
 pattern_create = ('Aa0'..'Zz9').to_a.join.each_char.first(500).join
 ```
-In case you need longer pattern(ex. 30000) you can do the following
+Якщо ж вам потрібен більший шаблон(наприклад 30000) то ви можете зробити наступне:
 ```ruby
 pattern_create = ('Aa0'..'Zz9').to_a.join
 pattern_create = pattern_create  * (30000 / 20280.to_f).ceil
 ```
 
-#### Pattern offset
+#### Зсув шаблону
+Я припускаю, що шаблон манший або рівний "20280" і ми шукаємо символи "9Ak0". Створення шаблону має бути ініціалізованим як вказано вище:
 
-I'll assume the pattern was equal or less than “20280” and we are looking for “9Ak0” pattern characters. The pattern_create should be initialized from above
 ```ruby
 pattern_offset = pattern_create.enum_for(:scan , '9Ak0').map {Regexp.last_match.begin(0)}
 ```
-Note: This does not consider the little endian format, for that there is extra code should be written. For more info, please take a look on the following [code][1].
+Зверніть увагу: цей код не приймає до уваги формат порядку байтів(little endian format), для цього треба доповнити код. Більше інформації ви можете знайти [тут][1].
 
 
-#### Generate all hexadecimal values from `\x00` to `\xff`
+#### Генерація всіх шіснадцятирічних значень починаючи з `\x00` закінчуючи `\xff`
 
 ```ruby
 puts (0..255).map {|b| ('\x%X' % b)}
 ```
-> **Notes:**
+> **Зверніть увагу:**
 
-> - To change value presentation from `\xea` to `0xea`, change `\x%x` to `0x%x`
-> - To Make all letters capital (`\xea` to `\xEA`) , change `\x%x` to `\x%X`
+> - Аби змінити вид відображення з `\xea` на `0xea`, поміняйте `\x%x` на `0x%x`
+> - Аби зробити всі символи заголовними(`\xea` на `\xEA`) , змініть `\x%x` на `\x%X`
 
-#### Generate all Printable Characters 
+#### Генерація всіх видимих(друкованих) символів 
 
 ```ruby
 (32..126).map {|c| c.chr}
 ```
-short and unclean
+Коротко, але менш читабельне
 
 ```ruby
 (32..126).map &:chr
