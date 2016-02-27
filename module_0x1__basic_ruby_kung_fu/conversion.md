@@ -2,7 +2,7 @@
 
 ## Перетворення строки в шіснадцятирічний формат
 
-Якщо нема необхідності показувати префікс, що вказує на формат, то может просто зробити наступне:
+Якщо нема необхідності показувати префікс, що вказує на формат, то можете просто зробити наступне:
 
 ```ruby
 "Rubyfu".unpack("H*")
@@ -10,7 +10,7 @@
 
 В іншому випадку використовуйте один з наступних методів:
 
-Для одного симводу
+Для одного символу
 ```ruby
 '\x%02x' % "A".ord
 ```
@@ -70,7 +70,7 @@ ABCD
 
 
 ## Перетворення з шіснадцятирічного формату(return address - зворотня адреса) в формат Little-Endian
-Little-Endian - це просто реверсивна строка, записана ззаду на перед, наприклад запис "Rubyfu" як "ufybuR" що може біти здійсненим за допомогою методу `reverse` із стандартного класу `String`:
+Little-Endian - це просто реверсивна строчка, записана ззаду на перед, наприклад запис "Rubyfu" як "ufybuR" що може біти здійсненим за допомогою методу `reverse` із стандартного класу `String`:
 ```ruby
 "Rubyfu".reverse
 ```
@@ -90,7 +90,7 @@ Little-Endian - це просто реверсивна строка, запис�
 [0x77d6b141].pack('V').force_encoding("UTF-8")
 ```
 
-Якщо ви використовуєту ланцюжок викликів команд(ROP) то використання такого методу не зовсім зручно і красиво, тож користуйтеся першим методом і додавайте строку **(**`# -*- coding: binary -*-`**)** на початок вашого файлу зі скриптом,
+Якщо ви використовуєте ланцюжок викликів команд(ROP) то використання такого методу не зовсім зручно і красиво, тож користуйтеся першим методом і додавайте строку **(**`# -*- coding: binary -*-`**)** на початок вашого файлу зі скриптом,
 
 
 ## Кодування/Декодування строк в base-64
@@ -140,32 +140,32 @@ puts URI.decode "http://vulnerable.site/search.aspx?txt=%22%3E%3Cscript%3Ealert(
 puts URI.encode_www_form_component 'http://vulnerable.site/search.aspx?txt="><script>alert(/Rubyfu/.source)</script>'
 ```
 
-## HTML En/Decode
+## Кожування та декодування HTML
 
-**Encoding HTML**
+**Кодування HTML**
 ```ruby
 require 'cgi'
 CGI.escapeHTML('"><script>alert("Rubyfu!")</script>')
 ```
-Returns 
+Результат: 
 ```
 &quot;&gt;&lt;script&gt;alert(&quot;Rubyfu!&quot;)&lt;/script&gt;
 ```
 
-**Decoding HTML**
+**Декодування HTML**
 ```ruby
 require 'cgi'
 CGI.unescapeHTML("&quot;&gt;&lt;script&gt;alert(&quot;Rubyfu!&quot;)&lt;/script&gt;")
 ```
-Returns 
+Результат: 
 ```
 "><script>alert("Rubyfu!")</script>
 ```
 
-## En/Decode SAML String
+## Кодування та декодування SAML строк
 
 
-**Decoding SAML**
+**Декодування SAML**
 
 ```ruby
 # SAML Request 
@@ -176,18 +176,18 @@ require 'base64'
 require 'zlib'
 
 inflated = Base64::decode64(CGI.unescape(saml))
-# You don't need below code if it's not deflated/compressed
+# Наступні дві команди непотрібні, якщо строку не було заархівовано(deflated/compressed)
 zlib = Zlib::Inflate.new(-Zlib::MAX_WBITS)
 zlib.inflate(inflated)
 
 ```
-Returns
+Результат:
 ```ruby
 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<samlp:AuthnRequest xmlns:samlp=\"urn:oasis:names:tc:SAML:2.0:protocol\" ID=\"agdobjcfikneommfjamdclenjcpcjmgdgbmpgjmo\" Version=\"2.0\" IssueInstant=\"2007-04-26T13:51:56Z\" ProtocolBinding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" ProviderName=\"google.com\" AssertionConsumerServiceURL=\"https://www.google.com/a/solweb.no/acs\" IsPassive=\"true\"><saml:Issuer xmlns:saml=\"urn:oasis:names:tc:SAML:2.0:assertion\">google.com</saml:Issuer><samlp:NameIDPolicy AllowCreate=\"true\" Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified\" /></samlp:AuthnRequest>\r\n"
 ```
-[Source][2]
+[Джерело][2]
 
-[More about SAML][3]
+[Дізнатися більше про SAML][3]
 
 <br><br><br>
 ---
