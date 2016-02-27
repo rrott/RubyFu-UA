@@ -8,7 +8,7 @@
    * [Строки](module_0x1__basic_ruby_kung_fu/string.md)
        * [Перетворення](module_0x1__basic_ruby_kung_fu/conversion.md)
        * [Видобування](module_0x1__basic_ruby_kung_fu/extraction.md)
-   * [Array](module_0x1__basic_ruby_kung_fu/array.md)
+   * [Масиви](module_0x1__basic_ruby_kung_fu/array.md)
 * [Модуль 0x2 | Системне Кунг-Фу](module_0x2__system_kung_fu/README.md)
    * [Command Execution](module_0x2__system_kung_fu/command_execution.md)
    * [File manipulation](module_0x2__system_kung_fu/file_manipulation.md)
