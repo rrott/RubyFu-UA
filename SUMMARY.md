@@ -6,7 +6,7 @@
    * [Необхідні геми](required_gems.md)
 * [Модуль 0x1 | Основи Кунг-Фу в Ruby](module_0x1__basic_ruby_kung_fu/README.md)
    * [Строки](module_0x1__basic_ruby_kung_fu/string.md)
-       * [Conversion](module_0x1__basic_ruby_kung_fu/conversion.md)
+       * [Перетворення](module_0x1__basic_ruby_kung_fu/conversion.md)
        * [Extraction](module_0x1__basic_ruby_kung_fu/extraction.md)
    * [Array](module_0x1__basic_ruby_kung_fu/array.md)
 * [Модуль 0x2 | Системне Кунг-Фу](module_0x2__system_kung_fu/README.md)
