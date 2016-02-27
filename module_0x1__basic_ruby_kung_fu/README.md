@@ -91,7 +91,7 @@ completion =
       when Readline.line_buffer =~ /help.*/i
 	puts "Доступні команди:\n" + "#{CMDS.join("\t")}"
       when Readline.line_buffer =~ /rubyfu.*/i
-	puts "Rubyfu,там е рубі стає злим!"
+	puts "Rubyfu, там де рубі стає злим!"
       when Readline.line_buffer =~ /ls.*/i
 	puts `ls`
       when Readline.line_buffer =~ /exit.*/i
@@ -120,7 +120,7 @@ end
 
 <br><br><br>
 ---
-- [Ruby Readline Documentation and Tutorial](http://bogojoker.com/readline/)
+- [Ruby Readline - Документація та підручник](http://bogojoker.com/readline/)
 
 
 
