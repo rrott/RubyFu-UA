@@ -1,14 +1,14 @@
-# Module 0x1 | Basic Ruby Kung Fu
+# Модуль 0x1 | Основи Кунг-Фу в Ruby
 
-Ruby has awesome abilities and tricks for dealing with all strings and arrays scenarios. In this chapter we'll present most known tricks we may need in our hacking life.
+За допомогоою Рубі можна робити купу крутих штук зі строками та масивами. В цьому розділі ми покаемо найбільш відомі трюки, що можуть знадобитися в нашому хакерському житті.
 
 
-## Terminal 
+## Термінал 
 
-### Terminal size 
-Here are many ways to get terminal size from ruby
+### Розмір Терміналу
+Є багато методів визначити розмір терміналу за допомогою рубі.
 
-- By IO/console standard library
+- Використовуючи стандартну бібліотеку IO/console
 
 ```ruby
 require 'io/console'
@@ -16,31 +16,31 @@ rows, columns = $stdin.winsize
 # Try this now
 print "-" * (columns/2) + "\n" + ("|" + " " * (columns/2 -2) + "|\n")* (rows / 2) + "-" * (columns/2) + "\n"
 ```
-- By readline standard library
+- Використовуючи стандарту бібліотеку readline
 
 ```ruby
 require 'readline'
 Readline.get_screen_size
 ```
 
-- Get terminal size in Environment like IRB or Pry
+- Визначити розмір терміналу через змінну оточення(Environment) інтерпретатора IRB чи Pry
 
 ```ruby
 [ENV['LINES'].to_i, ENV['COLUMNS'].to_i]
 ```
 
-- By tput command line 
+- Використовуючи програму Unix оточення tput
 
 ```ruby
-[`tput cols`.to_i , `tput lines`.to_i]
+[`tput lines`.to_i, `tput cols`.to_i ]
 ```
 
-## Console with tab completion 
-we can't stopping being jealous of Metasploit console(msfconsole) where we take a rest from command line switches. Fortunately, here is the main idea of tab completion console in ruby
+## Консоль з автодоповненням
+В Metasploit є пречудова консоль(msfconsole) в якій ми відпочиваємо від використання ключів консольних програм. На щастя є вихід і ось вам одна з ідей як зробити авто-доповнення в консолі рубі:
 
 - Readline 
 
-The Readline module provides interface for GNU Readline. This module defines a number of methods to facilitate completion and accesses input history from the Ruby interpreter.
+Модуль Readline надає інтерфейс для GNU Readline. Він визначає багато методів для роботи з авто-доповненням й надає доступ до історії команд всередині рубі інтерпретатора.
 
 **console-basic1.rb**
 
@@ -50,37 +50,38 @@ The Readline module provides interface for GNU Readline. This module defines a n
 # 
 require 'readline'
 
-# Prevent Ctrl+C for exiting
+# Відключаємо Ctrl+C
 trap('INT', 'SIG_IGN')
 
-# List of commands
+# Список команд
 CMDS = [ 'help', 'rubyfu', 'ls', 'pwd', 'exit' ].sort
 
 
 completion = proc { |line| CMDS.grep( /^#{Regexp.escape( line )}/ ) }
 
-# Console Settings
-Readline.completion_proc = completion        # Set completion process
-Readline.completion_append_character = ' '   # Make sure to add a space after completion
+# Налаштування Консолі
+Readline.completion_proc = completion        # Включаємо автодоповнення
+Readline.completion_append_character = ' '   # Переконуємося в тому, що встановлено пробіл після автодоповнення
 
 while line = Readline.readline('-> ', true)
   puts line unless line.nil? or line.squeeze.empty?
   break if line =~ /^quit.*/i or line =~ /^exit.*/i
 end
 ```
-Now run it and try the tab completion!
+А тепер запустіть цей скрипт і спробуйте завершити набір команди за допомогою кнопки tab!
 
-Well, The man idea in known the tab completion is make to do things easier not just pressing tab. Here a simple thought
+Отже, основна ідея в знанні авто-доповнення це спрощення роботи, а не в тім, щоб просто натискання кнопку tab. Ось проста думка:
+
 
 **console-basic2.rb**
 
 ```ruby
 require 'readline'
 
-# Prevent Ctrl+C for exiting
+# Відключаємо Ctrl+C
 trap('INT', 'SIG_IGN')
 
-# List of commands
+# Список команд
 CMDS = [ 'help', 'rubyfu', 'ls', 'exit' ].sort
 
 
@@ -88,13 +89,13 @@ completion =
     proc do |str|
       case 
       when Readline.line_buffer =~ /help.*/i
-	puts "Available commands:\n" + "#{CMDS.join("\t")}"
+	puts "Доступні команди:\n" + "#{CMDS.join("\t")}"
       when Readline.line_buffer =~ /rubyfu.*/i
-	puts "Rubyfu, where Ruby goes evil!"
+	puts "Rubyfu,там е рубі стає злим!"
       when Readline.line_buffer =~ /ls.*/i
 	puts `ls`
       when Readline.line_buffer =~ /exit.*/i
-	puts 'Exiting..'
+	puts 'Виходимо..'
 	exit 0
       else
 	CMDS.grep( /^#{Regexp.escape(str)}/i ) unless str.nil?
@@ -102,17 +103,17 @@ completion =
     end
 
 
-Readline.completion_proc = completion        # Set completion process
-Readline.completion_append_character = ' '   # Make sure to add a space after completion
+Readline.completion_proc = completion        # Включаємо автодоповнення
+Readline.completion_append_character = ' '   # Переконуємося в тому, що встановлено пробіл після автодоповнення
 
-while line = Readline.readline('-> ', true)  # Start console with character -> and make add_hist = true
+while line = Readline.readline('-> ', true)  # Починаємо з символу -> та виставляємо add_hist = true
   puts completion.call
   break if line =~ /^quit.*/i or line =~ /^exit.*/i
 end
 
 ```
 
-Things can go much father, *msfconsole*! 
+Тепер все стало набагато краще, як в *msfconsole*! 
 
 
 
