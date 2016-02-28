@@ -14,7 +14,7 @@
    * [Робота з файлами](module_0x2__system_kung_fu/file_manipulation.md)
        * [Розбір HTML, XML, JSON](module_0x2__system_kung_fu/parsing_html,_xml,_json.md)
    * [Криптографія](module_0x2__system_kung_fu/cryptography.md)
-   * [Remote Shell](module_0x2__system_kung_fu/system_shell.md)
+   * [Віддалена консоль](module_0x2__system_kung_fu/system_shell.md)
        * [Ncat.rb](module_0x2__system_kung_fu/ncatrb.md)
        * [RCE as a Service](module_0x2__system_kung_fu/rce_as_a_service.md)
    * [VirusTotal](module_0x2__system_kung_fu/virustotal.md)
