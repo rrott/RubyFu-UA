@@ -10,7 +10,7 @@
        * [Видобування](module_0x1__basic_ruby_kung_fu/extraction.md)
    * [Масиви](module_0x1__basic_ruby_kung_fu/array.md)
 * [Модуль 0x2 | Системне Кунг-Фу](module_0x2__system_kung_fu/README.md)
-   * [Command Execution](module_0x2__system_kung_fu/command_execution.md)
+   * [Запуск команд](module_0x2__system_kung_fu/command_execution.md)
    * [File manipulation](module_0x2__system_kung_fu/file_manipulation.md)
        * [Parsing HTML, XML, JSON](module_0x2__system_kung_fu/parsing_html,_xml,_json.md)
    * [Cryptography](module_0x2__system_kung_fu/cryptography.md)
