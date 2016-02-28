@@ -137,7 +137,7 @@ mkdir -p rshell-1.0.0-osx/lib/app/
 cp rshell.rb rshell-1.0.0-osx/lib/app/
 ```
 
-Далі створіть теку `packaging` та завантажте Мандруючого Рубі(Traveling Ruby binaries) для кожної платформи у відповідні директорії. Ви можете також завантажити ці файли з "http://d6r77u77i8pq3.cloudfront.net". В цій книзі використано версію 20141215-2.1.5.
+Далі створіть теку `packaging` та завантажте Traveling Ruby для кожної платформи у відповідні директорії. Ви можете також завантажити ці файли з "http://d6r77u77i8pq3.cloudfront.net". В цій книзі використано версію 20141215-2.1.5.
 
 ```
 mkdir packaging
@@ -183,8 +183,8 @@ rshell/
     ...
 ```
 
-##### Quick sanity testing
-Let's do a basic sanity test by running your app with a bundled Ruby interpreter. Suppose that you are developing on OS X. Run this:
+##### Швидкий перевірочний тест
+Давайте перевіримо нашу майже зібрану програму. Якщо ви все робили на вашому Mac OS X, то просто виконайте наступну команду:
 
 ```
 cd rshell-osx
@@ -195,25 +195,25 @@ cd ..
 ```
 
 
-##### Creating a wrapper script
-Now that you've verified that the bundled Ruby interpreter works, you'll want create a *wrapper script*. After all, you don't want your users to run `/path-to-your-app/lib/ruby/bin/ruby /path-to-your-app/lib/app/rshell.rb`. You want them to run /path-to-your-app/rshell.
+##### Створення обгортки програми
+Тепер, як ви перевірили що збірка рубі пакетів працює як треба вам треба створити якусь обгортку(*wrapper script*). бо ви ж не хочете щоб користувачі постійно набирали `/path-to-your-app/lib/ruby/bin/ruby /path-to-your-app/lib/app/rshell.rb` аби запустити вагу програму. Вам би було краще аби вони запускали ххх якось так: `/path-to-your-app/rshell`.
 
-Here's what a wrapper script could look like:
+Наступний код - це те, як наша обгортка може виглядати:
 
 
 ```bash
 #!/bin/bash
 set -e
 
-# Figure out where this script is located.
+# Дивимося де саме наш скрипт зараз знаходиться.
 SELFDIR="`dirname \"$0\"`"
 SELFDIR="`cd \"$SELFDIR\" && pwd`"
 
-# Run the actual app using the bundled Ruby interpreter.
+# Запуск програми.
 exec "$SELFDIR/lib/ruby/bin/ruby" "$SELFDIR/lib/app/rshell.rb"
 ```
 
-Save this file as `packaging/wrapper.sh` in your project's root directory. Then you can copy it to each of your package directories and name it `rshell`:
+Збережіть цей файл як `packaging/wrapper.sh` в теці вашого проекту та скопіюйте в відповідні теки платформ перейменувавши в `rshell`:
 
 ```
 chmod +x packaging/wrapper.sh
@@ -223,7 +223,7 @@ cp packaging/wrapper.sh rshell-1.0.0-osx/rshell
 ```
 
 
-##### Finalizing packages
+##### Остаточна запаковка
 ```
 tar -czf rshell-1.0.0-linux-x86.tar.gz rshell-1.0.0-linux-x86
 tar -czf rshell-1.0.0-linux-x86_64.tar.gz rshell-1.0.0-linux-x86_64
@@ -233,13 +233,13 @@ rm -rf rshell-1.0.0-linux-x86_64
 rm -rf rshell-1.0.0-osx
 ```
 
-Congratulations, you have created packages using Traveling Ruby!
+Вітаємо, ви створили нову програми використовуючи Traveling Ruby!
 
-An x86 Linux user could now use your app like this:
+Тепер Лінукс користувач тепер може використовувати вашу програму ось так:
 
-1. The user downloads rshell-1.0.0-linux-x86.tar.gz.
-2. The user extracts this file.
-3. The user runs your app:
+1. Користувач завантажує файл rshell-1.0.0-linux-x86.tar.gz.
+2. Розпаковує його.
+3. Та запускає:
 
 ```
 /path-to/rshell-1.0.0-linux-x86/rshell
@@ -247,8 +247,8 @@ An x86 Linux user could now use your app like this:
 
 ```
 
-##### Automating the process
-Going through all of the above steps on every release is a hassle, so you should automate the packaging process, for example by using Rake. Here's how the Rakefile could look like:
+##### Автоматизація процесу
+Робити всі ці кроки один за одним та ще й кіька разів це, як мінімум, не зручно, але ви можете автоматизувати цей процес, використовуючи, наприклад Rake. Ось так може виглядати ваш Rakefile:
 
 
 ```ruby
@@ -256,23 +256,23 @@ PACKAGE_NAME = "rshell"
 VERSION = "1.0.0"
 TRAVELING_RUBY_VERSION = "20150210-2.1.5"
 
-desc "Package your app"
+desc "Запаковуємо програму"
 task :package => ['package:linux:x86', 'package:linux:x86_64', 'package:osx']
 
 namespace :package do
   namespace :linux do
-    desc "Package your app for Linux x86"
+    desc "Запаковуємо для Linux x86"
     task :x86 => "packaging/traveling-ruby-#{TRAVELING_RUBY_VERSION}-linux-x86.tar.gz" do
       create_package("linux-x86")
     end
 
-    desc "Package your app for Linux x86_64"
+    desc "Запаковуємо для Linux x86_64"
     task :x86_64 => "packaging/traveling-ruby-#{TRAVELING_RUBY_VERSION}-linux-x86_64.tar.gz" do
       create_package("linux-x86_64")
     end
   end
 
-  desc "Package your app for OS X"
+  desc "Запаковуємо для OS X"
   task :osx => "packaging/traveling-ruby-#{TRAVELING_RUBY_VERSION}-osx.tar.gz" do
     create_package("osx")
   end
@@ -311,13 +311,13 @@ end
 
 ```
 
-You can then create all 3 packages by running:
+Відтепер ви можете створити всі 3 пакети виконавши наступну команду:
 
 ```
 rake package
 ```
 
-You can also create a package for a specific platform by running one of:
+Або ж спакувати програму для однієї якоїсь з платформ:
 
 ```
 rake package:linux:x86
@@ -325,7 +325,7 @@ rake package:linux:x86_64
 rake package:osx
 ```
 
-You can also just create package directories, without creating the .tar.gz files, by passing DIR_ONLY=1:
+Або ж створити теки з пакетами не заархівовуючи їх в .tar.gz встановивши параметр DIR_ONLY=1:
 
 ```
 rake package DIR_ONLY=1
