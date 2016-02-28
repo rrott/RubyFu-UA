@@ -12,7 +12,7 @@
 * [Модуль 0x2 | Системне Кунг-Фу](module_0x2__system_kung_fu/README.md)
    * [Запуск команд](module_0x2__system_kung_fu/command_execution.md)
    * [Робота з файлами](module_0x2__system_kung_fu/file_manipulation.md)
-       * [Parsing HTML, XML, JSON](module_0x2__system_kung_fu/parsing_html,_xml,_json.md)
+       * [Розбір HTML, XML, JSON](module_0x2__system_kung_fu/parsing_html,_xml,_json.md)
    * [Cryptography](module_0x2__system_kung_fu/cryptography.md)
    * [Remote Shell](module_0x2__system_kung_fu/system_shell.md)
        * [Ncat.rb](module_0x2__system_kung_fu/ncatrb.md)
