@@ -16,7 +16,7 @@
    * [Криптографія](module_0x2__system_kung_fu/cryptography.md)
    * [Віддалена консоль](module_0x2__system_kung_fu/system_shell.md)
        * [Ncat.rb](module_0x2__system_kung_fu/ncatrb.md)
-       * [RCE as a Service](module_0x2__system_kung_fu/rce_as_a_service.md)
+       * [RCE як Сервіс](module_0x2__system_kung_fu/rce_as_a_service.md)
    * [VirusTotal](module_0x2__system_kung_fu/virustotal.md)
 * [Модуль 0x3 | Мережеве Кунг-Фу](module_0x3__network_kung_fu/README.md)
    * [Ruby Socket](module_0x3__network_kung_fu/ruby_socket.md)
