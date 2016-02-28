@@ -335,10 +335,10 @@ rake package:osx DIR_ONLY=1
 ```
 
 
-##### On Victim Machine
+##### На атакованому комп'ютері
 
 
-You now have three files which you can distribute to end users.
+У вас тепер є три файи, які ви можете пересилати користувачам.
 
 ```
 rshell-1.0.0-linux-x86.tar.gz
@@ -346,7 +346,7 @@ rshell-1.0.0-linux-x86_64.tar.gz
 rshell-1.0.0-osx.tar.gz
 ```
 
-Suppose the end user is on Linux x86_64. S/he uses your app by downloading rshell-1.0.0-linux-x86_64.tar.gz, extracting it and running it:
+Наприклад, якщо користувач використовує Linux x86_64 він чи вона має завантажити ваш rshell-1.0.0-linux-x86_64.tar.gz файл, розпакувати та запустити:
 
 ```
 wget rshell-1.0.0-linux-x86_64.tar.gz
@@ -359,28 +359,23 @@ cd rshell-1.0.0-linux-x86_64
 ```
 
 #### mruby
-**mruby CLI**[^2] A utility for setting up a CLI with mruby that compiles binaries to Linux, OS X, and Windows.
+**mruby CLI**[^2] - застосунок для налагодження CLI(Інтерфейс Командного Рядку) що прставляється з mruby та вміє компілювати програми під Linux, OS X та Windows.
 
 
-##### Prerequisites
+##### Щг нам знадобиться?
 - mruby-cli
 - Docker
 - Docker Compose
 
-##### Developer introduction
+#####Введення в розробку
 https://www.youtube.com/watch?v=OvuZ8R4Y9xA
 
 
 
-## Close Source code
-Sometimes we don't want to disclose our source code for whatever reason, but we still want to share our applications either commercially or for free. Here a commercial solution for that purpose, RubyEncoder.
+## Програма з закритими кодом
+Іноді ми не хочемо відкривати код, але нам все одно треба ділитися готовою програмою, на платній чи безоплатній основі. Осьочки платне рішення, яке може це зробити: RubyEncoder.
 
-**RubyEncoder**[^3] protects Ruby scripts by compiling Ruby source code into a bytecode format and this is followed by encryption. This protects your scripts from reverse engineering. Ruby scripts protected with RubyEncoder can be executed but cannot be used to extract Ruby source code as there is no source code remaining within the protected script in any form.
-
-
-
-
-
+**RubyEncoder**[^3] захищає скрипти Рубі компілюючи їх в байткод формат використовуючи криптографію. Це захистить ваші скрипти від реверс-інжинірингу. Скрипти Рубі захищені за допомогою RubyEncoder можуть бути виконаними, але їх вихідний код не може біти видобутим, оскілки він не зберігається в програмі ні в якій формі.
 
 
 <br><br><br>
