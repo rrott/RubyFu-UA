@@ -1,8 +1,8 @@
-# Remote Shell
+# Віддалений Шел 
 
-Remote shell means s forward or reverse connection to the target system command-line(shell). 
+Віддалений шел означає перенаправлення чи реверсивне з'єднання з командним рядком(шелом) віддаленої атакованої машини. 
 
-**Note:** For windows systems, replace the "/bin/sh" to "cmd.exe"
+**Зверніть увагу** для комп'ютерів з Windows заміняйте "/bin/sh" на "cmd.exe"
 
 ## Connect to Bind shell
 from terminal
