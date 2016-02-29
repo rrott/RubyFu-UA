@@ -1,8 +1,8 @@
-# Pure Ruby Netcat
+# Реалізація Netcat на Рубі
 
 
-## Simple Ncat.rb
-I found [this][1] simple ncat so I did some enhancements on it and add some comments in it as well. 
+## Простий Ncat.rb
+Я знайшов [цей][1] простий ncat і зробив деякі модифікації в ньому і додав коментарії: 
 
 
 ```ruby
@@ -12,10 +12,10 @@ require 'ostruct'
 require 'socket'
 
 class String
-  def red; colorize(self, "\e[1m\e[31m"); end
+  def red;   colorize(self, "\e[1m\e[31m"); end
   def green; colorize(self, "\e[1m\e[32m"); end
-  def cyan; colorize(self, "\e[1;36m"); end
-  def bold; colorize(self, "\e[1m"); end
+  def cyan;  colorize(self, "\e[1;36m"); end
+  def bold;  colorize(self, "\e[1m"); end
   def colorize(text, color_code)  "#{color_code}#{text}\e[0m" end
 end
 
@@ -23,7 +23,7 @@ end
 class NetCat
 
   #
-  # Parsing options
+  # Дивимося які опції командного радяка було використано
   #
   def parse_opts(args)
     @options = OpenStruct.new
@@ -79,7 +79,7 @@ class NetCat
   end
 
   #
-  # Socket Management
+  # Робота з Сокетами 
   #
   def connect_socket
     begin
@@ -103,7 +103,7 @@ class NetCat
   end
 
   #
-  # Data Transfer Management
+  # Робота з передачою даних
   #
   def forward_data
     while true
@@ -140,7 +140,7 @@ class NetCat
   end
 
   #
-  # Run Ncat
+  # Запуск Ncat
   #
   def run(args)
     parse_opts(args)
@@ -152,12 +152,12 @@ ncat = NetCat.new
 ncat.run(ARGV)
 ```
 
-- To listen 
+- Слухаємо 
 ```
 ruby ncat.rb -lvp 443 
 ```
 
-- To connect 
+- Підключаємося 
 ```
 ruby ncat.rb -cv -r RHOST -p 443
 ```
@@ -165,8 +165,8 @@ ruby ncat.rb -cv -r RHOST -p 443
 
 
 
-## Another Implementation of Ncat.rb 
-Again from [Hood3dRob1n][2] a standalone [RubyCat][3] which supports password protection for bind shell.
+## Ще одна реалізація Ncat.rb 
+Знову від [Hood3dRob1n][2] - самостійний [RubyCat][3] що підтримує захист паролем вашого bind шелу.
 
 
 
