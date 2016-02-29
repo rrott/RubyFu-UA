@@ -1,8 +1,8 @@
-# File manipulation
+# Робота з файлами
 
-## Simple Steganography
-Simple script to hide a file `file.pdf` in an image `image.png` then write it into `steg.png` image which is originally the `image.png`
-Then, it recovers the `file.pdf` from `steg.png` to `hola.pdf`.
+## Проста Стенографія
+Ось простий скрипт, який ховає довільний файл `file.pdf` в картинку `image.png` та зберігає його в картинку `steg.png` який буде виглядати як оригінальний `image.png`
+Далі він відновлює `file.pdf` з файлу `steg.png` в `hola.pdf`.
 
 ```ruby
 #!/usr/bin/env ruby
@@ -12,19 +12,19 @@ nor_file = File.read 'image.png'
 sep = '*------------------------*'
 one_file = [nor_file, sep, sec_file]
 
-# Write sec_file, sep, nor_file into steg.png
+# Записує sec_file, sep, nor_file в steg.png
 File.open("steg.png", 'wb') do |stg|
   one_file.each do |f|
     stg.puts f
   end
 end
 
-# Read steg.png to be like "one_file" array
+# Зчитує steg.png в масив "one_file"
 recov_file = File.read('steg.png').force_encoding("BINARY").split(sep).last
-# Write sec_file to hola.pdf
+# Записує sec_file в файл hola.pdf
 File.open('hola.pdf', 'wb') {|file| file.print recov_file}
 ```
-**Note:** This has nothing to do with bypassing AV.
+**Зверніть увагу:** Це немає нічого спільного з обходом Антивірусів.
 
 ## Simple Binary file to Hex
 
