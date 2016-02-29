@@ -1,14 +1,14 @@
-# Cryptography
+# Криптографія
 
 
-## Generating Hashes 
+## Генерація Хешів 
 
-###  MD5 hash
+###  MD5 хеш
 ```ruby
 require 'digest'
 puts Digest::MD5.hexdigest 'P@ssw0rd'
 ```
-### SHA1,2 hash
+### SHA1,2 хеш
 ```ruby
 require 'digest'
 puts Digest::SHA256.hexdigest 'P@ssw0rd'
@@ -16,7 +16,7 @@ puts Digest::SHA384.hexdigest 'P@ssw0rd'
 puts Digest::SHA512.hexdigest 'P@ssw0rd'
 ```
 
-### Windows LM Password hash
+### Windows LM хеш паролей 
 ```ruby
 require 'openssl'
 
@@ -51,16 +51,16 @@ end
 
 puts lm_hash "P@ssw0rd"
 ```
-[Source | RubyNTLM][1]
+[Джерело | RubyNTLM][1]
 
-### Windows NTLMv1 Password hash
+### Windows NTLMv1 хеш паролей
 ```ruby
 require 'openssl'
 ntlmv1 = OpenSSL::Digest::MD4.hexdigest "P@ssw0rd".encode('UTF-16LE')
 puts ntlmv1
 ```
 
-### Windows NTLMv2 Password hash
+### Windows NTLMv2 хеш паролей
 ```ruby
 require 'openssl'
 ntlmv1 = OpenSSL::Digest::MD4.hexdigest "P@ssw0rd".encode('UTF-16LE')
@@ -70,13 +70,13 @@ puts ntlmv2
 ```
 
 
-### MySQL Password hash
+### MySQL хеш паролей
 ```ruby
 puts "*" + Digest::SHA1.hexdigest(Digest::SHA1.digest('P@ssw0rd')).upcase
 ```
 
-### PostgreSQL Password hash
-PostgreSQL hashes combined password and username then adds **md5** in front of the hash
+### PostgreSQL хеш паролей
+Хеши в PostgreSQL - це комбінація пароля та логіна а ще й додатково в початок хешу додається **md5** сума
 ```ruby
 require 'digest/md5'
 puts 'md5' + Digest::MD5.hexdigest('P@ssw0rd' + 'admin')
@@ -88,7 +88,7 @@ puts 'md5' + Digest::MD5.hexdigest('P@ssw0rd' + 'admin')
 
 | ![Wireshark](../images/module02/Cryptography__wiringdiagram.png) |
 |:---------------:|
-| **Figure 1.** Enigma machine diagram  |
+| **Зображення 1.** Діаграма шифрувальної машини Enigma |
 
 ```ruby
 Plugboard = Hash[*('A'..'Z').to_a.shuffle.first(20)]
@@ -137,7 +137,7 @@ puts "Encrypted '#{plain_text}' to '#{encrypted = input(plain_text)}'"
 puts "Decrypted '#{encrypted}' to '#{decrypted = input(encrypted)}'"
 puts 'Success!' if plain_text == decrypted
 ```
-[Source | Understanding the Enigma machine with 30 lines of Ruby][2]
+[Джерела | Understanding the Enigma machine with 30 lines of Ruby][2]
 
 
 
