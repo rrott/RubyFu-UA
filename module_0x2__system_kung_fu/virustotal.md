@@ -1,27 +1,27 @@
 # VirusTotal 
-VirusTotal is one of the most known online service that analyzes files and URLs enabling the identification of viruses, worms, trojans and other kinds of malicious content detected by antivirus engines and website scanners. At the same time, it may be used as a means to detect false positives, i.e. innocuous resources detected as malicious by one or more scanners.
+VirusTotal це один з найвідоміших онлайн сервісів що аналізує файли та посилання для перевірки їх на виявлення вірусів, черв'яків, троянів та інших типів шкідливого змісту зі сторони антивірусів чи сканерів веб-сайтів. В той же час він може використовуватися щоб перевірити на можливість помилкових спрацювань, наприклад коли нешкідливі ресурси можуть бути виявленими як шкідливі одним чи кількома сканерами.
 
 
-## Getting VirusTotal 
-1. Register/Sign-in to VirusTotal
-2. Go to **My API key**
-3. Request a private APT key
- - Do not disclose your private key to anyone that you do not trust.
- - Do not embed your private in scripts or software from which it can be easily retrieved
+## Початок роботи з VirusTotal 
+1. Зареєструйтеся або увідіть в VirusTotal
+2. Перейдіть до **My API key**
+3. Запросіть приватний API ключ
+ - Нікому не показуйте та не передавайте ваш приватний ключ невідомим.
+ - Не вставляйте ваш приватний ключ в скрипти чи програми з яких його можна буде легко дістати.
 
-## VirusTotal gem 
-ruby-virustotal is VirusTotal automation and convenience tool for hash, file and URL submission.
+## Гем VirusTotal  
+ruby-virustotal - це автоматизація для VirusTotal для зручного надсилання хешів, файлів та посилань на перевірку.
 
-- Install virustotal gem 
+- Встановлення гему virustotal 
 ```
 gem install virustotal
 ```
 
-## Command line usage
-You can use ruby-virustotal gem as command line tool 
+## Використання в командному рядку
+Ви можете використовувати гем ruby-virustotal як звичайну програму командного рядку.
 
-**- Create virustotal local profile**
-To interact with virustotal as command line tool, you have to create a profile contains you API key. The profile will get created in `~/.virustotal`. 
+**- Створіть локальних профайл для virustotal**
+Для роботи з virustotal як утилітою командного рядка, вам потрібно створити профайл. що вміщує ваш приватний ключ. Ось приклад профайлу `~/.virustotal`. 
 ```
 virustotal --create-config
 ```
@@ -32,31 +32,30 @@ virustotal:
   timeout: 10
 ```
 
-edit the file and add your API key
+Відредагуйте цей файл додавши ваш власний ключ
 
 
-
-- **Searching a file of hashes**
+- **Пошук використовуючи файлу з хешами**
 ```
 virustotal -f <file_with_hashes_one_per_line>
 ```
 
-- **Searching a single hash**
+- **Пошук хешу**
 ```
 virustotal -h FD287794107630FA3116800E617466A9
 ```
 
-- **Searching a file of hashes and outputting to XML**
+- **Пошук використовуючи файлу з хешами зберігаючи результат в XML файл**
 ```
 virustotal -f <file_with_hashes_one_per_line> -x
 ```
 
-- **Upload a file to VirusTotal and wait for analysis**
+- **Завантаження файлу в VirusTotal для аналізу**
 ```
 virustotal -u </path/to/file>
 ```
 
-- **Search for a single URL**
+- **Пошук лінки(URL)**
 ```
 virustotal -s "http://www.google.com"
 ```
@@ -64,15 +63,15 @@ virustotal -s "http://www.google.com"
 
 
 
-## uirusu gem 
-uirusu is an VirusTotal automation and convenience tool for hash, file and URL submission.
+## гем uirusu
+uirusu - це автоматизація для VirusTotal для зручного надсилання хешів, файлів та посилань на перевірку.
 
-- Install uirusu 
+- Встановлення uirusu 
 ```
 gem install uirusu
 ```
 
-Usage is identical to virustotal gem 
+Використовується так само як і гем virustotal 
 
 
 
