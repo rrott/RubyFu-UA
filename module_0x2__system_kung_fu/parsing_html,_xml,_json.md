@@ -1,17 +1,17 @@
-# Parsing HTML, XML, JSON
+# Розбір HTML, XML, JSON
 
-Generally speaking the best and easiest way for parsing HTML and XML is using **Nokogiri** library
+Чесно кажучи, простіший та кращий метод розбору HTML та XML коду це використання бібліотеки **Nokogiri**
 
-- To install Nokogiri
+- Інсталяція Nokogiri:
 ```
 gem install nokogiri
 ```
 
 ## HTML
 
-Here we'll use nokogiri to list our contents list from `http://rubyfu.net/content/`
+Тут ми використовуватимемо nokogiri аби перелік вмісту книги з  `http://rubyfu.net/content/`
 
-### Using CSS selectors
+### Використовуючи CSS селектори
 ```ruby
 require 'nokogiri'
 require 'open-uri'
@@ -20,7 +20,7 @@ page = Nokogiri::HTML(open("http://rubyfu.net/content/"))
 page.css(".book .book-summary ul.summary li a, .book .book-summary ul.summary li span").each { |css| puts css.text.strip.squeeze.gsub("\n", '')}
 ```
 
-Returns 
+Результат 
 ```
 RubyFu
 Module 0x0 | Introduction
@@ -53,9 +53,9 @@ Module 0x0 | Introduction
 ```
 
 ## XML
-There are 2 ways we'd like to show here, the standard library `rexml` and `nokogiri` external library 
+Тут ми маємо два способи і ми б хотіли показати обидва: стандартна бібліотека `rexml` та зовнішня бібліотека `nokogiri` 
 
-We've the following XML file
+Наприклад у нас є такий XML файл
 ```xml
 <?xml version="1.0"?>
 <collection shelf="New Arrivals">
@@ -102,27 +102,27 @@ include REXML
 file = File.read "file.xml"
 xmldoc = Document.new(xmlfile)
 
-# Get the root element
+# Беремо кореневий елемент
 root = xmldoc.root
 puts "Root element : " + root.attributes["shelf"]
 
 
-# List of movie titles.
+# Список назв стрічок.
 xmldoc.elements.each("collection/movie") do |e|
   puts "Movie Title : " + e.attributes["title"] 
 end
 
-# List of movie types.
+# Список типів стрічок.
 xmldoc.elements.each("collection/movie/type") do |e|
   puts "Movie Type : " + e.text 
 end
 
-# List of movie description.
+# Список описів стрічок.
 xmldoc.elements.each("collection/movie/description") do |e|
   puts "Movie Description : " + e.text
 end
 
-# List of movie stars
+# Список кіно-зірок
 xmldoc.elements.each("collection/movie/stars") do |e|
   puts "Movie Stars : " + e.text
 end
