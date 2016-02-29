@@ -1,17 +1,16 @@
-# Command Execution
+# Запуск системних команд
 
-Some things to think about when choosing between these ways are:
-1. Do you just want stdout or do you need stderr as well? or even separated out?
-2. How big is your output? Do you want to hold the entire result in memory?
-3. Do you want to read some of your output while the subprocess is still running?
-4. Do you need result codes?
-5. Do you need a ruby object that represents the process and lets you kill it on demand?
-
-
-The following ways are applicable on all operating systems. 
+Є кілька методів як запустити системну команду і обираючи один  з них треба брати до уваги наступне:
+1. Вам потрібно знати тільки вивід на екран(stdout) чи вам потрібно ще й знати про помилки в роботі(stderr)?
+2. Наскільки великим буде вивід на екран? Чи потрібно вам тримати весь результат в пам'яті?
+3. Чи потрібно вам прочитати деякі дані допоки процес все ще працює?
+4. Чи вам потрібен результат в коді?
+5. Чи потрібні вам Рубі об'єкти, що репрезентують процес і дають вам можливість вбити їх коли вам треба?
 
 
-### Kernel#` (backticks)
+Наступні методи будуть працювати на всіх операційних системах.
+
+### Kernel#` (зворотні лапки)
 ```ruby
 >> `date`
 #=> "Sun Sep 27 00:38:54 AST 2015\n"
@@ -23,6 +22,7 @@ The following ways are applicable on all operating systems.
 Sun Sep 27 00:39:22 AST 2015
 RubyFu( ~ )-> 
 ```
+Зробіть увагу що вас викинуло з інтерпретатора.
 
 ### Kernel#system
 ```ruby
@@ -59,7 +59,7 @@ stdin, stdout, stderr = Open3.popen3('dc')
 
 
 ### Process#spawn
-Kernel.spawn executes the given command in a subshell. It returns immediately with the process id.
+Kernel.spawn запускає задану команду в новому шелі(subshell). Він повертає результат роботи відразу разом з айді процесу.
 ```ruby
 pid = Process.spawn("date")
 Sun Sep 27 00:50:44 AST 2015
@@ -90,8 +90,8 @@ Sun Sep 27 00:59:05 AST 2015
 
 
 
-### Extra
-To check the status of the backtick operation you can execute $?.success?
+### Додатково
+Аби дізнатися статус роботи програми запущеної за допомогою зворотніх лапок, ви можете виконати $?.success?
 #### $?
 ```ruby
 >> `date`
@@ -121,8 +121,8 @@ To check the status of the backtick operation you can execute $?.success?
 
 <br><br><br>
 ---
-- [Ruby | Execute system commands](http://king-sabri.net/?p=2553)
-- [5 ways to run commands from Ruby](http://mentalized.net/journal/2010/03/08/5-ways-to-run-commands-from-ruby/)
-- [6 ways to run Shell commands in Ruby](http://tech.natemurray.com/2007/03/ruby-shell-commands.html)
-- [How to choose the correct way](http://stackoverflow.com/a/4413/967283)
-- [Executing commands in ruby](http://blog.bigbinary.com/2012/10/18/backtick-system-exec-in-ruby.html)
+- [Ruby | Виконання системних команд](http://king-sabri.net/?p=2553)
+- [5 методів запуска програм в Рубі](http://mentalized.net/journal/2010/03/08/5-ways-to-run-commands-from-ruby/)
+- [6 методів запуску Shell команд в РУбі](http://tech.natemurray.com/2007/03/ruby-shell-commands.html)
+- [Як вибрати правильний метод](http://stackoverflow.com/a/4413/967283)
+- [Запуск команд в Рубі](http://blog.bigbinary.com/2012/10/18/backtick-system-exec-in-ruby.html)
