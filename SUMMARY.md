@@ -19,7 +19,7 @@
        * [RCE як Сервіс](module_0x2__system_kung_fu/rce_as_a_service.md)
    * [VirusTotal](module_0x2__system_kung_fu/virustotal.md)
 * [Модуль 0x3 | Мережеве Кунг-Фу](module_0x3__network_kung_fu/README.md)
-   * [Ruby Socket](module_0x3__network_kung_fu/ruby_socket.md)
+   * [Сокети в Рубі](module_0x3__network_kung_fu/ruby_socket.md)
    * [SSID Finder](module_0x3__network_kung_fu/ssid_finder.md)
    * [FTP](module_0x3__network_kung_fu/ftp.md)
    * [SSH](module_0x3__network_kung_fu/ssh.md)
