@@ -52,7 +52,7 @@ host = ip & neg_subnet
 puts host
 ```
 
-Запустіть це:
+Запустіть:
 ```
 ruby ip_example.rb 192.168.5.130 24
 # Returns 
@@ -60,8 +60,7 @@ ruby ip_example.rb 192.168.5.130 24
 ```
 
 ### Підрахунок кількості хостів в підмережі.
-
-We used to_range method to create a range of all the IPs then count method to count the IPs in range. We reduced the number by two to exclude the gateway and broadcast IP address.
+Ми використаємо метод to_range аби знайти діапазон всіх IP адрес а потім підрахуємо їх кількість в діапазоні. Ми зменшуємо це значення на 2 елементи щоб виключити IP адресу шлюзу та широкомовного(broadcast) IP.
 
 
 ```ruby
@@ -69,7 +68,7 @@ require 'ipaddr'
 ip=IPAddr.new("0.0.0.0/#{ARGV[0]}")
 puts ip.to_range.count-2
 ```
-Run it
+Запустіть:
 ```
 ruby ip_example.rb 24
 254
@@ -77,7 +76,7 @@ ruby ip_example.rb 24
 
 ### Визначення чи належить якась IP адреса до підмережі чи ні.
 
-`===` is an alias of include? which returns true if ip address belongs to the range otherwise it returns false.
+`===` - це аліас методу include? який повертає true якщо IP адреса належить діапазону, або ж false, якщо - ні.
 
 
 ```ruby
@@ -85,7 +84,7 @@ require 'ipaddr'
 net=IPAddr.new("#{ARG[0]}/#{ARGV[1]}")
 puts net === ARGV[2]
 ```
-Run it
+Запустіть:
 ```
 ruby ip_example.rb 192.168.5.128 24 192.168.5.93
 true
@@ -97,8 +96,7 @@ false
 ```
 
 ### Конвертація маски підмережі з крапкової десятеричної анотації в ціле число.
-
-We treated subnet mask as ip address and converted it into an integer by using `to_i` then used `to_s(2)` to convert the integer into binary form. Once we had the binary we counted the number of occurrence of digit 1 with `count("1")`.
+Ми взяли маску підмережі як IP адресу та перетворили її в ціле число використовуючи метод `to_i`, потім використали `to_s(2)` аби перетворити  ціле число в бінарну форму. Маючи бінарну форму ми підрахували кількість одиниць за допомогою методу `count("1")`.
 
 
 ```ruby
@@ -107,7 +105,7 @@ subnet_mask = IPAddr.new(ARGV[0])
 puts subnet_mask.to_i.to_s(2).count("1").to_s
 ```
 
-Run it
+Запустіть:
 ```
 ruby ip_example.rb 255.255.255.0
 24
@@ -122,7 +120,7 @@ ruby ip_example.rb 255.255.255.0
 require 'ipaddr'
 IPAddr.new(3232236159, Socket::AF_INET).to_s
 ```
-or
+або:
 
 ```ruby
 [3232236159].pack('N').unpack('C4').join('.')
@@ -135,14 +133,14 @@ require 'ipaddr'
 IPAddr.new('192.168.2.127').to_i
 ```
 
-
-This part has been pretty quoted from [IP address Operations in Ruby][1] topic
+Цю частину було майже повністю процитовано із статті [Робота з IP адресами в Рубі][1]
 
 
 ## Геолокація за IP 
-you may need to know more information about IP location due attack investigation or any other reason. 
+Вам, можливо буде потрібно дізнатися більше інформації про розташування серверу за його IP адресою для подальших атак чи з будь якої іншої причини.
 
 ### GeoIP
+
 The special thing about geoip lib is that it's an API for offline database you download from [www.maxmind.com](http://www.maxmind.com). There are few free databases from MaxMind whoever you can have a subscription database version though. 
 
 - Download one of the free GeoLite country, city or ASN databases
