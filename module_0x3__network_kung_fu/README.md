@@ -36,14 +36,13 @@ ruby ip_example.rb 192.168.5.130 24
 
 ### Обчислення хостової(host) частини IP адреси із IP адреси та маски підмережі.
 
-calculating the host part is not as trivial as the network part of the IP address. We first calculate the complement of subnet mask.
+обчислення хостової(host) частини IP адреси це не така проста задача як в попередньому випадку. Нам спочатку треба обчислити доповнення маски підмережі.
 
 Subnet(24) : 11111111.11111111.11111111.00000000
 
 neg_subnet(24) : 00000000.00000000.00000000.11111111
 
-we used negation(~) and mask method to calculate complement of subnet mask then simply performed a bitwise AND between the IP and complement of subnet
-
+Ми використали заперечення(~) та метод mask аби вирахувати доповнення маски підмережі і потім просто виконали побітове AND між IP та доповненням підмережі.
 
 ```ruby
 require 'ipaddr'
@@ -52,7 +51,8 @@ neg_subnet = ~(IPAddr.new("255.255.255.255").mask(ARGV[1]))
 host = ip & neg_subnet
 puts host
 ```
-Run it
+
+Запустіть це:
 ```
 ruby ip_example.rb 192.168.5.130 24
 # Returns 
