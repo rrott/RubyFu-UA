@@ -1,26 +1,25 @@
-# Module 0x3 | Network Kung Fu
+# Модуль 0x3 |Мережеве Кунг-Фу
 
 
-## IP Address Operation
-In network programming, we always perform some operations on IP addresses. Following are some examples.
+## Робота за IP адресами
+В програмуванні для мереж ми завжди працюємо з IP адресами і ось деякі приклади:
+- Обчислення мережевих префіксів для IP адрес із IP адреси та маски підмережі.
+- Обчислення хостової(host) частини IP адреси із IP адреси та маски підмережі.
+- Підрахунок кількості хостів в підмережі.
+- Визначення чи наледить якась IP адреса до підмережі чи ні.
+- Конвертація маски підмережі з крапкової десятеричної анотації в ціле число.
 
-- Calculating network prefix of an IP address from IP address and subnet mask.
-- Calculating the host part of an IP address from IP address and subnet mask.
-- Calculating the number of hosts in a subnet.
-- Check whether an IP address belongs to a subnet or not.
-- Converting subnet mask from dot-decimal notation to integer.
-
-Ruby provides class(IPAddr) for basic operations on IP address that can be used to perform all operations mentioned above.
+В Рубі є клас IPAddr для простих операція з IP адресами що дозволяє виконувати всі вищенаведені задачі.
 
 ```ruby
 require 'ipaddr'
 ip = IPAddr.new("192.34.56.54/24")
 ```
 
+###  
+### Обчислення мережевих префіксів для IP адрес із IP адреси та маски підмережі.
 
-### Calculating network prefix of an IP address from IP address and subnet mask.
-A simple mask method call will give us the network prefix part of IP address. It is simply a bitwise mask of IP address with subnet mask.
-
+Простий виклик методу mask поверне нам мережевий префікс для IP адреси і це просто побітовоа маска IP-адреси разом з маскою підмережі.
 
 ```ruby
 require 'ipaddr'
