@@ -6,8 +6,8 @@
 - Обчислення мережевих префіксів для IP адрес із IP адреси та маски підмережі.
 - Обчислення хостової(host) частини IP адреси із IP адреси та маски підмережі.
 - Підрахунок кількості хостів в підмережі.
-- Визначення чи наледить якась IP адреса до підмережі чи ні.
-- Конвертація маски підмережі з крапкової десятеричної анотації в ціле число.
+- Визначення чи належить якась IP адреса до підмережі чи ні.
+- Конвертація маски підмережі з крапкової десятичної анотації в ціле число.
 
 В Рубі є клас IPAddr для простих операція з IP адресами що дозволяє виконувати всі вищенаведені задачі.
 
@@ -34,7 +34,7 @@ ruby ip_example.rb 192.168.5.130 24
 192.168.5.0
 ```
 
-### Calculating the host part of an IP address from IP address and subnet mask.
+### Обчислення хостової(host) частини IP адреси із IP адреси та маски підмережі.
 
 calculating the host part is not as trivial as the network part of the IP address. We first calculate the complement of subnet mask.
 
@@ -59,7 +59,7 @@ ruby ip_example.rb 192.168.5.130 24
 0.0.0.130
 ```
 
-### Calculating the number of hosts in a subnet.
+### Підрахунок кількості хостів в підмережі.
 
 We used to_range method to create a range of all the IPs then count method to count the IPs in range. We reduced the number by two to exclude the gateway and broadcast IP address.
 
@@ -75,7 +75,7 @@ ruby ip_example.rb 24
 254
 ```
 
-### Check whether an IP address belong to a subnet or not.
+### Визначення чи належить якась IP адреса до підмережі чи ні.
 
 `===` is an alias of include? which returns true if ip address belongs to the range otherwise it returns false.
 
@@ -96,7 +96,7 @@ ruby ip_example.rb 192.168.5.128 24 192.168.6.93
 false
 ```
 
-### Converting subnet mask from dot-decimal notation to integer.
+### Конвертація маски підмережі з крапкової десятеричної анотації в ціле число.
 
 We treated subnet mask as ip address and converted it into an integer by using `to_i` then used `to_s(2)` to convert the integer into binary form. Once we had the binary we counted the number of occurrence of digit 1 with `count("1")`.
 
@@ -114,9 +114,9 @@ ruby ip_example.rb 255.255.255.0
 ```
 
 
-### Converting IP to another formats
+### Конвертація IP адреси в інші формати
 
-#### IP Decimal to Dotted notation
+#### З Десятичного IP в крапкову анотацію
 
 ```ruby
 require 'ipaddr'
@@ -128,7 +128,7 @@ or
 [3232236159].pack('N').unpack('C4').join('.')
 ```
 
-#### IP Dotted notation to Decimal
+#### З крапкової анатації IP в десятичну.
 
 ```ruby
 require 'ipaddr'
@@ -139,7 +139,7 @@ IPAddr.new('192.168.2.127').to_i
 This part has been pretty quoted from [IP address Operations in Ruby][1] topic
 
 
-## IP Geolocation
+## Геолокація за IP 
 you may need to know more information about IP location due attack investigation or any other reason. 
 
 ### GeoIP
