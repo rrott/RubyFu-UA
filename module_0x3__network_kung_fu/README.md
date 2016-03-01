@@ -140,21 +140,19 @@ IPAddr.new('192.168.2.127').to_i
 Вам, можливо буде потрібно дізнатися більше інформації про розташування серверу за його IP адресою для подальших атак чи з будь якої іншої причини.
 
 ### GeoIP
-
-The special thing about geoip lib is that it's an API for offline database you download from [www.maxmind.com](http://www.maxmind.com). There are few free databases from MaxMind whoever you can have a subscription database version though. 
-
-- Download one of the free GeoLite country, city or ASN databases
+Особливість бібліотеки geoip в тім,  що це API для автономної роботи з базою даних, яку можна скачати з [www.maxmind.com](http://www.maxmind.com). Там є кілька безкоштовних баз даних від MaxMind але ви можете підписатися і на платну версію.
+- Завантажте одну з безкоштовних баз даних по Країнах, містах чи базу даних ASN:
     - [GeoLiteCountry](geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz)
     - [GeoLiteCity](geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz)
     - [GeoIPASNum](geolite.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz)
 
 
-- Install geoip gem
+- Встановіть гем geoip
 ```
 gem install geoip
 ```
 
-- Usage
+- Використання:
 
 ```ruby
 #!/usr/bin/env ruby
