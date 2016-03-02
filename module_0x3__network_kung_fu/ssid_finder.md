@@ -1,21 +1,22 @@
-# SSID Finder
+# Шукач SSID
 
-It's good to know how you play with a lower level of Ruby socket and see how powerful it's. As I've experienced, it's a matter of your knowledge about the protocol you're about to play with. I've tried to achieve this mission using `Packetfu` gem, but it's not protocol aware, yet. So I fired-up my Wireshark(filter: `wlan.fc.type_subtype == 0x08`) and start inspecting the wireless beacon structure and checked how to go even deeper with Ruby socket to lower level socket not just playing with TCP and UDP sockets.
+Було б гарно знати як працювати з більш низьким рівнем роботи сокетів в Рубі й побачити наскільки він потужний. З мого досвіду, варто знати детально протокол з яким ви працюєте.
+Я намагався досягнути цієї мети за допомогою гему `Packetfu` але він ще не все вміє що надає протокол. Отже я запустив мій Wireshark(з фільтром: `wlan.fc.type_subtype == 0x08`) та почfв перевіряти структуру безпровідної мережі щоб перевірити як можна зануритися глибше з сокетами в Рубі. в більш низький рівень аби мати більше можливостей ніж просто грати з TCP та  UDP.
 
-The main task was 
-- Go very low level socket(Layer 2)
-- Receive every single packet no matter what protocol is it
-- Receive packets as raw to process it as far as I learn from wireshark 
+Основними задачами було:
+- Перейти на найнижчий рівень сокетів(Layer 2)
+- Отримати всі до одного пакети незалежно від протоколу
+- Отримати сирі пакети такими ж, як я отримував в wireshark 
 
-I went through all mentioned references below and also I had a look at `/usr/include/linux/if_ether.h` which gave me an idea about `ETH_P_ALL` meaning and more. In addition, `man socket` was really helpful to me.
+Я пройшовся по всім методам, що описано нижче, а також заглянув в `/usr/include/linux/if_ether.h` який надихнув мене на ідею використання `ETH_P_ALL` та багато іншого. Додатково, команда `man socket` була дуже корисною для мене.
 
-**Note: **The Network card interface must be set in monitoring mode, to do so (using airmon-ng)
+**Зверніть увагу: **Щоб робити наступне інтерфейс вашої мережевої карти має бути встановленим в режим моніторингу (using airmon-ng)
 
 ```bash
-# Run you network car on monitoring mode
+# Запустіть вашу мережеву карту в режимі мониторингу
 airmon-ng start wls1
 
-# Check running monitoring interfaces
+# перевірити список запущених інтерфейсів, що мониторяться
 airmon-ng
 ```
 
@@ -23,27 +24,27 @@ airmon-ng
 #!/usr/bin/env ruby
 require 'socket'
 
-# Open a Soccket as (very low level), (receive as a Raw), (for every packet(ETH_P_ALL))
+# Відкриваємо Сокет на дцже низькому рівні, отримуємо сирі данні(Raw) для кожного пакету(ETH_P_ALL)
 socket = Socket.new(Socket::PF_PACKET, Socket::SOCK_RAW, 0x03_00)
 
 puts "\n\n"
 puts "       BSSID       |       SSID        "  
 puts "-------------------*-------------------"
 while true
-  # Capture the wire then convert it to hex then make it as an array
+  # Захоплюємо мережу(wire) і переводемо її в hex і робимо її масивом
   packet = socket.recvfrom(2048)[0].unpack('H*').join.scan(/../)
   #
-  # The Beacon Packet Pattern:
-  # 1- The IEEE 802.11 Beacon frame starts with 0x08000000h, always!
-  # 2- The Beacon frame value located at the 10th to 13th byte
-  # 3- The number of bytes before SSID value is 62 bytes
-  # 4- The 62th byte is the SSID length which is followed by the SSID string
-  # 5- Transmitter(BSSID) or the AP MAC address which is located at 34 to 39 bytes 
+  # Паттерн Beacon Packet:
+  # 1- IEEE 802.11 Beacon фрейм починається з 0x08000000h, завжди!
+  # 2- значення Beacon фрейму знаходиться на байтах від 10го до 13го
+  # 3- кількість байтів перед значеням SSID встановлено в 62 байт
+  # 4- 62й байт це розмір SSID за яким іде сама строка SSID 
+  # 5- Передавач(BSSID) або AP MAC адреса знаходиться між 34м та 39м байтами 
   #
-  if packet.size >= 62 && packet[9..12].join == "08000000"   # Make sure it's a Beacon frame
-    ssid_length = packet[61].hex - 1                         # Get the SSID's length
-    ssid  = [packet[62..(62 + ssid_length)].join].pack('H*') # Get the SSID 
-    bssid = packet[34..39].join(':').upcase                  # Get THE BSSID
+  if packet.size >= 62 && packet[9..12].join == "08000000"   # Переконуємося зо маємо Beacon фрейм
+    ssid_length = packet[61].hex - 1                         # Отримуємо розмір SSID
+    ssid  = [packet[62..(62 + ssid_length)].join].pack('H*') # Отримуємо SSID 
+    bssid = packet[34..39].join(':').upcase                  # Отримуємо BSSID
     
     puts " #{bssid}" + "    " + "#{ssid}"
   end
@@ -53,7 +54,7 @@ end
 
 
 <br>
-**References** - *very useful!*
+**Література** - *дуже корисна!*
 - [raw_socket.rb](https://gist.github.com/k-sone/8036832#file-raw_sock-rb)
 - [wifi_sniffer.rb](https://gist.github.com/amejiarosario/5420854)
 - [packetter.rb](https://github.com/lrks/packetter/blob/master/ruby/packetter.rb)
