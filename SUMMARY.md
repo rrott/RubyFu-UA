@@ -23,7 +23,7 @@
    * [Шукач SSID](module_0x3__network_kung_fu/ssid_finder.md)
    * [FTP](module_0x3__network_kung_fu/ftp.md)
    * [SSH](module_0x3__network_kung_fu/ssh.md)
-   * [Email](module_0x2__system_kung_fu/email.md)
+   * [Пошта](module_0x2__system_kung_fu/email.md)
        * [SMTP Enumeration](module_0x2__system_kung_fu/smtp_enumeration.md)
    * [Network Scanning](module_0x3__network_kung_fu/network_scanning.md)
        * [Nmap](module_0x3__network_kung_fu/nmap.md)
