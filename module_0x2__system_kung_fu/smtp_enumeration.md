@@ -1,6 +1,6 @@
-# SMTP Enumeration
+# SMTP
 
-Interacting with SMTP is easy and since the protocol is straight forward.
+Взаємодія з SMTP є дуже простою оскільки сам протокол простий як двері.
 
 ```ruby
 #!/usr/bin/env ruby
@@ -28,7 +28,7 @@ puts "[*] Result:-"
 puts "[+] Banner: " + @banner
 puts "[+] Found users: \n#{found.join("\n")}"
 ```
-Results
+Результат:
 
 ```
 [*] Result:-
@@ -48,7 +48,7 @@ postgres
 ```
 
 
-**Your turn**, there are other commands that can be used such as `EXPN`, `RCPT`. Enhance the above script to include all these commands to avoid restricted commands that might you face. Tweet your code and output to **@Rubyfu**.
+**Ваш хід**: існує ще декілька команд, такі як`EXPN` або `RCPT`. Доповніть вищенаведений скрипт так, щоб включити ці команди та надішліть твіт до **@Rubyfu**.
 
 
 
