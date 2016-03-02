@@ -1,7 +1,7 @@
-# Network Scanning
+# Сканування Мережі
 
-## Network ping sweeping
-required gem
+## Отримання IP адрес в мережі
+Потрібний гем:
 ```
 gem install net-ping
 ```
@@ -32,8 +32,9 @@ puts "Average round-trip is #{avg}\n"
 puts "#{pingfails} packets were dropped"
 ```
 
-## Port Scanner 
-If you got what we've represented in [Ruby Socket](module_0x3__network_kung_fu/ruby_socket.md) section, then here we wrapping up and do some application depends on it. 
+## Сканер портів
+Якщо ви зрозуміли все з того, що ми показали в розділі [Ruby Socket](module_0x3__network_kung_fu/ruby_socket.md) тоді ви побачите що тут ми робимо деяку обгортку над цим.
+
 **scanner.rb**
 ```ruby
 #!/usr/bin/env ruby
@@ -50,8 +51,8 @@ def scan(host)
   (0..1024).each do |port|
     Thread.new {
       begin
-    	timeout(3) do					# timeout of running operation 
-          s = TCPSocket.new(host, port)			# Create new socket
+    	timeout(3) do					# таймаунт запущеної операції 
+          s = TCPSocket.new(host, port)			# Створюємо новий сокет
           puts "[+] #{host} | Port #{port} open"
           s.close
     	end
@@ -69,7 +70,7 @@ end
 scan host 
 
 ```
-Run it
+Виконайте скрипт:
 ```bash 
 ruby scanner.rb 45.33.32.156    # scanme.nmap.com
 
