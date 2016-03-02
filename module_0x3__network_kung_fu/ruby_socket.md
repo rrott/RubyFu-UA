@@ -6,16 +6,16 @@
 Аби зрозуміти ієрархію сокетів в Рубі, ось вам просте дерево, яке це робить:
 
 ```
-IO                              # The basis for all input and output in Ruby
-└── BasicSocket                 # Abstract base class for all socket classes
-    ├── IPSocket                # Super class for protocols using the Internet Protocol (AF_INET)
-    │   ├── TCPSocket           # Class for Transmission Control Protocol (TCP) sockets
-    │   │   ├── SOCKSSocket     # Helper class for building TCP socket servers applications
-    │   │   └── TCPServer       # Helper class for building TCP socket servers
-    │   └── UDPSocket           # Class for User Datagram Protocol (UDP) sockets
-    ├── Socket                  # Base socket class that mimics that BSD Sockets API. It provides more operating system specific functionality
-    └── UNIXSocket              # Class providing IPC using the UNIX domain protocol (AF_UNIX)
-        └── UNIXServer          # Helper class for building UNIX domain protocol socket servers
+IO                              # Основа вводу/виводу в Рубі
+└── BasicSocket                 # Абстрактний базовий клад для всіх класів сокетів
+    ├── IPSocket                # Супер клас для протоколів що використовують Інтернет Протокол(AF_INET)
+    │   ├── TCPSocket           # Клас для сокетів Transmission Control Protocol (TCP)
+    │   │   ├── SOCKSSocket     # Helper клас для побудови серверних аплікащій з сокетом TC
+    │   │   └── TCPServer       # Helper клас для побудови серверів з сокетом TCP
+    │   └── UDPSocket           # Клас для сокету User Datagram Protocol (UDP)
+    ├── Socket                  # Базовий клас сокету що мімкрує під BSD Sockets API. Він надає більш специффічного для ОС функціоналу сокетів.
+    └── UNIXSocket              # Клас що надає IPC використовуючи UNIX domain protocol (AF_UNIX)
+        └── UNIXServer          # Helper клас для побудови серверів на сокет з протоколом UNIX domain
 ```
 
 I'll verbosely mention some of `Socket::Constants` here since I didn't find an obvious reference listing it except [Programming Ruby1.9 *The Pragmatic Programmers' Guide*](http://media.pragprog.com/titles/ruby3/app_socket.pdf); Otherwise you've to `ri Socket::Constants` from command line which is a good way to get the description of each constant.
