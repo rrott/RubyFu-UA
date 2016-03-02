@@ -25,7 +25,7 @@
    * [SSH](module_0x3__network_kung_fu/ssh.md)
    * [Пошта](module_0x2__system_kung_fu/email.md)
        * [SMTP](module_0x2__system_kung_fu/smtp_enumeration.md)
-   * [Network Scanning](module_0x3__network_kung_fu/network_scanning.md)
+   * [Сканування Мережі](module_0x3__network_kung_fu/network_scanning.md)
        * [Nmap](module_0x3__network_kung_fu/nmap.md)
    * [DNS](module_0x3__network_kung_fu/dns.md)
        * [DNS Enumeration](module_0x3__network_kung_fu/dns_enumeration.md)
