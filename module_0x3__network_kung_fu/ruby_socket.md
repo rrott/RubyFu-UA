@@ -17,8 +17,7 @@ IO                              # Основа вводу/виводу в Руб
     └── UNIXSocket              # Клас що надає IPC використовуючи UNIX domain protocol (AF_UNIX)
         └── UNIXServer          # Helper клас для побудови серверів на сокет з протоколом UNIX domain
 ```
-
-I'll verbosely mention some of `Socket::Constants` here since I didn't find an obvious reference listing it except [Programming Ruby1.9 *The Pragmatic Programmers' Guide*](http://media.pragprog.com/titles/ruby3/app_socket.pdf); Otherwise you've to `ri Socket::Constants` from command line which is a good way to get the description of each constant.
+Я докладно розгляну деякі з`Socket::Constants` оскільки я не знайшов літературу на яку можна було б посилатися окрім [Programming Ruby1.9 *The Pragmatic Programmers' Guide*](http://media.pragprog.com/titles/ruby3/app_socket.pdf); В інакшому випадку вам було б потрібно постійно запускати команду`ri Socket::Constants` з командної строки, що в принципі є гарним способом отримання опису будь-якої константи.
 
 
 ### Socket Types
