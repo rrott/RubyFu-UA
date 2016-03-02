@@ -238,18 +238,17 @@ client.gets.chomp
 client.puts "Hi, TCP Server #{rhost}"
 client.close
 ```
-
-You can put timeout/time interval for current connection in-case the server's response get delayed and the socket is still open.
+Ви можете виставити таймаут чи інтервал для підключення якщо відповідь від сервера може прийти з затримкою.
 
 ```ruby
-timeval = [3, 0].pack("l_2")        # Time interval 3 seconds 
-client.setsockopt Socket::SOL_SOCKET, Socket::SO_RCVTIMEO, timeval      # Set socket receiving time interval 
-client.setsockopt Socket::SOL_SOCKET, Socket::SO_SNDTIMEO, timeval      # Set socket sending time interval
-client.getsockopt(Socket::SOL_SOCKET, Socket::SO_RCVTIMEO).inspect      # Optional, Check if socket option has been set
-client.getsockopt(Socket::SOL_SOCKET, Socket::SO_SNDTIMEO).inspect      # Optional, Check if socket option has been set
+timeval = [3, 0].pack("l_2")        # Промізок часу в 3 секунди 
+client.setsockopt Socket::SOL_SOCKET, Socket::SO_RCVTIMEO, timeval      # Налаштовуємо сокет отримувати інтервал 
+client.setsockopt Socket::SOL_SOCKET, Socket::SO_SNDTIMEO, timeval      # Налаштовуємо сокет на відправку інтервалу
+client.getsockopt(Socket::SOL_SOCKET, Socket::SO_RCVTIMEO).inspect      # Опціонально, перевірити чи опцію сокета було встановлено
+client.getsockopt(Socket::SOL_SOCKET, Socket::SO_SNDTIMEO).inspect      # Опціонально, перевірити чи опцію сокета було встановлено
 ```
 
-There are some alternatives for `puts` and `gets` methods.You can see the difference and its classes using method method in Pry interpreter console
+Є кілька альтернатив для методів `puts` та `gets`. Ви можете бачити різницю та їх класи використовуючи метод method в командному інтерфейсі Pry.
 
 ```ruby
 >> s = TCPSocket.new('0.0.0.0', 9911)
@@ -276,27 +275,27 @@ There are some alternatives for `puts` and `gets` methods.You can see the differ
 
 ## UDP Socket
 
-### UDP Server
+### UDP Сервер
 ```ruby
 require 'socket'
 
-server = UDPSocket.new                                  # Start UDP socket
-server.bind('0.0.0.0', 9911)                            # Bind all interfaces to port 9911
-mesg, addr = server.recvfrom(1024)                      # Receive 1024 bytes of the message and the sender IP
-server puts "Hi, UDP Client #{addr}", addr[3], addr[1]  # Send a message to the client 
-server.recv(1024)                                       # Receive 1024 bytes of the message 
+server = UDPSocket.new                                  # Запуск UDP сокету
+server.bind('0.0.0.0', 9911)                            # слухаємо всі інтерфейси на порту  9911
+mesg, addr = server.recvfrom(1024)                      # Отримуємо 1024 байт повідомлення та IP адресу відправника
+server puts "Hi, UDP Client #{addr}", addr[3], addr[1]  # Відправка повідомлення клієнтові 
+server.recv(1024)                                       # Отримання 1024 байт повідомлення
 ```
 
-### UDP Client
+### UDP Клієнт
 ```ruby
 require 'socket'
 client = UDPSocket.new
-client.connect('localhost', 9911)       # Connect to server on port 991
-client.puts "Hi, UDP Server!", 0        # Send message 
-server.recv(1024)                       # Receive 1024 bytes of the server message
+client.connect('localhost', 9911)       # Підключення до серверу на порту 9911
+client.puts "Hi, UDP Server!", 0        # Відправка повідомлення 
+server.recv(1024)                       # Отримання 1024 байт повідомлення від сервера
 ```
 
-There alternative for sending and receiving too, figure it out, [RubyDoc](http://ruby-doc.org/stdlib-2.0.0/libdoc/socket/rdoc/UDPSocket.html).
+Тут також є альтернативи для відправлення й отримання повідомлень. Ви можете знайти це в  [RubyDoc](http://ruby-doc.org/stdlib-2.0.0/libdoc/socket/rdoc/UDPSocket.html).
 
 
 
