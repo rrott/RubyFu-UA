@@ -160,8 +160,7 @@ IO                              # Основа вводу/виводу в Руб
 - SO_WANTMORE
 - SO_WANTOOBFLAG
 
-
-## Creating Socket Template
+## Створення Темплати Сокету
 
 ```ruby
 Socket.new(domain, socktype [, protocol])
@@ -196,44 +195,45 @@ Socket.new(domain, socktype [, protocol])
                  `----->------>------->----`
 ```
 
-### General Socket usage
+### Використання сокетів
 
-#### Get List of local IPaddreses 
+#### Отримати список всіх IP адрес
 
 ```ruby
 require 'socket'
 Socket.ip_address_list
 ```
 
-#### Get Hostname
+#### Отримати Hostname
 ```ruby
 Socket.gethostname
 ```
 
 
 
-### TCP Server
+### TCP Сервер
 
-Here we'll represent an absolute TCP server. This server will access connect from one client and send a message to it once connected then close the client and server connection 
+Тут ми представимо звичайний TCP сервер. Цей сервер буде отримувати підключення з клієнта та відправляти повідомлення до нього в разі підключення, потім закривати клієнтське і серверне підключення.
+
 ```ruby
 require 'socket'
 
-server = TCPServer.new('0.0.0.0', 9911) # Server, binds/listens all interfaces on port 9911
-client = server.accept                  # Wait for client to connect
-rhost  = client.peeraddr.last           # peeraddr, returns remote [address_family, port, hostname, numeric_address(ip)]
-client.puts "Hi TCP Client! #{rhost}"   # Send a message to the client once it connect
-client.gets.chomp                       # Read incoming message from client
-client.close                            # Close the client's connection
-server.close                            # Close the TCP Server
+server = TCPServer.new('0.0.0.0', 9911) # Сервер, слухая всі інтерфейси на порту 9911
+client = server.accept                  # Очікує підключення клієнту
+rhost  = client.peeraddr.last           # peeraddr повертає інформацію про віддалений клієнт [address_family, port, hostname, numeric_address(ip)]
+client.puts "Hi TCP Client! #{rhost}"   # Відправдяє повідомлення клієнтові після підключення
+client.gets.chomp                       # Читає вхідні повідомлення від клієнту
+client.close                            # Закриває підключення клієнта
+server.close                            # Закриває підключення TCP сервера.
 ```
 
-### TCP Client 
+### TCP Клієнт 
 
 ```ruby
 require 'socket'
 
-client = TCPSocket.new('127.0.0.1', 9911)   # Client, connects to server on port 9911
-rhost  = client.peeraddr.last               # Get the remote server's IP address 
+client = TCPSocket.new('127.0.0.1', 9911)   # Клієнт підключається до сервера на порту 9911
+rhost  = client.peeraddr.last               # Отримує IP адрусу сервера 
 client.gets.chomp
 client.puts "Hi, TCP Server #{rhost}"
 client.close
