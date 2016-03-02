@@ -1,7 +1,8 @@
-# Email
+# Пошта
 
 
-## Sending Email
+## Відправка пошти
+
 **sendmail.rb**
 ```ruby
 #!/usr/bin/env ruby
@@ -45,7 +46,8 @@ end
 send_mail smtpsrv, username, password, frmemail, dstemail
 ```
 
-## Reading Email
+## Читання пошти
+
 **readmail.rb**
 ```ruby
 #!/usr/bin/env ruby
