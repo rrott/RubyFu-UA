@@ -301,32 +301,32 @@ server.recv(1024)                       # Отримання 1024 байт по�
 
 
 ## GServer
-GServer standard library implements a generic server, featuring thread pool management, simple logging, and multi-server management. Any kind of application-level server can be implemented using this class:
-- It accepts multiple simultaneous connections from clients
-- Several services (i.e. one service per TCP port)
-    - can be run simultaneously, 
-    - can be stopped at any time through the class method `GServer.stop(port)`
-- All the threading issues are handled
-- All events are optionally logged
+GServer - стандартна бібліотека що реалізує стандартний сервер, надаючи засоби для управління потоками, ведення журналу логів та мульти-серверного управіння. Будь-який вид сервера на рівні додатків може бути реалізований за допомогою цього класу:
+- Вміє приймати кілька одночасних підключень від клієнтів.
+- Надає кілька сервесів (наприклад один сервіс на один TCP порт)
+    - які можуть бути запущеними одночасно,
+    - можуть бути зупиненими за допомогою методу класу`GServer.stop(port)`
+- оброблює помилки
+- Всі події можуть бути внесеними в журнал.
 
 
-- Very basic GServer
+- Дуже простий GServer
 
 ```ruby
 require 'gserver'
 
-class HelloServer < GServer                 # Inherit GServer class
+class HelloServer < GServer                 # Успадковує клас GServer
   def serve(io)
     io.puts("What's your name?")
     line = io.gets.chomp
     io.puts "Hi, #{line}!"
-    self.stop if io.gets =~ /shutdown/      # Stop the server if you get shutdown string
+    self.stop if io.gets =~ /shutdown/      # Зупеняє сервер якщо отримує текст shutdown 
   end
 end
 
-server = HelloServer.new(1234, '0.0.0.0')   # Start the server on port 1234
-server.audit = true     # Enable logging
-server.start            # Start the service 
+server = HelloServer.new(1234, '0.0.0.0')   # запускає сервер на порту 1234
+server.audit = true     # Включає журналювання 
+server.start            #Запуска сервіс
 server.join
 ```
 
