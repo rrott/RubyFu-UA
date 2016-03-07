@@ -1,4 +1,4 @@
-# Розкриття даних DNS
+# Отримання даних DNS
 
 ```
 gem install net-dns
