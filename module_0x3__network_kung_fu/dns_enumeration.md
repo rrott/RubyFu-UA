@@ -1,23 +1,23 @@
-# DNS Enumeration
+# Розкриття даних DNS
 
 ```
 gem install net-dns
 ```
 
-In ruby script
+В Рубі скрипті:
 
 ```ruby
 require 'net/dns'
 ```
 
-### Forward DNS lookup
-The main usage is
+### Обробка DNS інформації 
+Посібник з використання вказує використовувати бібліотеку так:
 ```ruby
 require 'net/dns'
 resolver = Net::DNS::Resolver.start("google.com")
 ```
-Returns
-```
+І отримуємо
+`
 ;; Answer received from 127.0.1.1:53 (260 bytes)
 ;;
 ;; HEADER SECTION
@@ -49,16 +49,15 @@ ns4.google.com.         152198  IN      A       216.239.38.10
 ns2.google.com.         152198  IN      A       216.239.34.10
 ns1.google.com.         345090  IN      A       216.239.32.10
 ```
+Як можете бачити з відбовіді вище, маємо 5 секцій
 
-As you can see from response above, there are 5 sections
+* ** Header section:** секція заголовку DNS
+* **Question section:** DNS запит,
+* **Answer section:** Масив даних з відповіддю з сервера (основуючись на типові запиту. Наприклад:. A, NS, MX , etc)
+* **Authority section:** Список довірених серверів імен(nameserver)
+* **Additional section:** Список серверів імен, які біло переглянуто
 
-* ** Header section:** DNS lookup headers
-* **Question section:** DNS question,
-* **Answer section:** Array of the exact lookup answer (base on lookup type. ex. A, NS, MX , etc)
-* **Authority section:** Array of authority nameserver
-* **Additional section:** Array array of nameserver lookup
-
-Since its all are objects, we can call each section like that
+Оскільки все це об'єкти, ми можемо переглянути кожну секцію десь так:
 ```ruby
 resolver.header
 resolver.question
@@ -67,19 +66,20 @@ resolver.authority
 resolver.additional
 ```
 
-#### A record
+#### Запис "A-record"
 
-Because the *A* record is the default, we can do like above example
+Оскільки запис *A* встановлено за замовченням, ми можемо отримати його ось так:
 ```ruby
 resolver = Net::DNS::Resolver.start("google.com")
 ```
-or in one line to get exact **`answer`**.
+Або отримати точний результат в однин рядок:
 
 ```ruby
 resolver = Net::DNS::Resolver.start("google.com").answer
 ```
 
-will return an array with all IPs assigned to this domain
+Поверне список з усіма IP адресами, закріпленими за цим доменом
+
 ```
 [google.com.             34      IN      A       74.125.239.35,
  google.com.             34      IN      A       74.125.239.39,
@@ -94,7 +94,7 @@ will return an array with all IPs assigned to this domain
  google.com.             34      IN      A       74.125.239.41]
 ```
 
-### MX lookup
+### MX запис
 
 ```ruby
 mx = Net::DNS::Resolver.start("google.com", Net::DNS::MX).answer
