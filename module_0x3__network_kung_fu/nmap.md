@@ -38,8 +38,7 @@ end
 Кодна з опцій типу  `nmap.syn_scan` чи `nmap.xml`розглядається як *Задача*  [Документація](http://www.rubydoc.info/gems/ruby-nmap/frames "Official doc") має список [опцій](http://www.rubydoc.info/gems/ruby-nmap/Nmap/Task) що підтримуються цією бібліотекою.
 
 
-
-### Comprehensive scan
+### Повне, всебічне сканування
 
 ```ruby
 #!/usr/bin/env ruby
@@ -48,34 +47,34 @@ require 'nmap/program'
 
 Nmap::Program.scan do |nmap|
 
-  # Target
+  # Ціль
   nmap.targets = '192.168.0.1'
 
-  # Verbosity and Debugging
+  # Дебаг та режим виводу інформації
   nmap.verbose = true
   nmap.show_reason = true
 
-  # Port Scanning Techniques:
-  nmap.syn_scan = true          # You can use nmap.all like -A in nmap
+  # Методи сканування портів:
+  nmap.syn_scan = true          # можете використовувати nmap.all like -A в nmap
 
-  # Service/Version Detection:
+  # Визначення сервісів та їх версій:
   nmap.service_scan = true
   nmap.os_fingerprint = true
   nmap.version_all = true
 
-  # Script scanning
+  # Сканування скриптом
   nmap.script = "all"
 
   nmap.all_ports                # nmap.ports = (0..65535).to_a
 
-  # Firewall/IDS Evasion and Spoofing:
+  # Firewall/IDS обхіж та спуфінг:
   nmap.decoys = ["google.com","yahoo.com","hotmail.com","facebook.com"]
   nmap.spoof_mac = "00:11:22:33:44:55"
-  # Timing and Performance
+  # Час та швидкодія
   nmap.min_parallelism = 30
   nmap.max_parallelism = 130
 
-  # Scan outputs
+  # Вивід результатів скану
   nmap.output_all = 'rubyfu_scan'
 
 end
