@@ -3,22 +3,22 @@
 ```
 gem install ruby-nmap ronin-scanners
 ```
-As far as you understand how to use nmap and how basically it works, you'll find this lib is easy to use. You can do most of nmap functionality 
+Як тільки ви зрозумієте як користуватися nmap-ом і як він працює, ви зрозумієте наскільки проста в використанні ця бібліотека. Ми можемо робити все що вміє справжній nmap.
 
 
-### Basic Scan
-Ruby-nmap gem is a Ruby interface to nmap, the exploration tool and security / port scanner.
+### Сканування
+гем Ruby-nmap це рубі інтерфейс до програми nmap - порт сканру, що надає такий функціонал:
 
-* Provides a Ruby interface for running nmap.
-* Provides a Parser for enumerating nmap XML scan files.
+* рубі інтерфейс для запуску nmap
+* парсер для розбору XML файлу результату роботи nmap.
 
-let's see how it dose work.
+Давайте подивимося, як він працює
 
 ```ruby
 require 'nmap'
 scan = Nmap::Program.scan(:targets => '192.168.0.15', :verbose => true)
 ```
-### SYN Scan
+### Скунування SYN
 
 ```ruby
 require 'nmap/program'
@@ -34,7 +34,9 @@ Nmap::Program.scan do |nmap|
   nmap.targets = '192.168.1.*'
 end
 ```
-each option like `nmap.syn_scan` or `nmap.xml` is considered as a *Task*. [Documentation](http://www.rubydoc.info/gems/ruby-nmap/frames "Official doc") shows the list of [scan tasks/options](http://www.rubydoc.info/gems/ruby-nmap/Nmap/Task) that are supported by the lib.
+
+Кодна з опцій типу  `nmap.syn_scan` чи `nmap.xml`розглядається як *Задача*  [Документація](http://www.rubydoc.info/gems/ruby-nmap/frames "Official doc") має список [опцій](http://www.rubydoc.info/gems/ruby-nmap/Nmap/Task) що підтримуються цією бібліотекою.
+
 
 
 ### Comprehensive scan
