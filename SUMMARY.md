@@ -28,7 +28,7 @@
    * [Сканування Мережі](module_0x3__network_kung_fu/network_scanning.md)
        * [Nmap](module_0x3__network_kung_fu/nmap.md)
    * [DNS](module_0x3__network_kung_fu/dns.md)
-       * [DNS Enumeration](module_0x3__network_kung_fu/dns_enumeration.md)
+       * [Отримання даних DNS](module_0x3__network_kung_fu/dns_enumeration.md)
    * [SNMP Enumeration](module_0x3__network_kung_fu/snmp_enumeration.md)
    * [Oracle TNS Enumeration](module_0x3__network_kung_fu/tns_enumeration.md)
    * [Packet manipulation](module_0x3__network_kung_fu/packet_manipulation.md)
