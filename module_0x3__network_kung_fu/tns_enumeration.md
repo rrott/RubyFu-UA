@@ -95,15 +95,15 @@ def tns_packet(connect_data)
   pkt << "\x00\x00"
   # Value of 1 in Hardware
   pkt << "\x00\x01"
-  # Length of Connect Data
+  # Розмір підключени даних
   pkt << [connect_data.length].pack('n')
-  # Offset to Connect Data
+  # Зсув для підключення даних
   pkt << "\x00\x3A"
-  # Maximum Receivable Connect Data
+  # Максимальний розмір для підключення даних
   pkt << "\x00\x00\x00\x00"
-  # Connect Flags 0
+  # Флаг підключення 0
   pkt << "\x00"
-  # Connect Flags 1
+  # флаг підключання 1
   pkt << "\x00"
   # Trace Cross Facility Item 1
   pkt << "\x00\x00\x00\x00"
@@ -111,7 +111,7 @@ def tns_packet(connect_data)
   pkt << "\x00\x00\x00\x00"
   # Trace Unique Connection ID
   pkt << "\x00\x00\x34\xE6\x00\x00\x00\x01"
-  # Connect Data
+  # Підключення данних
   pkt << "\x00\x00\x00\x00\x00\x00\x00\x00"
   pkt << connect_data
 
