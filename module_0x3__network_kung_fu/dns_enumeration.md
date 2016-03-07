@@ -99,7 +99,7 @@ resolver = Net::DNS::Resolver.start("google.com").answer
 ```ruby
 mx = Net::DNS::Resolver.start("google.com", Net::DNS::MX).answer
 ```
-returns an array
+Повертає список:
 ```
 [google.com.             212     IN      MX      40 alt3.aspmx.l.google.com.,
  google.com.             212     IN      MX      30 alt2.aspmx.l.google.com.,
@@ -108,12 +108,12 @@ returns an array
  google.com.             212     IN      MX      10 aspmx.l.google.com.]
 ```
 
-### All lookup
+### Всі записи одразу
 
 ```ruby
 any = Net::DNS::Resolver.start("facebook.com", Net::DNS::ANY).answer
 ```
-returns
+повертає:
 ```
 [facebook.com.           385     IN      A       173.252.120.6,
  facebook.com.           85364   IN      TXT     ,
@@ -121,20 +121,20 @@ returns
  facebook.com.           149133  IN      NS      a.ns.facebook.com.]
 ```
 
-for list of types, please refer to the [gem docs](http://www.rubydoc.info/gems/net-dns/Net/DNS/RR/Types)
+Для отримання списку усії типів, передивіться [документацію до гема](http://www.rubydoc.info/gems/net-dns/Net/DNS/RR/Types)
 
 
-### Reverse DNS lookup
+### Зворотній перегляд DNS записів
 
 ```ruby
 resolver = Net::DNS::Resolver.new
 query = resolver.query("69.171.239.12", Net::DNS::PTR)
 ```
-If you want to specify the nameserver(s) to use, it support an array of nameserver
+Якщо вам треба указати якісь конкретні сервера імен, то це теж можливо:
 ```ruby
 resolver = Net::DNS::Resolver.new(:nameserver => "8.8.8.8")
 ```
-or update the object
+або оновіть сам об'єкт
 ```ruby
 resolver = Net::DNS::Resolver.new
 resolver.nameservers = ["8.8.4.4" , "8.8.8.8"]
