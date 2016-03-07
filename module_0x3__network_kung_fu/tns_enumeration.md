@@ -1,14 +1,14 @@
-# Oracle TNS Enumeration
+# Отримання даних Oracle TNS
 
-The practical way to understand how to a specific protocol works is to use it's client tools and monitor its packets. 
+Практичний метод зрозуміти як якийсь специфічний протокол працює, це використання його клієнтських програм та моніторінг пакетів, що надсилають ці програми.
 
-If you take a look to pure connection of SQL*plus client to a TNS listener from Wireshark, you'll find the first connect packet as bellow 
+Якщо ви подивитеся на підключення з SQL*plus клієнта до TNS сервера в програмі Wireshark,  ви помітите підключення типу такого: 
 
 | ![Wireshark](oracle_tns_enum1.png) |
 |:---------------:|
-| **Figure 1.** TNS Packet  |
+| **Картинка 1.** TNS Пакет  |
 
-- TNS Packet Description 
+- Опис пакету TNS  
 ```
 Transparent Network Substrate Protocol
     Packet Length: 224
@@ -37,7 +37,7 @@ Transparent Network Substrate Protocol
 ```
 
 
-- TNS Packet Hexdump 
+- TNS пакет в Hexdump 
 ```
 0000   08 00 27 3a fb 1d 3c 77 e6 68 66 e9 08 00 45 00  ..':..<w.hf...E.
 0010   01 14 65 4f 40 00 40 06 53 28 c0 a8 00 0f c0 a8  ..eO@.@.S(......
@@ -60,38 +60,38 @@ Transparent Network Substrate Protocol
 0120   29 29                                            ))
 ```
 
-Now base on our understanding, let's to build an equivalent request using ruby.
+Тепер, базуючись на наше розуміння пакети, давайте побудумо подібний запит використовуючи Рубі.
 
-- TNS packet builder
+- Побудова TNS пакету
 
 ```ruby
 def tns_packet(connect_data)
   
-  #=> Transparent Network Substrate Protocol
-  # Packet Length
+  #=> Transparent Network Substrate Протокол
+  # Розмір пакету
   pkt =  [58 + connect_data.length].pack('n')
-  # Packet Checksum
+  # Контрольна сума пакету
   pkt << "\x00\x00"
-  # Packet Type: Connect(1)
+  # Тип пакету: Connect(1)
   pkt << "\x01"
-  # Reserved Byte
+  # Зарезервовані байти
   pkt << "\x00"
-  # Header Checksum
+  # Контрольна сума заголовку
   pkt << "\x00\x00"
-  #=> Connect
-  # Version
+  #=> Підключання
+  # Версія
   pkt << "\x01\x36"
-  # Version (Compatible)
+  # Версія (Сумісна)
   pkt << "\x01\x2C"
-  # Service Options
+  # Опції сервера
   pkt << "\x00\x00"
-  # Session Data Unit Size
+  # Розмір одиниці даних сесії
   pkt << "\x08\x00"
-  # Maximum Transmission Data Unit Size
+  # Максимальний розмір одиниці даних сесії для передачі
   pkt << "\xFF\xFF"
-  # NT Protocol Characteristics
+  # зарактеристика протоколу NT
   pkt << "\x7F\x08"
-  # Line Turnaround Value
+  # значеня Turnaround лінії
   pkt << "\x00\x00"
   # Value of 1 in Hardware
   pkt << "\x00\x01"
