@@ -29,7 +29,7 @@
        * [Nmap](module_0x3__network_kung_fu/nmap.md)
    * [DNS](module_0x3__network_kung_fu/dns.md)
        * [Отримання даних DNS](module_0x3__network_kung_fu/dns_enumeration.md)
-   * [SNMP Enumeration](module_0x3__network_kung_fu/snmp_enumeration.md)
+   * [Отримання даних SNMP](module_0x3__network_kung_fu/snmp_enumeration.md)
    * [Oracle TNS Enumeration](module_0x3__network_kung_fu/tns_enumeration.md)
    * [Packet manipulation](module_0x3__network_kung_fu/packet_manipulation.md)
        * [ARP Spoofing](module_0x3__network_kung_fu/arp_spoofing.md)
