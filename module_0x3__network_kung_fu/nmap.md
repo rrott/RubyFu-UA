@@ -80,13 +80,13 @@ Nmap::Program.scan do |nmap|
 end
 ```
 
-### Parsing nmap XML scan file
-I made an aggressive scan on `scanme.nmap.org`
+### Розбір файлу XML з рузультатом роботи nmap
+Я запустив 'агресивний' скан сайту `scanme.nmap.org`
 ```
 nmap -n -v -A scanme.nmap.org -oX scanme.nmap.org.xml
 ```
 
-I quoted the code from official documentation (https://github.com/sophsec/ruby-nmap)
+Далі буде код з офіційного сайту проекту (https://github.com/sophsec/ruby-nmap)
 
 ```ruby
 require 'nmap/xml'
@@ -102,7 +102,7 @@ Nmap::XML.new(ARGV[0]) do |xml|
 end
 ```
 
-Returns
+Повертає
 ```
 [45.33.32.156]
   22/tcp        open    ssh
