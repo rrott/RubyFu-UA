@@ -120,20 +120,21 @@ def tns_packet(connect_data)
 end
 ```
 
-- SID Request 
+- Запит SID 
 
-There is a data structure for interacting with the TNS which is similar to the following `(DESCRIPTION=(CONNECT_DATA=(SID=#{sid})(CID=(PROGRAM=)(HOST=__jdbc__)(USER=)))(ADDRESS=(PROTOCOL=tcp)(HOST=#{host})(PORT=#{port})))`
+Є структура даних для роботи з TNS, що виглядає якось так:
+`(DESCRIPTION=(CONNECT_DATA=(SID=#{sid})(CID=(PROGRAM=)(HOST=__jdbc__)(USER=)))(ADDRESS=(PROTOCOL=tcp)(HOST=#{host})(PORT=#{port})))`
 ```ruby
 def sid_request(sid,host, port)
   connect_data = "(DESCRIPTION=(CONNECT_DATA=(SID=#{sid})(CID=(PROGRAM=)(HOST=__jdbc__)(USER=)))(ADDRESS=(PROTOCOL=tcp)(HOST=#{host})(PORT=#{port})))"
   pkt = tns_packet(connect_data)
 end
 ```
+Отже ми маємо все, щоб надіслати наш пакет, давайте побудуємо простенький tns-брутфорсер, щоб знайти всіх існуючих слухачів протоколу tns. Поведінка за замовченням для ораклівського 11g це відповідати порожнім повідомленням, якщо слухач існує, та повертати помилку, якщо його немає. Повідомлення про помилку приблизно таке:
+`g"[(DESCRIPTION=(TMP=)(VSNNUM=186647040)(ERR=12505)(ERROR_STACK=(ERROR=(CODE=12505)(EMFI=4))))`.
 
-Now we have everything to send our packet, let's to build a simple tns brute force to enumerate the exist tns listeners. The default behavior for oracle 11g is to reply with nothing if listener exist, and reply with error if it doesn't, the error similar to this `g"[(DESCRIPTION=(TMP=)(VSNNUM=186647040)(ERR=12505)(ERROR_STACK=(ERROR=(CODE=12505)(EMFI=4))))`.
-
-Let's to warp everything together by build a SID brute force script
-### SID Brute Force
+Давайте все це опишемо одним простим SID брутфорс скриптом 
+### SID брутфорс
 
 **tns_brute.rb**
 ```ruby
@@ -151,33 +152,33 @@ end
 sid  = ARGV[2] || 'PLSExtProc'
 
 #
-# Build TNS Packet
+# Збираємо TNS пакет
 #
 def tns_packet(connect_data)
   
   #=> Transparent Network Substrate Protocol
-  # Packet Length
+  # Розмір пакету
   pkt =  [58 + connect_data.length].pack('n')
-  # Packet Checksum
+  # Чексума пакету
   pkt << "\x00\x00"
-  # Packet Type: Connect(1)
+  # Тип пакету: Connect(1)
   pkt << "\x01"
   # Reserved Byte
   pkt << "\x00"
-  # Header Checksum
+  # Контрольна сума заголовку
   pkt << "\x00\x00"
-  #=> Connect
-  # Version
+  #=> Підключення
+  # Версія
   pkt << "\x01\x36"
-  # Version (Compatible)
+  # Версія (Compatible)
   pkt << "\x01\x2C"
-  # Service Options
+  # Опції сервісу
   pkt << "\x00\x00"
-  # Session Data Unit Size
+  # Розмір одиниці даних
   pkt << "\x08\x00"
-  # Maximum Transmission Data Unit Size
+  # Максимальний розмір одиниці передачі даних
   pkt << "\xFF\xFF"
-  # NT Protocol Characteristics
+  # Характеристики NT протоколу
   pkt << "\x7F\x08"
   # Line Turnaround Value
   pkt << "\x00\x00"
@@ -228,7 +229,7 @@ sids.each do |sid|
 end
 
 ```
-Run it 
+Запустіть скрипт:
 ```
 ruby tns_brute.rb 192.168.0.13 1521
 
@@ -236,9 +237,9 @@ ruby tns_brute.rb 192.168.0.13 1521
 [+] Found SID: XE
 ```
 
-**Notes:**
-- This script will work on Oracle 11g and before 
-- Notice `# -*- coding: binary -*-` at the top of the script because we are working on pure binary data that may not mean anything to the language.
+**Примітки:**
+- Скрипт працюватиме з ораклівским 11g або більш старішою версією 
+- Зверніть увагу на `# -*- coding: binary -*-` на початку скрипту - це через те, що ми працюємо з даними у бінарному форматі, які рубі не розумітиме. 
 
 <br><br><br>
 ---
