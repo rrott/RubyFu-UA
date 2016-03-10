@@ -33,7 +33,7 @@
    * [Отримання даних Oracle TNS](module_0x3__network_kung_fu/tns_enumeration.md)
    * [Робота з пакетами](module_0x3__network_kung_fu/packet_manipulation.md)
        * [Підміна ARP](module_0x3__network_kung_fu/arp_spoofing.md)
-       * [DNS Spoofing](module_0x3__network_kung_fu/dns_spoofing.md)
+       * [Підміна DNS](module_0x3__network_kung_fu/dns_spoofing.md)
 * [Модуль 0x4 | Кунг-Фу Тенет](module_0x4__web_kung_fu/README.md)
    * [SQL Injection Scanner](module_0x4__web_kung_fu/sql_injection_scanner.md)
    * [Databases](module_0x4__web_kung_fu/databases.md)
