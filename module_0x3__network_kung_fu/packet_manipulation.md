@@ -1,24 +1,24 @@
-# Packet manipulation
-In this chapter, we'll try to do variant implementations using the awesome lib, PacketFu[^1].
+# Робота з пакетами
+В цій главі ми спробуємо реалізувати деякі штуки використовуючи круту бібліотеку PacketFu[^1].
 
 
-## PacketFu - The packet manipulation
+## PacketFu - Робота з пакетами
 
-**PacketFu Features**
-* Manipulating TCP protocol
-* Manipulating UDP protocol
-* Manipulating ICMP protocol
-* Packet Capturing - Support TCPdump style[^2]
-* Read and write PCAP files
+**Можливості PacketFu **
+* Маніпулювання протоколом TCP
+* Маніпулювання протоколом UDP 
+* Маніпулювання протоколом ICMP 
+* Перехоплення пакетів - Підтримує формат TCPdump[^2]
+* Читає та пише в PCAP файли
 
 
-### Installing PacketFu
-Before installing packetfu gem you'll need to install `ruby-dev` and `libpcap-dev`
+### Встановлення PacketFu
+Перед встановленням гему packetfu вам потрібно встановити `ruby-dev` та `libpcap-dev`
 ```
 apt-get -y install libpcap-dev
 ```
 
-then install packetfu and pcaprub(required for packet reading and writing from network interfaces)
+Після цього встановіть packetfu та pcaprub(необхідний для читання та запису з мережевих інтерфейсів)
 ```
 gem install packetfu pcaprub
 ```
