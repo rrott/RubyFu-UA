@@ -23,9 +23,9 @@ apt-get -y install libpcap-dev
 gem install packetfu pcaprub
 ```
 
-### Basic Usage
+### Використання
 
-#### Get your interface information
+#### Отримати інформацію про ваш інтерфейс
 ```ruby
 require 'packetfu'
 
@@ -35,18 +35,18 @@ ifconfig[:ip_saddr]
 ifconfig[:eth_saddr]
 ```
 
-#### Get MAC address of a remote host
+#### Отримати MAC адресу віддаленого сервера
 ```ruby
 PacketFu::Utils.arp("192.168.0.21", :iface => "wlan0")
 ```
 
-#### Read Pcap file
+#### Прочитати Pcap файл
 ```ruby
 PacketFu::PcapFile.read_packets("file.pcap")
 ```
 
 
-### Building TCP Syn packet
+### Формування TCP Syn пакету
 
 ```ruby
 require 'packetfu'
@@ -110,8 +110,8 @@ scan
 ```
 
 
-### Simple TCPdump
-Lets see how we can
+### Простий TCPdump
+Дивіться, що ми можемо
 ```ruby
 require 'packetfu'
 
@@ -120,8 +120,8 @@ capture.show_live
 ```
 
 
-### Simple IDS
-This is a simple IDS will print source and destination of any communication has "hacked" payload
+### Простий IDS
+Цей простенький IDS буде друкувати джерело та пункт призначення будь-якої комунікації з користю для хакерів
 ```ruby
 require 'packetfu'
 
@@ -133,11 +133,11 @@ loop do
   end
 end
 ```
-Now try to Netcat any open port then send hacked
+Тепер спробуйте використати Netcat аби надіслати слово "Hacked"
 ```
 echo "Hacked" | nc -nv 192.168.0.15 4444
 ```
-return
+і отримаєту результат:
 ```
 2015-03-04 23:20:38 +0300: Source IP: 192.168.0.13 --> Destination IP: 192.168.0.15
 ```
