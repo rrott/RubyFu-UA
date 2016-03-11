@@ -1,8 +1,8 @@
-# ARP Spoofing
-As you know, ARP Spoofing attack in the core of MitM attacks. In this part we'll know how to write simple and effective ARP spoofer tool to use it in later spoofing attacks.
+# Підміна ARP
+Як ви знаєте, атака з підміною ARP(ARP Spoofing attack) це ядро атаки під назвою "Людина в середині"(MitM attacks). В цій частині ми дізнаємося як написати простий але ефективний підмінювач ARP та використаємо його пізніше для спуфінг атаки.
 
-#### Scenario
-We have 3 machines in this scenario as shown below.
+#### Сценарій
+В цьому сценарії у нас є три машини, розташовані як показано нижче:
 ```
              |Attacker|
                  |
