@@ -133,11 +133,11 @@ end
 
 ```
 
-> Note: Don't forget to enable packet forwarding on your system to allow victim to browse internet.
+> Зверніть увагу: Не забудьте ввімкнути опцію пересилання пакетиів(packet forwarding) на вашій системі аби жертва могла користуватися інтернетом:
 
 > `echo "1" > /proc/sys/net/ipv4/ip_forward `
 
-Returns, time to wiresharking ;)
+повертає наступне, і можемо погратися програмою wireshark ;)
 ```
 [+] Sending ARP packet to victim: 192.168.0.21
 [+] Sending ARP packet to router: 192.168.0.1
@@ -154,6 +154,6 @@ Returns, time to wiresharking ;)
 
 <br><br><br>
 ---
-[^1]: Create table the easy way - [Table Generator](http://www.tablesgenerator.com/markdown_tables)
+[^1]: Create генератор таблиць - [Table Generator](http://www.tablesgenerator.com/markdown_tables)
 
 [^2]: Source: [DNS Spoofing Using PacketFu](http://crushbeercrushcode.org/2012/10/ruby-dns-spoofing-using-packetfu/)
