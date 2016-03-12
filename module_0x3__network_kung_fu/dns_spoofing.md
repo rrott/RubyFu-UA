@@ -1,23 +1,23 @@
-# DNS Spoofing
-Continuing our attack through [ARP Spoofing](module_0x4__network_kung_fu/arp_spoofing.md), we want to change the victim's DNS request to whatever destination we like.
+# Підміна DNS 
+Продовжуючи тему про атаку [Підміни ARP](module_0x4__network_kung_fu/arp_spoofing.md), ми можемо підмінити DNS запит жертви на який ми захочемо.
 
-### Scenario
+### Сценарій
 ```
-                |Attacker|
-                    | AttackerSite
-                    ٧                      AttackerSite
-|Victim| ----------/ \----------> |Router| ----------> Internet
-          AnySite      AttackerSite
+                |Нападник|
+                    | Сайт нападника
+                    ٧                      сайт нападника
+|Жертва| ----------/ \----------> |Роутер| ----------> Інтернет
+        довільний сайт  сайт нападника
 ```
-> Keep the ARP spoof attack running
+> Залиште атаку на підміну ARP запущеною
 
-The same IPs of ARP spoof attack
+Ті самі IP як і раніше
 
-| Host        |   IP Address  |
+| Хост        |   IP адреса   |
 |:-----------:|:-------------:|
-| Attacker    | 192.168.0.100 |
-| Victim      | 192.168.0.21  |
-| Router      | 192.168.0.1   |
+| Нападник    | 192.168.0.100 |
+| Жертва      | 192.168.0.21  |
+| Роутер      | 192.168.0.1   |
 
 
 
