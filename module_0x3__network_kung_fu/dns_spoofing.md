@@ -21,23 +21,23 @@
 
 
 
-Now we cant intercept DNS Query packet coming from victim's machine. Since PacketFu supports filters in capturing (to reduce mount of captured packets) we'll use `udp and port 53 and host` filter, then we'll inspect the captured packet to ensure that it's a query then find the requested domain. [**Download DNS packet**][1].
+Тепер ми можемо перехоплювати запити до DNS що приходять з машини жертви. Оскільки PacketFu підтримує фільтрацію при захоплені(щоб зменшити кількість захоплених пакетів) ми використаємо фільтр `udp and port 53 and host`, а потім проаналізуємо захоплені пакети аби переконатися що іде запит до цікавого домену. [**Завантажте DNS пакет**][1].
 
-From Wireshark, if we take a deeper look at the DNS query payload in `Domain Name System (query)`, we can see its been presented in hexadecimal format.
+У програмі Wireshark, якщо ми зануримося глибше і подивимося на DNS запит `Domain Name System (query)`, ми побачимо, що він передається в шіснадцятирічному форматі.
 
 | ![Wireshark](../images/module03/dns_spoofing_wireshark1.png) |
 |:---------------:|
-| **Figure 1.** DNS query Payload  |
+| **Картинка 1.** DNS запит  |
 
 
-Let's to anatomize our payload
+Давайте проаналізуємо це:
 ```
 0000   e7 1d 01 00 00 01 00 00 00 00 00 00 07 74 77 69
 0010   74 74 65 72 03 63 6f 6d 00 00 01 00 01
 ```
-* The First 2 bytes is the **Transaction ID** and we don't care about it for now. (Our case: `\xe7\x1d`)
-* The next 2 bytes is the **Flags**[^3]. (We need: `\x01\x00` = \x10)
-* Furthermore, in **Queries** section which contains
+* перші два байти - це ** ID транзакції** і нам вона пока не цікава.(в нашому прикладі це `\xe7\x1d`)
+* Наступні два байти - це **Флаг**[^3]. (Нам потрібен: `\x01\x00` = \x10)
+* Більш того, в секції **Запити** є наступне:
 
 ```
 0000   07 74 77 69 74 74 65 72 03 63 6f 6d 00 00 01 00
