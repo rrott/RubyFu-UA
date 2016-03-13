@@ -123,14 +123,14 @@ puts response.code
 puts response.body
 ```
 
-## More control on Post variables
-Let's to take the following form as a simple post form to mimic in our script
+## Більше влади над змінними в Post реквесті
+Давайте візьмемо наступну форму і спробуємо відтворити те, що браузер відправить на сервер:
 
 | ![PostForm](../images/module04/webfu__post_form1.png) |
 |:---------------:|
-| **Figure 1.** Simple Post form |
+| **Картинка 1.** Проста Post форма |
 
-Post form code:
+Post запит з коду:
 ```html
 <FORM METHOD=POST ACTION="http://wwwx.cs.unc.edu/~jbs/aw-wwwp/docs/resources/perl/perl-cgi/programs/cgi_stdin.cgi">
 
