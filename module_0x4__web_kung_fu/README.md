@@ -158,8 +158,7 @@ Post запит з коду:
 </FORM>
 
 ```
-
-We need to send a Post request as the form figure 1 would do with control on each value and variable.
+Нам потрібно відправити Post запит такий самий, який би відправила форма з нашої картинки
 ```ruby
 require "net/http"
 require "uri"
@@ -202,12 +201,11 @@ puts "Response body: " + response.body
 ```
 
 
-## Dealing with Cookies
-Some times you need to deal with some actions after authentication. Ideally, it's all about cookies.
-
-Notes: 
-- To Read cookies you need to get **set-cookie** from **response**
-- To Set cookies you need to set **Cookie** to **request** 
+## Робота з Cookies
+Іноді вам потрібно буде щось робити вже після аутентифікації. В ідеалі це все буде пов'язано з cookies
+Увага: 
+- Щоб прочитати cookies вам потрібно отримати **set-cookie** з **response**
+- Щоб встановити cookies треба встановити  **Cookie** в **request** 
 
 
 ```ruby
