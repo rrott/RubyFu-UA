@@ -1,8 +1,8 @@
-# Chapter 0x4 | Web Kung Fu
+# Розділ 0x4 | Кунг-Фу Тенет
 
-## Send Get request
+## Надсилання GET реквесту
 
-### Using Net::HTTP
+### використовуючи Net::HTTP
 ```ruby
 #!/usr/bin/env ruby
 # KING SABRI
@@ -42,7 +42,7 @@ def send_sqli(query)
 end
 ```
 
-#### Simple Shortened URL extractor 
+#### Видобувач посилання зі скороченої лінки 
 
 **urlextractor.rb**
 ```ruby
@@ -59,7 +59,7 @@ loop do
   end
 end
 ```
-Run it
+Запустіть:
 ```bash
 $ruby redirect.rb http://bit.ly/1JSs7vj
 http://bit.ly/1JSs7vj
@@ -68,11 +68,11 @@ https://tinyurl.com/hg69vgm
 http://rubyfu.net
 ```
 
-Ok, what if I gave you this shortened url(`http://short-url.link/f2a`)? try the above script and tell me what's going-on
+Добре, а що якщо я дам вам наступну скорочену лінку(`http://short-url.link/f2a`)? Спробуйте вищенаведений скрипт і розкажіть мені що відбулося.
 
 
-### Using Open-uri
-Here another way to do the same thing 
+### Використовуючи Open-uri
+Ось інший спосіб зробити те саме: 
 ```ruby
 #!/usr/bin/env ruby
 require 'open-uri'
@@ -100,8 +100,8 @@ def send_sqli
 end
 ```
 
-## Send HTTP Post request with custom headers
-Here the post body from a file
+## Відправлення HTTP Post реквесту з довільними заголовками
+Ось тіло пост запиут з файлу:
 ```ruby
 require 'net/http'
 
