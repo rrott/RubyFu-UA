@@ -113,9 +113,9 @@ ruby sqli.rb http://testasp.vulnweb.com/showforum.asp?id=0
 [+] The http://testphp.vulnweb.com/artists.php?artist=1' is vulnerable!
 ```
 
-## Boolean-bases SQLi Exploit Script
+## Двійковий SQLi кусплойт скрипт
 
-Here is a Boolean-based SQLi exploit for [sqli-labs](https://github.com/Audi-1/sqli-labs) vulnerable application.
+Ось простий двійковий експлойт для враздивої програми від [sqli-labs](https://github.com/Audi-1/sqli-labs) 
 
 ```ruby
 #!/usr/bin/env ruby
@@ -181,8 +181,8 @@ end
 puts "\n\n[+] Final found string: ".bold + "#{extracted.join}".green
 ```
 
-## Time-bases SQLi Exploit Script
-A Time-based SQLi exploit for [sqli-labs](https://github.com/Audi-1/sqli-labs) vulnerable application.
+## Експлойт скрипт для SQLi основаній на використанні часових проміжок(Time-based SQLi)
+Експлойт для вразливих програм від [sqli-labs](https://github.com/Audi-1/sqli-labs)
 
 ```ruby
 #!/usr/bin/env ruby
