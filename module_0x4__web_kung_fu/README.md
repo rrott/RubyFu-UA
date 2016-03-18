@@ -308,16 +308,16 @@ Shell -> ls -la
 ```
 
 ## Mechanize
-Since we're talking about dealing with web in ruby, we can't forget **Mechanize** gem, the most known library for dealing wit web.
+Оскількки ми маємо справу з тенетами та рубі, ми не можемо забувати про гем **Mechanize** - найвідоміша бібліотека для работи з тенетами.
 
-**The Official description says**, the Mechanize library is used for automating interaction with websites. Mechanize automatically stores and sends cookies, follows redirects, and can follow links and submit forms. Form fields can be populated and submitted. Mechanize also keeps track of the sites that you have visited as a history.
+**З офіційного опису програми** - бібліотека Mechanize використовується для роботи з вебсайтами. Mechanize автоматично зберігає та відправляє кукі, працює з перенаправленнями та може переходити за посиланнями та відправляти форми. Поля введення в формі можуть бути заповненими та відправленими. Також, Mechanize може зберігати історію перегляду та переходів по сайтам.
 
-More about Mechanize gem
-- [Getting Started With Mechanize][3]
-- [Mechanize examples][4]
-- [RailsCasts | Mechanize tutorial][5]
+Більше інформації пол гем Mechanize
+- [Початок роботи з Mechanize][3]
+- [Приклади роботи з Mechanize examples][4]
+- [RailsCasts | посібник Mechanize ][5]
 
-Since you know the hard way, you'll find Mechanize as simple as mouse clicks! give it a try!
+Оскілки ви вже знаєте як працювати з тенетами більш детально, робота з Mechanize вам здасться дуже простою - просто клікаємо і отримуємо результат. Спробуйте!
 
 
 ## HTTP.rb
