@@ -321,13 +321,13 @@ Shell -> ls -la
 
 
 ## HTTP.rb
-HTTP (The Gem! a.k.a. http.rb) is an easy-to-use client library for making requests from Ruby. It uses a simple method chaining system for building requests, similar to Python's Requests.
+HTTP (Це гем! ще відомий як http.rb) - дуже проста для використання бібліотека для виконання запитів з Рубі програм. Вона впроваджує систему ланцюжкового виклику команд, для побудови запитів, схоже до запитів в Python.
 
-Under the hood, http.rb uses http_parser.rb, a fast HTTP parsing native extension based on the Node.js parser and a Java port thereof. This library isn't just yet another wrapper around Net::HTTP. It implements the HTTP protocol natively and outsources the parsing to native extensions.
+В середині, http.rb використовує http_parser.rb - швидкий парсер HTTP що базується на Node.js та порті з Java. Ця бібліотека - це не просто зе одна обгортка для Net::HTTP. Вона реалізує HTTP протокол
 
-More about http.rb gem
-- [The Official repository][6]
-- [The official wiki][7]
+Більше про гем http.rb
+- [Офіційне git сховище][6]
+- [Офіційна документація][7]
 
 <br><br><br>
 ---
