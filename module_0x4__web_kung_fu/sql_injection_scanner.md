@@ -1,9 +1,9 @@
-# SQL Injection Scanner
+# Сканер SQL ін'єкцій
 
 
-## Basic SQLi script as command line browser
+## Простий SQLi скрпт та консольний сканер
 
-The is a very basic script take your given payload and send it to the vulnerable parameter and returns the response back to you. I'll use (http://testphp.vulnweb.com/) as it's legal to test.
+Цей дуже-дуже простий скрипт отримує ваш код і відправляє його використовуючи уразливий параметр та повертає результат роботи назад. Я буду використовувати (http://testphp.vulnweb.com/) оскільки його можно легально використовувати для атак.
 
 ```ruby
 #!/usr/bin/env ruby
@@ -35,11 +35,9 @@ puts ""
 ```
 
 
-> I've commented the line `puts response.body.gsub(/<.*?>/, '').strip` and added a custom regular expression to fix our target outputs.
+>  Я закоментував строку `puts response.body.gsub(/<.*?>/, '').strip` та додав свій регулярний вираз аби виправити вивід результату роботи.
 
-
-
-Let's to test it in action
+Давайте перевіремо його в роботі
 
 ```
 ruby sqli-basic.rb "testphp.vulnweb.com" "-1 UNION ALL SELECT NULL,NULL,NULL,NULL#" | grep -i -e warning -e error
@@ -58,8 +56,7 @@ ruby sqli-basic.rb "testphp.vulnweb.com" "-1 UNION ALL SELECT NULL,GROUP_CONCAT(
 
 
 
-
-Here a very basic and simple SQL-injection solid scanner, develop it as far as you can!
+Ось дуже прости сканер SQL-ін'єкцій, спробуйте написати його самостійно!
 
 ```ruby
 #!/usr/bin/env ruby
@@ -108,9 +105,9 @@ puts "[+] The #{URL.decode(uri.to_s)} is vulnerable!" unless response.match(/#{e
 
 ```
 
-Try it on this URL (http://testasp.vulnweb.com/showforum.asp?id=0)
+Випробуйте його на цій сторінці: (http://testasp.vulnweb.com/showforum.asp?id=0)
 
-Results
+Результат має бути десь таким:
 ```
 ruby sqli.rb http://testasp.vulnweb.com/showforum.asp?id=0
 [+] The http://testphp.vulnweb.com/artists.php?artist=1' is vulnerable!
