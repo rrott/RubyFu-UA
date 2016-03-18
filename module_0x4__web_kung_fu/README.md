@@ -331,8 +331,9 @@ HTTP (Це гем! ще відомий як http.rb) - дуже проста д�
 
 <br><br><br>
 ---
-[^1]: [WebShellConsole](https://github.com/KINGSABRI/WebShellConsole) is simple interactive console, interacts with simple web shells using HTTP GET rather than using browser. wsc will work with any shell use GET method. It takes care of all URL encoding too.
-- [CGI Examples](http://www.java2s.com/Code/Ruby/CGI/CatalogCGI.htm)
+[^1]: [WebShellConsole](https://github.com/KINGSABRI/WebShellConsole) це проста інтерактивна консоль, що може спілкуватися з web-shells використовуючи HTTP GET протокол, не використовуючи переглядач тенет і може працюівати з будьяким шелом, що використовує метод GET. 
+
+- [Приклади CGI](http://www.java2s.com/Code/Ruby/CGI/CatalogCGI.htm)
 [3]: http://docs.seattlerb.org/mechanize/GUIDE_rdoc.html
 [4]: http://docs.seattlerb.org/mechanize/EXAMPLES_rdoc.html
 [5]: http://railscasts.com/episodes/191-mechanize
