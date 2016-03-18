@@ -36,7 +36,7 @@
        * [Підміна DNS](module_0x3__network_kung_fu/dns_spoofing.md)
 * [Модуль 0x4 | Кунг-Фу Тенет](module_0x4__web_kung_fu/README.md)
    * [Сканер SQL ін'єкцій](module_0x4__web_kung_fu/sql_injection_scanner.md)
-   * [Databases](module_0x4__web_kung_fu/databases.md)
+   * [Бази даних](module_0x4__web_kung_fu/databases.md)
    * [Extending Burp Suite](module_0x4__web_kung_fu/extending_burpsuite.md)
    * [Browser Manipulation](module_0x4__web_kung_fu/browser_manipulation.md)
    * [Web Services and APIs](module_0x4__web_kung_fu/web_servcies_and_apis.md)
