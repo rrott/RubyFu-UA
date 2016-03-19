@@ -60,7 +60,7 @@ gem install activerecord
 gem install mysql 
 ```
 
-Login to mysql console and create database *rubyfu_db* and table *attackers*
+Увійдіть в консоль mysql та створіть базу даних *rubyfu_db* з таблицею *attackers*
 
 ```
 create database rubyfu_db;
@@ -77,7 +77,7 @@ create table attackers (
 exit
 ```
 
-The outputs look like following 
+Вивід матиме десь такий вигляд:
 ```
 mysql -u root -p
 Enter password: 
@@ -113,8 +113,7 @@ Query OK, 0 rows affected (0.01 sec)
 mysql> exit
 ```
 
-
-Now, let's to connect to *rubyfu_db* database 
+Тепер, давайте підключемося до бази *rubyfu_db*  
 ```ruby
 require 'active_record'  
 ActiveRecord::Base.establish_connection(  
@@ -128,16 +127,18 @@ ActiveRecord::Base.establish_connection(
 class Attackers < ActiveRecord::Base  
 end  
 ```
-- Using the ActiveRecord library, available as the activerecord gem.
-- Using the ActiveRecord adapter namely *mysql*
-- Establishing a connection to the database *rubyfu_db*
-- Creating a class called *Attackers* following the conventions mentioned above (attacker)
+
+- Використаємо бібліотеку ActiveRecord, яка доступна як гем activerecord
+- Використаємо ActiveRecord адаптер для *mysql*
+- Виконаємо під'єднання до бази даних *rubyfu_db*
+- Створимо клас з назвою *Attackers* вкиористовуючи домовленності вказані вище (attacker)
 
 ```ruby
 Attackers.create(:name => 'Anonymous',    :ip => "192.168.0.7")  
 Attackers.create(:name => 'LulzSec',      :ip => "192.168.0.14")  
 Attackers.create(:name => 'Lizard Squad', :ip => "192.168.0.253")  
 ```
+
 You will observe that ActiveRecord examines the database tables themselves to find out which columns are available. This is how we were able to use accessor methods for participant.name without explicitly defining them: we defined them in the database, and ActiveRecord picked them up.
 
 You can find the item 
