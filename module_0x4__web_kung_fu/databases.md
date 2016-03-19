@@ -139,23 +139,23 @@ Attackers.create(:name => 'LulzSec',      :ip => "192.168.0.14")
 Attackers.create(:name => 'Lizard Squad', :ip => "192.168.0.253")  
 ```
 
-You will observe that ActiveRecord examines the database tables themselves to find out which columns are available. This is how we were able to use accessor methods for participant.name without explicitly defining them: we defined them in the database, and ActiveRecord picked them up.
+Ви спостерігатимете за тим, як ActiveRecord перевірятиме наявні таблиці бази даних, досліджує, щоб з'ясувати, які стовпці доступні. Саме через це ми матимемо змогу використовувати аксесори з іменами таблиць не визначаючи їх заздалегідь - ми визначили їх в базі даних й ActiveRecord автоматично підхопив їх.
 
-You can find the item 
-- by id
+Ви можете знайти їх 
+- по айді
 ```
 Attackers.find(1)
 ```
-- by name
+- за іменем
 ```
 Attackers.find_by(name: "Anonymous")
 ```
-Result 
+Результат 
 ```ruby
 #<Attackers:0x000000010a6ad0 id: 1, name: "Anonymous", ip: "192.168.0.7">
 ```
 
-or you can work it as object
+або ж ви можете працювати з ними як зі звичайними об'єктами
 ```ruby
 attacker = Attackers.find(3)
 attacker.id
@@ -163,15 +163,14 @@ attacker.name
 attacker.ip
 ```
 
-
-If you want to delete an item from the database, you can use the destroy (Deletes the record in the database) method of ActiveRecord::Base:
+Якщо вам треба видалити елемент з бази, ви можете використати команду destroy з ActiveRecord::Base:
 
 
 ```ruby
 Attackers.find(2).destroy  
 ```
+Отже, напишемо повний скрипт:
 
-So to write a complete script, 
 ```ruby
 #!/usr/bin/env ruby
 # KING SABRI | @KINGSABRI
@@ -208,18 +207,19 @@ Attackers.find(2).destroy
 ```
 
 
-### Oracle database
+### База даних Oracle 
 
-- Prerequisites
+- Передумови
 
-in order to make [ruby-oci8](http://www.rubydoc.info/gems/ruby-oci8/file/docs/install-full-client.md) -which is the main dependency for oracle driver- works you've to do some extra steps: 
-- Download links for [Linux](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html) | [Windows](http://www.oracle.com/technetwork/topics/winsoft-085727.html) | [Mac](http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html) 
+аби зібрати [ruby-oci8](http://www.rubydoc.info/gems/ruby-oci8/file/docs/install-full-client.md) (що є основною задежністю лоя роботи з драйвером від oracle) вам треба виконати наступні кроки:
+
+ - Завантажте архів програми для вашої системи: [Linux](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html) | [Windows](http://www.oracle.com/technetwork/topics/winsoft-085727.html) | [Mac](http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html) 
  - instantclient-basic-[OS].[Arch]-[VERSION].zip
  - instantclient-sqlplus-[OS].[Arch]-[VERSION].zip
  - instantclient-sdk-[OS].[Arch]-[VERSION].zip
 
 
-- Unzip downloaded files 
+- Роапакуйте викачаний архів: 
 
 ```
 unzip -qq instantclient-basic-linux.x64-12.1.0.2.0.zip
@@ -227,14 +227,14 @@ unzip -qq instantclient-sdk-linux.x64-12.1.0.2.0.zip
 unzip -qq instantclient-sqlplus-linux.x64-12.1.0.2.0.zip
 ```
 
-- Create system directories
-as root / sudo 
+- Створіть системні папки
+від імені рута чи за допомогою sudo 
 
 ```
 mkdir -p /usr/local/oracle/{network,product/instantclient_64/12.1.0.2.0/{bin,lib,jdbc/lib,rdbms/jlib,sqlplus/admin/}}
 ```
 
-The file structure should be 
+Файлова система має виглядати приблизно так:
 ```
 /usr/local/oracle/
 ├── admin
@@ -252,7 +252,7 @@ The file structure should be
                 └── admin
 ```
 
-- Move files 
+- Перемістіть/скопіюйте розпаковані файли:
 
 ```
 cd instantclient_12_1
@@ -271,10 +271,10 @@ ln -s ../lib/sdk sdk
 cd -
 ```
 
-- Setup environment 
+- Налоштуйте оточення системи
 
 
-Append oracle environment variables in to `~/.bashrc` Then add the following:
+Додайте змінні оточення oracle до файлу `~/.bashrc` Потім додайте наступне:
 
 ```
 # Oracle Environment 
@@ -286,17 +286,17 @@ export LD_LIBRARY_PATH
 export TNS_ADMIN=$ORACLE_BASE/admin/network
 export SQLPATH=$ORACLE_HOME/sqlplus/admin
 ```
-Then run:
+Та виконайте команду:
 ```
 source ~/.bashrc
 ```
 
-- To install Oracle adapter
+- Щоб встановити адаптер Oracle виконайте:
 ```
 gem install ruby-oci8 activerecord-oracle_enhanced-adapter
 ```
 
-Now let's to connect 
+Тепер спробуємо підключитися:
 ```
 require 'active_record'
 
