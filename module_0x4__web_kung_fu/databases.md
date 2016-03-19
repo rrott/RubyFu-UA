@@ -1,18 +1,19 @@
-# Databases
-Dealing with database is a required knowledge in web testing and here we will go though most known databases and how to deal with it in ruby.
+# Бази даних
+Робота з базами даних потребує знань в тестуванні тенет і далі ми пройдемося по найбільш відомим базам даних та тим, як з ними працюівати.
 
 ## SQLite 
 
-- To install sqlite3 gem 
+- Щоб встановит гем sqlite3 виконайте наступну команду: 
 ```
 gem install sqlite3
 ```
-You've have to have sqlite3 development libraries installed on your system
+Вам потрібно буде мати встановленими бібіліотеки розробника для sqlite3
+
 ```
 apt-get install libsqlite3-dev
 ```
 
-- Basic operations
+- основні операції
 
 ```ruby
 require "sqlite3"
@@ -48,13 +49,13 @@ db.execute  "SELECT * FROM sqlite_master where type='table'"
 
 
 ## Active Record
-- To install ActiveRecord 
+- Щоб встановити ActiveRecord виконайте команду
 ```
 gem install activerecord 
 ```
 
-### MySQL database
-- To install MySQL adapter
+### база даних MySQL 
+- Аби встановити адаптер MySQL виконайте:
 ```
 gem install mysql 
 ```
