@@ -315,10 +315,10 @@ end
 
 
 
-### MSSQL database
+### База даних MSSQL
 
 
-- To install MSSQL adapter
+-  Щоб встановити адаптер MSSQL виконайте наступне:
 
 ```
 gem install tiny_tds activerecord-sqlserver-adapter
