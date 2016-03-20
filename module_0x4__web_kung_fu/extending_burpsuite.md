@@ -1,10 +1,10 @@
-# Extending Burp Suite
+# Розширюючи Burp Suite
 
-## Setting up the Ruby environment for Burp Extensions 
+## Налаштування рубі оточення для розширень Burp 
 
-1. Download a stable version of JRuby from [JRuby Downloads](http://jruby.org/download)
-2. Select the jar for Linux (JRuby x.x.x Complete .jar) or Executable for Windows.
-3. Import the environment from **Burp Suite** >> **Extender** >> **Options** >> **Ruby Environment**.
+1. Завантажте стабільну версію JRuby з [JRuby Downloads](http://jruby.org/download)
+2. Виберіть jar для Linux (JRuby x.x.x Complete .jar) або запускач для Windows.
+3. Зімпотруйте оточення **Burp Suite** >> **Extender** >> **Options** >> **Ruby Environment**.
 
 ![](webfu__burp_setenv1.png)
 
@@ -16,7 +16,7 @@
 - http://www.gotohack.org/2011/05/cktricky-appsec-buby-script-basics-part.html
 - https://portswigger.net/burp/extender/
 
-Import the Burp Suite Extender Core API `IBurpExtender`
+Зімпортуйте Burp Suite Extender Core API `IBurpExtender`
 
 **alert.rb**
 ```ruby
@@ -32,14 +32,14 @@ class BurpExtender
   end
 end
 ```
-Load the plugin alert.rb
+Завантажте плагін alert.rb
 ![](webfu__burp-ext1.png)
 
-Check Alert tab
+Перевірте вкладку Alerts
 ![](webfu__burp-ext2.png)
 
 ## Buby
-Buby is a mashup of JRuby with the popular commercial web security testing tool Burp Suite from PortSwigger. Burp is driven from and tied to JRuby with a Java extension using the BurpExtender API. This extension aims to add Ruby scriptability to Burp Suite with an interface comparable to the Burp's pure Java extension interface.
+Buby - це суміш JRubyз популярними комерційними інструментами для перевірки на безпеку в Burp Suite від PortSwigger. Курування Burp буде передано до JRuby за допомогою розширень Java використовуючи API від BurpExtender. Це розгирення прагне додати фічі Рубі до Burp Suite з інтерфесом, сумісним з Java інтерфейсом Burp-а
 
 
 
