@@ -1,20 +1,20 @@
-# Browser Manipulation 
-As a hacker, sometimes you need to automate your client side tests (ex. XSS) and reduce the false positives that happen specially in XSS tests. The traditional automation depends on finding the sent payload been received in the response, but it doesn't mean the vulnerability get really exploited so you have to do it manually again and again.
+# Маніпуляція переглядачем тенет 
+Як хакеру, вам може знадобитися мождивість автоматизації ваших тестів(наприклад XSS) для зменшення кількості помилкових спрацювань, що часту трапляються, особливо в разі тустування на XSS. Традиційна автоматизація залежить від того, що треба знайти, відповіді івд сервера, але все одно, коли щось знаходиться, то це часто неможливо використати на приактиці й все оддно треба перевіряти результати вручну.
 
-Here we'll learn how to make ruby controls our browser in order to **emulate** the same attacks from browser and get the real results.
+Тут ми вивчемо як передати контроль браузером до рубі щоб повторити атаку з переглядача тенет та отримати результат.
 
-The most known APIs for this task are ***Selenium*** and ***Watir*** which support most know web browsers currently exist.
+Найбільш відомі API для цього - це ***Selenium*** та ***Watir*** які підтримують усі відомі й поширені браузери,
 
 ## Selenium Webdriver
-[**Selenium**](https://github.com/seleniumhq/selenium) is an umbrella project encapsulating a variety of tools and libraries enabling web browser automation.
+[**Selenium**](https://github.com/seleniumhq/selenium) це набір бібілотек та проектів що допомагають автоматизувати роботу з переглядачем. 
 
-- To install selenium gem
+- Щоб встановити гем selenium виконайте команду:
 ```
 gem install selenium-webdriver
 ```
 
 
-### GET Request 
+### GET Запит 
 ```ruby
 #!/usr/bin/env ruby
 # KING SABRI | @KINGSABRI
@@ -48,10 +48,10 @@ element.submit                                      # Submit the text you've jus
 ```
 
 
-> Note that the actual keys to send depend on your OS, for example, Mac uses `COMMAND + t`, instead of `CONTROL + t`.
+> Зверніть увагу, ключі залежать від вашої операційної системи. Наприклад, Mac використовує `COMMAND + t`, замість `CONTROL + t`.
 
 
-### POST Request 
+### POST Запит 
 ```ruby
 #!/usr/bin/env ruby
 # KING SABRI | @KINGSABRI
@@ -80,14 +80,13 @@ submit = browser.find_element(:name, "btnSubmit").click #.submit
 # browser.quit
 ```
 
+Давайте протестуємо сотрінку на наявність XSS вразливостей. Спочатку я напишу список того, що саме для цього треба зробити в переглядачі:
 
-Let's test the page against XSS vulnerability. First I'll list what kind of action we need from browser
-
-1. Open a browser window (Firefox)
-2. Navigate to a URL (altoromutual.com)
-3. Perform some operations (Send an XSS payload)
-4. Check if the payload is working(Popping-up) or it's a false positive 
-5. Print the succeed payloads on terminal
+1. Відкрити вікно браузера(Firefox)
+2. Перецти до цікавої нам сторінки(altoromutual.com)
+3. Зробити певні операції(Відправити XSS код)
+4. Перевірити чи спрацював код(Відкрилося спливаєче вікно) чи це помилкове спрацювання 
+5. Вивести робочі спрацювання на екран
 
 **selenium-xss.rb**
 ```ruby
@@ -138,7 +137,7 @@ end
 browser.close
 ```
 
-Result
+Результат:
 ```
 > ruby selenium-xss.rb
 Payload is working: <video src=x onerror=alert(1);>
