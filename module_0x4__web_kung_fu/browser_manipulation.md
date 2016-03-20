@@ -151,15 +151,15 @@ False Positive: alert(/6/.source)
 
 
 ## Watir Webdriver
-[**Watir**](http://watirwebdriver.com/) is abbreviation for (Web Application Testing in Ruby). I believe that Watir is more elegant than Selenium but I like to know many ways to do the same thing, just in case. 
+[**Watir**](http://watirwebdriver.com/) - це скорочення для "Web Application Testing in Ruby". Я думаю, що Watir більш елегантний ніж Selenium але меня подобається знати кілька шляхів для отримання одного й того ж результату, просто на всяк випадок. 
 
-- To install watir gem
+- Аби встановити гем watir виконайте команду:
 ```
 gem install watir-webdriver
 ```
 
 
-### GET Request 
+### GET Запит 
 
 ```ruby
 #!/usr/bin/env ruby
@@ -177,7 +177,7 @@ btn.click
 # browser.close
 ```
 
-Sometime you'll need to send XSS GET request from URL like `http://app/search?q=<script>alert</script>`. You'll face a known error `Selenium::WebDriver::Error::UnhandledAlertError: Unexpected modal dialog` if the alert box popped up but it you do refresh page for the sent payload it'll work so the fix for this issue is the following.
+Іноді вам знадобиться надіслати XSS GET запит з посилання типу `http://app/search?q=<script>alert</script>`. Ви отримаєте дуже знану помилку `Selenium::WebDriver::Error::UnhandledAlertError: Unexpected modal dialog` якщо відкриється вікно алерту. Якщо ж оновити сторінку з тим самим XSS кодом, то все працюватиме, одже наступний код допоможе нам уникнути цієї проблеми:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -202,7 +202,7 @@ if browser.alert.exists?
 end
 ```
 
-### POST Request 
+### POST Запит 
 
 ```ruby
 #!/usr/bin/env ruby
@@ -221,12 +221,13 @@ btn = browser.button(name: 'btnSubmit').click
 # browser.close
 ```
 
-> - Since Waiter is integrated with Selenium, you can use both to achieve one goal 
-> - For Some reason in some log-in cases, you may need to add a delay time between entering username and password then submit.
+> - Оскільки Waiter інтегровано до Selenium, задля досягнення цілі ви можете використовувати обидва
+> - В деяких випадках при регістрації чомусь треба виставляти затримку перед введенням логіну/паролю та відправки форми.
 
 
 
-## Selenium, Watir Arbitrary POST request
+## Довільні Post запити в Selenium та Watir
+
 Here another scenario I've faced, I was against POST request without submit button, in another word, the test was against intercepted request generated from jQuery function, in my case was a drop menu. So The work round wad quite simple, Just create an HTML file contains POST form with the original parameters plus a **Submit button**(***just like creating CSRF exploit from a POST form***) then call that html file to the browser and deal with it as normal form. Let's to see an example here.
 
 **POST request**
