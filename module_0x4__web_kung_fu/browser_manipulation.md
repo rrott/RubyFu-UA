@@ -309,8 +309,8 @@ payloads.each do |payload|
 end
 ```
 
-### Dealing with tabs
-One of scenarios I've faced is to exploit XSS a user profile fields and check the result in another page which present the public user's profile. Instead of revisiting the URLs again and again I open new tab and refresh the public user's profile page then return back to send the exploit and so on.
+### Робота з вкладками
+ОДин із сценаріїв,як також мені траплялися була XSS атака на поля вводу в профайлі користувача та перевірка рещультату на іншій сторінці, яка показує публічний профайл користувача. Замість того, щоб перезаходити на сторінку знов і знов, я відкрив нову вкладку браузеру і оновлював її кожного разу. як міняв жанні в профайлі.
 
 **xss_tab.rb**
 ```ruby
