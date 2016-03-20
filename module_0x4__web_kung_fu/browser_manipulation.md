@@ -227,10 +227,9 @@ btn = browser.button(name: 'btnSubmit').click
 
 
 ## Довільні Post запити в Selenium та Watir
+Ось інший сценарій, з яким мені довелося стрітися: Мені треб було робити POST запити при відсутності кнопки "відправити", інакшекажучи, тестувався запит, який робився за допомогою jQuery, в моєму випадку це було випадаюче меню. Я вирішив проблему дуже просто: створив РЕЬД файл, що мав в собі ЗЩЫЕ форму з оригінальними параметрами та кнопку відправлення форми(***приблизно як зробити CSRF експлойт з ЗЩІЕ форми***) далі я викликав цей html файл в переглядачі так, нібито я зайшов на сайт. Давайте подивимося на приклад:
 
-Here another scenario I've faced, I was against POST request without submit button, in another word, the test was against intercepted request generated from jQuery function, in my case was a drop menu. So The work round wad quite simple, Just create an HTML file contains POST form with the original parameters plus a **Submit button**(***just like creating CSRF exploit from a POST form***) then call that html file to the browser and deal with it as normal form. Let's to see an example here.
-
-**POST request**
+**POST запит**
 ```
 POST /path/of/editfunction HTTP/1.1
 Host: example.com
