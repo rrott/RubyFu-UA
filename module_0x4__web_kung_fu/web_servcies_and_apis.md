@@ -14,15 +14,16 @@
 
 ### Відмінності між API та веб сервісами
 1. All Web services are APIs but all APIs are not Web services.
-2. Web services might not perform all the operations that an API would perform.
-3. A Web service uses only three styles of use: SOAP, REST and XML-RPC for communication whereas API may use any style for communication.
-4. A Web service always needs a network for its operation whereas an API doesn't need a network for its operation.
-5. An API facilitates interfacing directly with an application whereas a Web service interacts with two machines over a network.
-6. Web service is like advanced URLs and API is Programmed Interface.
-7. API contains classes and Interfaces just like a program.
-8. A web service is a form of API (Application Programming Interface).
-9. An API is used by a computer programmer to establish a link between software applications. This interface can take several forms, a web service is just one of these.
-10. There are several types of web service. SOAP (Simple Object Access Protocol) is one of the most common. The API takes the form of a service description (WSDL) which is used to automatically generate the program code which makes the connection.
+2. Всі веб сервіси - це APIб але не всі API - веб сервіси
+3. Веб сервіси можуть виконувати не всі ті операції, що може викоанати API.
+4. Веб сервіс використовує лише SOAP, REST та XML-RPC для зв'язку, в той час як API може використовувати будь який стиль комунікацій.
+5. Веб сервісу потрібна мережа для роботи, в той час як API не потребує мережі для її роботи.
+6. API спрощує взаємодію безпосередньо з додатком, в той час як веб-служба взаємодіє з двома машинами по мережі.
+7. Веб сервіс схожий на розширення URL, а API - програмний інтерфейс.
+8. API має класи та інтерфейси, як в програмах.
+9. Веб сервіс - це одна з форм  API.
+10. API використовується прошрамістами для встановлення взаємодії з програмами. Ця взаємодія може бути в кілбкох фомах і веб сервіс - це одна іх цих форм.
+11. Існує кілька типів веб сервісів. SOAP (Simple Object Access Protocol) - один з найуживаніших на даний момент. При цьому API приймає форму опису WSDL, який використовується для автоматичної генерації коду програми для з'єднання.
 
 
 
