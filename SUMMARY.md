@@ -40,7 +40,7 @@
    * [Розширюючи Burp Suite](module_0x4__web_kung_fu/extending_burpsuite.md)
    * [Маніпуляція переглядачем тенет](module_0x4__web_kung_fu/browser_manipulation.md)
    * [Веб сервіси та API](module_0x4__web_kung_fu/web_servcies_and_apis.md)
-       * [Interacting with Web Services](module_0x4__web_kung_fu/web_services.md)
+       * [Взаємодія з вебсервісами](module_0x4__web_kung_fu/web_services.md)
        * [Interacting with APIs](module_0x4__web_kung_fu/interacting_with_apis.md)
            * [WordPress API](module_0x4__web_kung_fu/wordpress_api.md)
            * [Twitter API](module_0x4__web_kung_fu/twitter_api.md)
