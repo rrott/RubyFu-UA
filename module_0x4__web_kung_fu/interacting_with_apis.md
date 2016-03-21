@@ -1,7 +1,6 @@
-# Interacting with APIs
+# Взаємодія з API
 
-APIs have a variety of structures to interact with their peers.  
-
+API мають безліч варіантв і структур для взаємодії
 
 ```ruby
 require 'http'
