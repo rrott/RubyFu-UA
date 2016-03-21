@@ -1,18 +1,18 @@
-# Web Services and APIs
+# Веб сервіси та API
 
-Web Services and APIs are getting popular and used in many known websites we use in daily basis. For that matter, I'd like to put some general definitions that may make it clear to deal with
+Веб сервіси та API набувають популярності і використовуються в багатьох відомих вебсайтах і ми користуємося ними кожен день. Я б хотів надати деякі прості визначення цих сервісів аби було розуміло з чим ми мамо справу
 
-## Technical Definitions
+## Технічні визначення
 
 ### API
-An application programming interface (API) is a set of routines, data structures, object classes and/or protocols provided by libraries and/or operating system services in order to support the building of applications.
+Програмний інтерфейс застосунків(Application programming interface - API) - це набір підпрограм, структур даних, об'єктів чи класів та/або протоколів. що надаються бібліотеками чи операціними системами для допомоги побудови програм.
 
-### Web Service
-A Web service (also Web Service) is defined by the W3C as "a software system designed to support interoperable machine-to-machine interaction over a network"
+### Веб сервіси
+Веб сервіс(Web Service) - визначено W3C як "система програмного забезпечення, призначеного для підтримки взаємодії комп'ютерів у мережі"
 
 
 
-### Difference Between API and Web Service
+### Відмінності між API та веб сервісами
 1. All Web services are APIs but all APIs are not Web services.
 2. Web services might not perform all the operations that an API would perform.
 3. A Web service uses only three styles of use: SOAP, REST and XML-RPC for communication whereas API may use any style for communication.
