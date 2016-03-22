@@ -1,12 +1,12 @@
 # Twitter API
-Dealing with Twitter's API is really useful for information gathering, taxonomy and social engineering. However, you have to have some keys and tokens in-order to interact with Twitter's APIs. To do so, please refer to the official [Twitter development page][1].
+Вміння працювати з API твіттеру є дійсно корисним для отримання інформації, систематизування її, та задля соціальної взаємодії. Але вам потрібно мати ключі та токени для того, щоб отримати мождивість працювати з API твіттеру. Щоб зробити це, зверніться до офіційної документаціх на [сторінці розробника Twitter][1].
 
-- To install Twitter API
+- Щоб встановити Twitter API виконайте:
 ```
 gem install twitter
 ```
 
-## Basic Usage
+## Використання
 **rubyfu-tweet.rb**
 ```ruby
 #!/usr/bin/env ruby
@@ -33,7 +33,7 @@ puts client.create_direct_message("Rubyfu", "Hi, I'm KINGSABRI")    # Send direc
 ![](webfu__twitterAPI1.png)
 
 
-**Your turn**, tweet to @Rubyfu using above example. Tweet your code and output to **@Rubyfu**.
+**Ваш хід**, надішліть твіт до @Rubyfu використовуючи вищенаведений приклад. відправте ваш код та результат роботи до **@Rubyfu**.
 
 ## Building Stolen Credentials notification bot
 We're exploiting an XSS/HTML injection vulnerability and tricking users to enter there Username and Password. The idea is, We'll make a [CGI script][2] that takes that stolen credentials then tweet these credentials to us as notification or log system
