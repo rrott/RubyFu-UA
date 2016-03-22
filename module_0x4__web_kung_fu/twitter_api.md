@@ -35,8 +35,10 @@ puts client.create_direct_message("Rubyfu", "Hi, I'm KINGSABRI")    # Send direc
 
 **Ваш хід**, надішліть твіт до @Rubyfu використовуючи вищенаведений приклад. відправте ваш код та результат роботи до **@Rubyfu**.
 
-## Building Stolen Credentials notification bot
-We're exploiting an XSS/HTML injection vulnerability and tricking users to enter there Username and Password. The idea is, We'll make a [CGI script][2] that takes that stolen credentials then tweet these credentials to us as notification or log system
+## Побудова бота, що повідомляє про вкрадені паролі
+
+Уявимо, що ии використовуємо якусь XSS/HTML ін'єкцію для того. щоб змусити користувачів вводити логін та пароль. Ідея в тому, щоб зробити[CGI скрипт][2] який отримує вкрадені паролі й відправляє нам твіт повідомлення про це.
+
 ```ruby
 #!/usr/bin/ruby -w                                                                 
 
