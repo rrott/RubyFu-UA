@@ -2,16 +2,16 @@
 
 Ruby має [стандартну бібліотеку][2] що називається `xmlrpc`. Вона бере на себе відповідальність працювати з усіма що пов'язано з xmlrpc. Ви, навіть можете створити свій XML-RPC сервер, використовуючи її. Давайте використаємо її на практиці.
 
-Looking for really known application that support XML-RPC then of course WordPress was the first attendee. 
+Шукаючи якусь дуже відому програму, що використовує XML-RPC я наштовхнувся на WordPress, який, звичайно ж, є першим кандидатом на перевірку.
 
-So what do we want to do?
-- Say hello to WordPress 
-- List all available methods
-- List all available users
-- List all available post
-- Create a new post!
-- Retrieve our created post
-- List all comments on our created post
+Отже, зо ми хочемо зробити?
+- Сказати "привіт" ВордПресові 
+- Отримати список всіх доступних методів.
+- Отримати список всіх наявних користувачів
+- Отримати список публікацій
+- Створити нову публікацію
+- Отримати нашу публікацію для роботи з нею
+- Отримати всі коментарів до нашої публікації
 
 
 ```ruby
@@ -73,7 +73,7 @@ response =  server.call('wp.getComments', 0, opts[:user], opts[:password], {"pos
 
 ```
 
-Results 
+Результат 
 
 ```ruby
 >> # Say hello to WordPress
@@ -281,12 +281,12 @@ Results
 
 ```
 
-and here is the new post
+І ось наше нове повідомлення:
 ![](webfu__xmlrpc1.png)
 
-Source: [HOW TO PROGRAMATICALLY CONTROL WORDPRESS WITH RUBY USING XML-RPC][3]
+Джерело: [HOW TO PROGRAMATICALLY CONTROL WORDPRESS WITH RUBY USING XML-RPC][3]
 
-More about [WordPress XML-RPC][3]
+Більше про [WordPress XML-RPC][3]
 
 
 
