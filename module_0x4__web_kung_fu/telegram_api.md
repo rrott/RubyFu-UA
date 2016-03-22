@@ -1,16 +1,16 @@
 # Telegram API
 
-As we know that Telegram is a messaging app identifies users by their mobile number. Fortunately, Telegram has its own API -*Ruby has a wrapper gem for* [*Telegram's Bot API*](https://core.telegram.org/bots/api) *called [telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby)* - which allows you to Integrate with other services, create custom tools, build single- and multiplayer games, build social services, do virtually anything else; Do you smell anything evil here? 
+Як відомо, Telegram - програма обміну повідомленнями прив'язана до мобільного номеру користувачів. Telegram має свою API -*і Ruby має гем-обгортку до нього* [*Telegram's Bot API*](https://core.telegram.org/bots/api) *що називається [telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby)* - що дохволяє інтегруватися  іншими сервісами, створювати утиліти, багатокористувацьки чи одиночні ігри, соціальні сервіси чи будь що інше. Відчули злу посмішку на обличчі? 
 
-- To install telegram-bot gem 
+- Встановимо гем telegram-bot 
 ```
 gem install telegram-bot-ruby
 ```
 
 
-- Basic usage
+- Використання
 
-As many APIs, you have to get a [token](https://core.telegram.org/bots#botfather) to deal with your bot. Here a basic usage 
+Як і для більшості API вам потрібно мати [token](https://core.telegram.org/bots#botfather) для роботи з ботами. ось як його використовувати:  
 
 ```ruby
 require 'telegram/bot'
@@ -29,9 +29,8 @@ Telegram::Bot::Client.run(token) do |bot|
 end
 ```
 
-- Inline bots
-
-If you got that evil smile from above example, you may thinking about interacting with your bots [inline](https://core.telegram.org/bots/inline) to call/@mention your bots and request more action from the bot(s).
+- Боти
+Якщо ви помітили що щле посміхаєтесь після перегляду вищенаведеного коду, ви можливо подумали про використання боту для виклику вашого власного боту з запитом зробити щось цікаве.
 
 ```ruby
 require 'telegram/bot'
@@ -52,6 +51,6 @@ bot.listen do |message|
 end
 ```
 
-There are more usage and documentation for the [gem](https://github.com/atipugin/telegram-bot-ruby) and the [API](https://core.telegram.org/bots), and you can show us your evil code, and you can pull it in Rubyfu! 
+Є дуєе багато інформації про використання цього [гему](https://github.com/atipugin/telegram-bot-ruby) та [API](https://core.telegram.org/bots) до нього. 
 
 
