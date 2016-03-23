@@ -3,12 +3,12 @@
 
 
 ## CoffeeScript
-[CoffeeScript][1] is a programming language that transcompiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript's brevity and readability.
+[CoffeeScript][1] це мова програмування яка транскриптується в JavaScript. Вона додає синтаксичний цукор натхненний Ruby, Python та Haskell в спробі покразити JavaScript.
  
 
-### Quick CoffeeScript Review 
+### Швидкий перегляд CoffeeScript 
 
-Here a quick how to if CoffeeScript in general 
+Далі буде швидкий опис того, як ми можемо працювати з CoffeeScript
 
 - To install CoffeScript 
 ```
