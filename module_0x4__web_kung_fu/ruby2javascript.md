@@ -49,9 +49,9 @@ ruby coffee2js.rb exploit.coffee
 
 
 ## Opal 
-Opal is a Ruby to JavaScript source-to-source compiler. It also has an implementation of the Ruby corelib.
+Opal це компілятор з Ruby в JavaScript, який компілює код рядок за рядком і також має підтримку бібліотеки corelib з рубі.
 
-- To install Opal
+- Встановлюємо Opal
 ```
 gem install opal opal-jquery
 ```
