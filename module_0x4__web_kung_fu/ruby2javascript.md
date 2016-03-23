@@ -10,25 +10,26 @@
 
 Далі буде швидкий опис того, як ми можемо працювати з CoffeeScript
 
-- To install CoffeScript 
+- Встановлюємо CoffeScript 
 ```
 npm install -g coffee-script
 ```
 
-- For live conversion 
+- для перетворення коду в JavaScript "на льоту"
 ```
 coffee --watch --compile script.coffee 
 ```
 
-### Ruby CoffeScript gem 
-**Ruby** CoffeeScript gem is a bridge to the official CoffeeScript compiler. 
+### Ruby гем для роботи з CoffeScript
 
-- To install CoffeeScript gem
+CoffeeScript гем для **Ruby** це міст до офіційного компілятору CoffeeScript. 
+
+- Всатноілення гему CoffeeScript
 ```
 gem install coffee-script
 ```
 
-- Convert CoffeeScript file to JavaScript 
+- Конвертація CoffeeScript файлу в JavaScript 
 
 ```ruby
 #!/usr/bin/env ruby
@@ -39,7 +40,7 @@ if ARGF
 end
 ```
 
-Run it
+Запустіть код:
 ```
 ruby coffee2js.rb exploit.coffee 
 ```
