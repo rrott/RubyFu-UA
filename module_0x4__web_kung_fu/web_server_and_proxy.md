@@ -1,14 +1,14 @@
-# Ruby as Web Server and Proxy
+# Ruby як Веб сервер чи проксі
 
 
-## Web Server
-You can run Ruby as web server for any folder/file on any unused port 
+## Веб сервер
+Ви можете запустити рубі як веб сервер з будь якої папки чи файлу на будь якому вільному порті:
 
 ```ruby
 ruby -run -e httpd /var/www/ -p 8000
 ```
 
-or 
+або
 
 ```ruby
 require 'webrick'
@@ -17,7 +17,7 @@ server = WEBrick::HTTPServer.new :Port => 8000, :DocumentRoot => '/var/www/'
 server.start
 ```
 
-To make HTTPS server
+чи створити HTTPS сервер:
 ```ruby
 require 'webrick'
 require 'webrick/https'
@@ -36,7 +36,7 @@ server.start
 
 ## Web Proxy
 
-### Transparent Web Proxy
+### Прозорий веб проксі
 ```ruby
 require 'webrick'
 require 'webrick/httpproxy'
@@ -80,7 +80,8 @@ proxy.start
 ```
 
 
-### Transparent Web Proxy with Authentication 
+### Прозорий веб проксі з аутентифіказцією
+
 Well, it was great to know that building a proxy server is that easy. Now we need to Force authentication to connect to the proxy server 
 
 To enable authentication for requests in WEBrick you will need a user database and an authenticator. To start, here's a htpasswd database for use with a DigestAuth authenticator:
