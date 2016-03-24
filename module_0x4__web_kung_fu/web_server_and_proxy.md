@@ -80,13 +80,12 @@ proxy.start
 ```
 
 
-### Прозорий веб проксі з аутентифіказцією
+### Прозорий веб проксі з аутентифікацією
+Добре, було круто, дізнатися що створення проксі сервіеру на рубі, це така проста задача; Тепер нам потрібно втсановити логін та пароль до нашого проксі серверу
 
-Well, it was great to know that building a proxy server is that easy. Now we need to Force authentication to connect to the proxy server 
+Для того. щоб включити аутентифікацію для запитів у WEBrick вам потрібно мати базу даних користувачів та якийсь аутентифікатор. Для початку, ось htpasswd баа для використання її з аутентифвкаторм DigestAuth:
 
-To enable authentication for requests in WEBrick you will need a user database and an authenticator. To start, here's a htpasswd database for use with a DigestAuth authenticator:
-
-The `:Realm` is used to provide different access to different groups across several resources on a server. Typically you'll need only one realm for a server.
+`:Realm` використовується для надання доступу для різних груп ресурсів на сервері. Зазвичай потрібен лише одна область(realm) на сервері.
 
 ```ruby
 #!/usr/bin/env ruby
@@ -124,7 +123,7 @@ trap 'INT'  do proxy.shutdown end
 proxy.start
 ```
 
-If you do it right, you'll get an authentication pop-up in your browser just like below.
+Якщо ви зробили все правильно, ви отримаєте спливаюче вікно в браузері, приблизно як н а малюнку нижче:
 
 ![](webfu__proxy2.png)
 
