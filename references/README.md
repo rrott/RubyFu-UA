@@ -28,15 +28,15 @@
     * [Поварена книга Ruby][18]
     * [Вивчай Ruby - важкий шлях][19]
     * [AllRubyBooks][33]
-* **Sites, Topics and Articles**
+* **Сайти, Теми та Статті**
     * [Rubymonk.com][20]
-    * [Byte manipulation in ruby][21]
-    * [Ruby Format][22]
+    * [Робота з Ruby на байтовому рівні][21]
+    * [Ruby Формат][22]
     * [Codewars][25]
     * [rubeque][26]
     * [Hackerrank][27]
-    * [RubySec - Ruby Security Advisory][28]
-    * A dozen (or so) ways to start sub-processes in Ruby: [Part 1][30], [Part 2][31], [Part 3][32]
+    * [RubySec - Консультація з безпекою в Ruby][28]
+    * Десятки(чи більше) методів запустити під-процес в Ruby: [Частина 1][30], [Частина 2][31], [Частина 3][32]
 * **Hacking Tools built with ruby**
     * Metasploit framework - Exploitation framework
     * Beef framework - XSS framework
