@@ -7,9 +7,9 @@
         * [Встановлення Редактору GitBook(на Linux Ubuntu)][3]
         * [Створення GitBook за допомогою Редактору][4]
         * [Встановлення пакету Rgitbook][5]
-    * Markdown [Documentations]
-        * [Markdown docs - GitBook | Official docs][6]
-        * [Mastering Markdown - GitHub | Mastering Markdown][7]
+    * Markdown [Документація]
+        * [Markdown документація - GitBook | Офіційна документація][6]
+        * [Опанування Markdown - GitHub | Опанування Markdown][7]
 * **Beginner**
     * [Ruby Tutorials - Tutorialspoint][8]
     * [Ruby programming Tutorials - Simple Free videos][9]
