@@ -1,12 +1,12 @@
-# References
-* **Contributors**
-    * GitBook Desktop Editor
-        * [Download and installation][1]
-    * How to GitBook [Videos]
-        * [Create GitBook online][2]
-        * [Install GitBook Editor (on Linux Ubuntu)][3]
-        * [Create GitBook with Editor][4]
-        * [Install the Rgitbook package][5]
+# Посиалання
+* **Внесок**
+      * GitBook для комп'ютера
+        * [Завнтаження та встановлення][1]
+    * Як використовувати GitBook [Відео]
+        * [Створення GitBook онлайн][2]
+        * [Встановлення Редактору GitBook(на Linux Ubuntu)][3]
+        * [Створення GitBook за допомогою Редактору][4]
+        * [Встановлення пакету Rgitbook][5]
     * Markdown [Documentations]
         * [Markdown docs - GitBook | Official docs][6]
         * [Mastering Markdown - GitHub | Mastering Markdown][7]
