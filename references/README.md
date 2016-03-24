@@ -37,22 +37,22 @@
     * [Hackerrank][27]
     * [RubySec - Консультація з безпекою в Ruby][28]
     * Десятки(чи більше) методів запустити під-процес в Ruby: [Частина 1][30], [Частина 2][31], [Частина 3][32]
-* **Hacking Tools built with ruby**
-    * Metasploit framework - Exploitation framework
-    * Beef framework - XSS framework
-    * Arachni - Web Application scanner framework
+* **Хакерські утиліти написані на ruby**
+    * Metasploit - Фреймворк для атаки
+    * Beef - XSS фрейміорк
+    * Arachni - Фреймворк для атаки веб-сайтів
     * Metasm - Assembly manipulation suite
-    * WPscan - WordPress vulnerability scanner
-    * BufferOverflow kit - Exploitation tool Kit
+    * WPscan - сканер вразливостей в WordPress
+    * BufferOverflow kit - Набір для атаки
     * HTTP Traceroute
-    * CeWL - Custom Word List generator
-    * Roini - Vulnerability research and exploit development framework
-    * Idb - is a tool to simplify some common tasks for iOS pentesting and research
-    * Bettercap - Extensible MitM tool and framework
+    * CeWL - Генератор довільних слів
+    * Roini - фреймворк для побудови шукачів уразливостей та експлойтів до них.
+    * Idb - утиліта для полегшення деяких задач з пошуку вразливостей та атакування iOS
+    * Bettercap - Фреймворк для атаки типу "Людина-в-Середині"
     * WATOBO - THE Web Application Security Toolbox
-    * Intrigue.io - Open Source project, discovering attack surface through OSINT
-    * OhNo - The Evil Image Builder & Meta Manipulator
-    * **[**ADD YOUR RUBY HACKING TOOL HERE!**]**
+    * Intrigue.io - Проект з відкритим кодом, дослідження для атаки OSINT
+    * OhNo - Збирач злих картинок та маніпулятор з Meta даними
+    * **[**Додайте сюди вашу хакерську утиліту на рубі!**]**
 
 
 
