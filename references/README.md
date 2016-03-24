@@ -20,13 +20,13 @@
     * [4Programmer.com - Ruby][23]
     * [Аідручники по програмуванню в Ruby - Серія безкоштовних відео][24]
     * [Ruby3arabi - Арабська спільнота Ruby][29]
-* **Books**
-    * [Ruby Learning][14]
-    * [Working with TCP Sockets][15]
-    * [Working with Unix Processes][16]
-    * [Working with Ruby Threads][17]
-    * [Ruby Cookbook][18]
-    * [Learn Ruby The Hard Way][19]
+* **Книги**
+    * [Вивчаючи Ruby][14]
+    * [Робота з сокетами TCP][15]
+    * [Робота з процесами Unix][16]
+    * [Робота з Ruby Threads][17]
+    * [Поварена книга Ruby][18]
+    * [Вивчай Ruby - важкий шлях][19]
     * [AllRubyBooks][33]
 * **Sites, Topics and Articles**
     * [Rubymonk.com][20]
