@@ -3,15 +3,15 @@
 ###### Що таке Rubyfu? 
 Rubyfu - це книга для використання, а не для читання! Це зрозуміла й проста книга по рубі для хакерів. Нам постійно потрібно робити малі чи великі задачі в нашому повсякденному хакерському житті, і цю книгу написано для зменшення часу що ми витрачаємо на пошук "як зробити X в рубі" аби зосередитись на жертві й знайти відповідь "як" саме тут.
 
-###### Q \ How to get the best benefits of Rubyfu?
-The concept of this book is the need to know, so
-- open [Rubyfu.net][2], click read button.
-- on the browser tab, right-click, "Pin-tab" 
-- read the code and the code's comments.
-- run it in Ruby interpreter IRB/pry to see each line's execution.
-- run the whole code in a script
-- enhance the code to fit your needs
-- and yeah, tweet the code and its output to @Rubyfu, we'd love that!
+###### Як отримати найбільшу користь від Rubyfu?
+Потрібно знати концепцію цієї книги, отже
+- відкрийте [Rubyfu.net][2], натисніть кнопку "читати".
+- Натисніть правою кнопкою миші по вкладці переглядача та виберіть "Закріпити вкладку" 
+- читайте код так коментарі до коду.
+- щапускайте код в інтерпритаторі Ruby(IRB/pry) аби побачити виконання кожного рядку коду.
+- запускайте весь код в вигляді скрипту
+- покращуйте та змін/йте код так. щоб він задовольняв вашим потребам
+- і так, відправляйте твіти з кодом і результатом роботи до @Rubyfu - ми це любимо!
 
 ###### Q \ Why Ruby language?
 Why not?!
