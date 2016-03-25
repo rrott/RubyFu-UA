@@ -1,7 +1,7 @@
-# FAQs
+# ЧаПІ
 
-###### Q \ What is Rubyfu? 
-Rubyfu is a book to use not to read!. It's a clean, clear ruby book for hackers. As we need a periodical small/big tasks in our daily hacking, this book comes to reduce the number of wasting time in googling "*How to do X in ruby*" let's focus on hacking our target and find the *how* here.
+###### Що таке Rubyfu? 
+Rubyfu - це книга для використання, а не для читання! Це зрозуміла й проста книга по рубі для хакерів. Нам постійно потрібно робити малі чи великі задачі в нашому повсякденному хакерському житті, і цю книгу написано для зменшення часу що ми витрачаємо на пошук "як зробити X в рубі" аби зосередитись на жертві й знайти відповідь "як" саме тут.
 
 ###### Q \ How to get the best benefits of Rubyfu?
 The concept of this book is the need to know, so
