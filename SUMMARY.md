@@ -64,6 +64,6 @@
    * [Parsing Log Files](module_0x6__forensic/parsing_log_files.md)
 * [Посилання](references/README.md)
 * [ЧаПі](faqs/README.md)
-* [Contributors](contributors/README.md)
+* [Автори](contributors/README.md)
    * [TODO](contributors/todo.md)
 
