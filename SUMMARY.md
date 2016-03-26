@@ -1,6 +1,6 @@
 # Summary
 
-* [Module 0x0 | Introduction](README.md)
+* [Модуль 0x0 | Вступ](README.md)
    * [Допомога проектові](contribution.md)
    * [Початківцям](beginners.md)
    * [Необхідні геми](required_gems.md)
