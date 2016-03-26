@@ -1,30 +1,32 @@
-# Contributors
+# Автори
 
 
 <center>![](../images/other/Ruby_Loves_Us.jpg)
 
 
-<center>**Big love to those people who support this book by any meaning.**
+<center>**З великою любов'ю до тих людей, хто підтримує книгу всіма можливими способами**
 <br><br><br>
-## Founder
+## Засновник
 - KING SABRI | @KINGSABRI
 
-## Authors 
+## Автори 
 - KING SABRI | @KINGSABRI
-- [WRITE MORE AND PLACE YOUR NAME HERE]
+- [Напішіть щось цікаве для книги й допишіть сюди своє ім'я]
 
-## Technical Editors
+## Технічний редактор
 - Bashar
 
-## Contributors
-- William Coppola | @SubINacls - *Spreading & advising*
-- Brendan Baldwin | @usergenic - *Gave away Rubyfu github org. name & twitter account*
-- Ahmed Aboul-Ela | @aboul3la - *Enhancing Book web design*
-- Sven Vetsch | @disenchant - *PR proofreading*
+## Помічники(Contributors)
+- William Coppola | @SubINacls - *Поширення та поради*
+- Brendan Baldwin | @usergenic - *подарував ім'я Rubyfu на github.org та twitter аккаунт*
+- Ahmed Aboul-Ela | @aboul3la - *Покращив книгу та дизайн*
+- Sven Vetsch | @disenchant - *PR коректура*
 
-## Sponsors
-- [Arab Security Community (Security4arabs)][1]
+## Спонсори
+- [Арабська безпекова спільнота (Security4arabs)][1]
 
+## Перекладачі
+- Roman Rott | @Roman_Rott - переклад на українську
 
 <br><br><br>
 ---
