@@ -65,5 +65,5 @@
 * [Посилання](references/README.md)
 * [ЧаПі](faqs/README.md)
 * [Автори](contributors/README.md)
-   * [TODO](contributors/todo.md)
+   * [Плани на майбутнє](contributors/todo.md)
 
