@@ -50,7 +50,7 @@
 * [Модуль 0x5 | Експлуатаційне Кунг-Фу](module_0x5__exploitation_kung_fu/README.md)
    * [Fuzzer](module_0x5__exploitation_kung_fu/fuzzer.md)
    * [Metasploit](module_0x5__exploitation_kung_fu/metasploit.md)
-       * [Auxiliary module](module_0x5__exploitation_kung_fu/auxiliary_module.md)
+       * [Допоміжний модуль](module_0x5__exploitation_kung_fu/auxiliary_module.md)
        * [Exploit module](module_0x5__exploitation_kung_fu/exploit_module.md)
        * [Meterpreter](module_0x5__exploitation_kung_fu/meterpreter.md)
            * [API and Extensions](module_0x5__exploitation_kung_fu/extensions.md)
