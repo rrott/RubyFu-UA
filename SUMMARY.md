@@ -53,7 +53,7 @@
        * [Допоміжний модуль](module_0x5__exploitation_kung_fu/auxiliary_module.md)
        * [Експлойтовий модуль](module_0x5__exploitation_kung_fu/exploit_module.md)
        * [Meterpreter](module_0x5__exploitation_kung_fu/meterpreter.md)
-           * [АПІ та розширення](module_0x5__exploitation_kung_fu/extensions.md)
+           * [API та розширення](module_0x5__exploitation_kung_fu/extensions.md)
            * [Написання скриптів Meterpreter](module_0x5__exploitation_kung_fu/meterpreter_scripting.md)
            * [API розширення Railgun](module_0x5__exploitation_kung_fu/railgun_api_extension.md)
    * [metasm](module_0x5__exploitation_kung_fu/metasm.md)
