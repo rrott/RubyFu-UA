@@ -55,7 +55,7 @@
        * [Meterpreter](module_0x5__exploitation_kung_fu/meterpreter.md)
            * [АПІ та розширення](module_0x5__exploitation_kung_fu/extensions.md)
            * [Написання скриптів Meterpreter](module_0x5__exploitation_kung_fu/meterpreter_scripting.md)
-           * [Railgun API Extension](module_0x5__exploitation_kung_fu/railgun_api_extension.md)
+           * [API розширення Railgun](module_0x5__exploitation_kung_fu/railgun_api_extension.md)
    * [metasm](module_0x5__exploitation_kung_fu/metasm.md)
 * [Модуль 0x6 | Експертизне Кунг-Фу](module_0x6__forensic/README.md)
    * [Windows Forensic](module_0x6__forensic/windows_forensic.md)
