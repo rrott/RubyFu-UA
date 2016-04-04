@@ -51,7 +51,7 @@
    * [Fuzzer](module_0x5__exploitation_kung_fu/fuzzer.md)
    * [Metasploit](module_0x5__exploitation_kung_fu/metasploit.md)
        * [Допоміжний модуль](module_0x5__exploitation_kung_fu/auxiliary_module.md)
-       * [Exploit module](module_0x5__exploitation_kung_fu/exploit_module.md)
+       * [Експлойтовий модуль](module_0x5__exploitation_kung_fu/exploit_module.md)
        * [Meterpreter](module_0x5__exploitation_kung_fu/meterpreter.md)
            * [API and Extensions](module_0x5__exploitation_kung_fu/extensions.md)
            * [Meterpreter Scripting](module_0x5__exploitation_kung_fu/meterpreter_scripting.md)
